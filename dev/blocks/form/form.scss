@@ -36,4 +36,16 @@
 		display: grid;
 		gap: 3.2rem;
 	}
+	&__text {
+		font-size: 1.6rem;
+		line-height: 1.25;
+	}
+	&__small {
+		font-size: 1.2rem;
+		margin-top: 1.6rem;
+		a {
+			color: inherit;
+			font-weight: 500;
+		}
+	}
 }

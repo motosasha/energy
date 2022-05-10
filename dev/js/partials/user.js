@@ -1,11 +1,13 @@
 'use strict';
 
+let thanks;
+
 window.onload = function() {
 	// scrollbar width
 	let scrollBarWidth = window.innerWidth - document.body.clientWidth;
 	document.documentElement.style.setProperty('--scrollbar-width', scrollBarWidth + 'px');
 
-	// side mobile menu
+	// mobile menu
 	let $body = document.querySelector('body');
 	let $menuTrigger = document.querySelector('.header__menu');
 	let $navLinks = document.querySelectorAll('.nav .nav__links-item');
@@ -22,6 +24,14 @@ window.onload = function() {
 			$body.dataset.state = ''
 		});
 	}
+
+	// modals
+	let modals = new HystModal({
+		linkAttributeName: 'data-hystmodal',
+	});
+	thanks = function () {
+		modals.open('#thanks')
+	};
 
 	// input
 	let inputs = document.querySelectorAll('input');

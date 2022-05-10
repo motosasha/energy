@@ -86,7 +86,7 @@
 		gap: .8rem;
 		grid-area: info;
 		@media screen and (min-width: $screen-d) {
-			margin-top: 0.8rem;
+			margin-top: auto;
 		}
 	}
 	&__link {

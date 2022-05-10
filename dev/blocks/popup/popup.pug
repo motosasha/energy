@@ -1,0 +1,26 @@
+//- Все примеси в этом файле должны начинаться c имени блока (popup)
+
+mixin popup
+	#application.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.popup.hystmodal__window(role='dialog' aria-modal='true')
+				button.popup__close.hystmodal__close(data-hystclose='')
+					svg.svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				.popup__inner
+					+form('Оставить <span>заявку</span>?', 'popup-name', 'popup-phone', 'Отправить')
+
+mixin popup-thanks
+	#thanks.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.popup.popup_thanks.hystmodal__window(role='dialog' aria-modal='true')
+				button.popup__close.hystmodal__close(data-hystclose='')
+					svg.svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				.popup__inner
+					form.form
+						.form__title Спасибо #[span за заявку!]
+						.form__text В ближайшее время мы свяжемся с Вами
+
+
+

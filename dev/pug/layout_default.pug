@@ -33,7 +33,7 @@ html(class='no-js', lang='ru-RU')
 		meta(name='apple-mobile-web-app-title' content='Energy')
 		meta(name='application-name' content='Energy')
 		meta(name='msapplication-TileColor' content='#f1a000')
-		meta(name='theme-color' content='#070200')
+		meta(name='theme-color' content='#f1a000')
 
 		block meta
 			title Energy — ремонт квартир под ключ без стресса в Казани
@@ -56,6 +56,9 @@ html(class='no-js', lang='ru-RU')
 					.fake-content fake-content
 			.page__footer
 				include layout__part_footer.pug
+
+			+popup
+			+popup-thanks
 	block templates
 
 	script(src='js/main.js')

@@ -1,9 +1,10 @@
 //- Все примеси в этом файле должны начинаться c имени блока (form)
 
-mixin form-on-page(title, nameID, phoneID, button)
+mixin form(title, nameID, phoneID, button)
 	form.form
 		.form__title!= title
 		.form__grid
 			+field('Имя', nameID)
 			+field_phone('Номер телефона', phoneID)
 			button.button!= button
+		.form__small Заполняя форму вы даёте согласие на обработку #[a(href='policy.html', target='_blanc') персональных данных]

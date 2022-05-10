@@ -326,7 +326,6 @@ function reload(done) {
 }
 
 function deploy(cb) {
-	let pageAddress = '/agrostar';
 	ghPages.publish(path.join(process.cwd(), './build'), cb);
 }
 exports.deploy = deploy;
