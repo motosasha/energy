@@ -1,0 +1,16 @@
+//- Все примеси в этом файле должны начинаться c имени блока (connections)
+
+mixin connections(mod)
+	.connections(class=mod)
+		.connections__item
+			a.connections__phone(href='tel:89616392985') +7 123 456 78 90
+			a.connections__callback(data-hystmodal="#callback") Заказать звонок
+		.connections__item
+			a.connections__social(href='#', target='_blank')
+				svg.svg.connections__icon
+					use(xlink:href='img/svgSprite.svg#icon__social_wa')
+				span.connections__text WhatsApp
+			a.connections__social(href='#', target='_blank')
+				svg.svg.connections__icon
+					use(xlink:href='img/svgSprite.svg#icon__social_tg')
+				span.connections__text Telegram

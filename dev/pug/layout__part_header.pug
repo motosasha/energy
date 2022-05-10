@@ -1,0 +1,21 @@
+header.header
+	.grid
+		.header__inner
+			.header__logotype
+				svg.svg.header__logo
+					use(xlink:href='img/svgSprite.svg#img__logo')
+			nav.header__nav
+				a.header__nav-item(href='#services') Услуги
+				a.header__nav-item(href='#works') Работы
+				a.header__nav-item(href='#calc') Расчёт
+				a.header__nav-item(href='#team') Команда
+				a.header__nav-item(href='#reviews') Отзывы
+				a.header__nav-item(href='#contacts') Контакты
+			+connections('header__conections')
+			a.header__menu
+				span
+				span
+				span
+				span
+				span
+				span

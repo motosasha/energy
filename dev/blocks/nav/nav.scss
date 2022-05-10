@@ -1,0 +1,77 @@
+// В этом файле должны быть стили для БЭМ-блока nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.nav {
+	background: var(--header_background-color);
+	height: 100%;
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding-top: 4.8rem;
+		@media screen and (orientation: landscape) {
+			.mobile & {
+				flex-direction: row;
+				padding-top: 0;
+				padding-left: 14rem;
+			}
+		}
+	}
+	&__links {
+		display: flex;
+		flex: 1 0 auto;
+		flex-direction: column;
+		justify-content: space-between;
+		margin: auto 0;
+		max-height: 27.2rem;
+		opacity: 0;
+		padding: 0 3.2rem;
+		transform: translateY(5.6rem);
+		transition: opacity .25s ease .125s, transform .25s ease .125s;
+		will-change: opacity, transform;
+		[data-state='open'] & {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		@media screen and (orientation: landscape) {
+			.mobile & {
+				height: 80%;
+				margin-top: 0;
+				max-height: 80%;
+			}
+		}
+		@media screen and (min-width: $screen-t) {
+			html:not(.mobile) & {
+				flex-direction: row;
+				padding: 0;
+			}
+		}
+	}
+	&__links-item {
+		color: var(--color_white);
+		font-size: 1.6rem;
+		font-weight: 500;
+		line-height: 2;
+		text-decoration: none;
+	}
+	&__connections {
+		height: 16rem;
+		margin: 3.2rem calc(-1 * var(--screen_margin)) 0;
+		opacity: 0;
+		transform: translateY(16rem);
+		transition: opacity .25s ease .25s, transform .25s ease .25s;
+		will-change: opacity, transform;
+		[data-state='open'] & {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		@media screen and (orientation: landscape) {
+			.mobile & {
+				height: 100%;
+				margin-top: 0;
+				width: 32rem;
+			}
+		}
+	}
+}

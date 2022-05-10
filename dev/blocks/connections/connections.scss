@@ -1,0 +1,86 @@
+// В этом файле должны быть стили для БЭМ-блока connections, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.connections {
+	display: flex;
+	flex-direction: column;
+	@media screen and (min-width: $screen-t) {
+		html:not(.mobile) & {
+			flex-direction: row;
+		}
+	}
+	&__item {
+		align-items: center;
+		background: var(--color_brand);
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		gap: 0.8rem;
+		justify-content: center;
+		@media screen and (min-width: $screen-d) {
+			width: 50%;
+		}
+		&:nth-child(2) {
+			background: var(--color_white);
+			flex-direction: row;
+			gap: 4.8rem;
+			@media screen and (orientation: landscape) {
+				.mobile & {
+					flex-direction: column;
+					gap: .8rem;
+				}
+			}
+			@media screen and (min-width: $screen-d) {
+				flex-direction: column;
+				gap: .4rem;
+			}
+		}
+	}
+	&__phone {
+		color: var(--color_black);
+		font-size: 2rem;
+		line-height: 1;
+		text-align: center;
+		text-decoration: none;
+		transition: color .25s ease-in-out;
+		&:hover {
+			color: var(--color_white);
+		}
+	}
+	&__callback {
+		color: var(--color_white);
+		cursor: pointer;
+		font-size: 1.6rem;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		line-height: 1;
+		text-align: center;
+		text-decoration-line: underline;
+		transition: color .25s ease-in-out;
+		&:hover {
+			color: var(--color_black);
+		}
+	}
+	&__social {
+		align-items: center;
+		color: inherit;
+		display: flex;
+		font-size: 1.4rem;
+		gap: .8rem;
+		letter-spacing: 0.02em;
+		line-height: 1;
+		stroke: var(--color_black);
+		text-decoration: none;
+		transition: color .25s ease, stroke .25s ease;
+		&:hover {
+			color: var(--color_brand);
+			stroke: var(--color_brand);
+		}
+	}
+	&__icon {
+		height: 2.4rem;
+		stroke: inherit;
+		width: 2.4rem;
+	}
+}

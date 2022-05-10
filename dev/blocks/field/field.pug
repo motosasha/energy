@@ -1,0 +1,15 @@
+//- Все примеси в этом файле должны начинаться c имени блока (field)
+
+mixin field(label, id, mod)
+	.field(class= mod)
+		input.field__input(type='text', id= id, required)
+		label.field__label!= label
+
+mixin field_phone(label, id, mod)
+	.field(class= mod)
+		input.field__input(
+			type='tel',
+			pattern='\\+7\\s?[\\(]{0,1}9[0-9]{2}[\\)]{0,1}\\s?\\d{3}[-]{0,1}\\d{2}[-]{0,1}\\d{2}',
+			id= id,
+			required)
+		label.field__label!= label
