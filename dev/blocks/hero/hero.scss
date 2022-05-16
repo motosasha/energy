@@ -3,9 +3,116 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .hero {
-	height: 100vh;
-	min-height: 64rem;
+	background: linear-gradient(0deg, rgba(7, 2, 0, 0.4), rgba(7, 2, 0, 0.4)), url('../img/bg__hero.jpg') no-repeat 40% top;
+	background-size: 350%;
+	color: var(--color_white);
+	position: relative;
+	@media screen and (min-width: $screen-t) {
+		background: linear-gradient(0deg, rgba(7, 2, 0, 0.4), rgba(7, 2, 0, 0.4)), url('../img/bg__hero.jpg') no-repeat 35% top;
+		background-size: 230%;
+	}
+	@media screen and (min-width: $screen-tl) {
+		background: linear-gradient(0deg, rgba(7, 2, 0, 0.4), rgba(7, 2, 0, 0.4)), url('../img/bg__hero.jpg') no-repeat center top;
+		background-size: cover;
+		padding-bottom: 8rem;
+	}
+	@media screen and (min-width: $screen-d) {
+		height: 100vh;
+		min-height: 64rem;
+		padding: 0;
+	}
 	&__inner {
 		padding-top: 14.4rem;
+		@media screen and (min-width: $screen-d) {
+			align-items: center;
+			display: flex;
+			height: 100%;
+			padding-top: 8rem;
+		}
+	}
+	&__info {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		@media screen and (min-width: $screen-tl) {
+			max-width: 60rem;
+			width: calc(100% - 35rem);
+		}
+		@media screen and (min-width: $screen-d) {
+			max-width: none;
+			width: 62.5%;
+		}
+	}
+	&__label {
+		color: inherit;
+		background: var(--color_brand);
+		border-radius: 1.6rem;
+		font-size: 1.6rem;
+		line-height: 1;
+		padding: .8rem 1.6rem;
+		@media screen and (min-width: $screen-d) {
+			transform: translateX(-.8rem);
+		}
+	}
+	&__title {
+		color: inherit;
+		font-weight: 800;
+		font-size: 3.6rem;
+		letter-spacing: 0.01em;
+		line-height: 1.15;
+		margin: 2.4rem 0 4rem;
+		@media screen and (min-width: $screen-t) {
+			font-size: 4.4rem;
+			line-height: 1.25;
+		}
+		@media screen and (min-width: $screen-d) {
+			font-size: 5.6rem;
+			margin: 1.6rem 0 5.6rem;
+		}
+	}
+	&__list {
+		list-style: none;
+		margin: 0 0 6rem;
+		padding: 0;
+		@media screen and (min-width: $screen-t) {
+			column-count: 2;
+			column-gap: 3.2rem;
+		}
+		@media screen and (min-width: $screen-tl) {
+			margin: 0;
+		}
+	}
+	&__li {
+		break-inside: auto;
+		color: inherit;
+		font-size: 1.6rem;
+		line-height: 1;
+		padding: 1.6rem 0 0 1.6rem;
+		position: relative;
+		&:before {
+			background: var(--color_brand);
+			content: '';
+			display: block;
+			height: .8rem;
+			left: 0;
+			position: absolute;
+			top: .8rem;
+			width: .8rem;
+		}
+	}
+	&__form {
+		margin: 0 calc(-1 * var(--screen_margin));
+		@media screen and (min-width: $screen-t) {
+			margin: 0;
+		}
+		@media screen and (min-width: $screen-tl) {
+			bottom: 0;
+			position: absolute;
+			right: 0;
+			width: 36rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			width: 47.6rem;
+		}
 	}
 }

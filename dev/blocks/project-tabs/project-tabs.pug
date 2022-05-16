@@ -1,0 +1,9 @@
+//- Все примеси в этом файле должны начинаться c имени блока (project-tabs)
+
+mixin project-tabs-tab(label, title, href, isActive)
+	.project-tabs__tab(data-href= href, class = isActive ? 'project-tabs__tab_active': '')
+		svg.project-tabs__icon
+			use(xlink:href='img/svgSprite.svg#icon__project')
+		.project-tabs__info
+			span.project-tabs__label!= label
+			span.project-tabs__title!= title

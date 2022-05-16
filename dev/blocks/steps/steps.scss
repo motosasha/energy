@@ -1,0 +1,132 @@
+// В этом файле должны быть стили для БЭМ-блока steps, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.steps {
+	@media screen and (min-width: $screen-t) {
+		padding-bottom: 9.6rem;
+	}
+	&__inner {}
+	&__grid {
+		display: grid;
+		gap: .8rem;
+		position: relative;
+		@media screen and (min-width: $screen-d) {
+			gap: 0;
+		}
+		@media screen and (min-width: $screen-dl) {
+			gap: 6.4rem;
+		}
+	}
+	&__row {
+		display: grid;
+		gap: .8rem;
+		@media screen and (min-width: $screen-ti) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		@media screen and (min-width: $screen-tl) {
+			grid-template-columns: 1fr 4rem 1fr 4rem 1fr;
+		}
+		@media screen and (min-width: $screen-d) {
+			gap: 2rem;
+			grid-template-columns: 24rem 4rem 24rem 4rem 24rem;
+			&_second {
+				justify-content: end;
+			}
+		}
+	}
+	&__arrow {
+		align-self: center;
+		display: none;
+		height: 4rem;
+		//pointer-events: none;
+		width: 4rem;
+		@media screen and (min-width: $screen-tl) {
+			display: block;
+			justify-self: center;
+		}
+		&_link {
+			height: 13.6rem;
+			width: 66.6rem;
+			@media screen and (min-width: $screen-d) {
+				width: calc(66.6rem - 10vw);
+			}
+			@media screen and (min-width: $screen-dl) {
+				display: none;
+			}
+		}
+	}
+	&__arrow-link {
+		display: none;
+		height: 28rem;
+		grid-template-columns: 12rem auto 12rem;
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+		@media screen and (min-width: $screen-dl) {
+			display: grid;
+		}
+	}
+	&__arrow-edge {
+		height: 28rem;
+		width: 12rem;
+	}
+	&__line {
+		align-self: center;
+		background: var(--color_black);
+		height: .2rem;
+		opacity: .5;
+		width: calc(50vw - ((100vw - 153.6rem) + 2vw));
+	}
+	&__item {
+		align-items: center;
+		background: var(--color_white);
+		border: .1rem solid var(--color_border-grey);
+		display: flex;
+		gap: .8rem;
+		padding-right: 1.6rem;
+		position: relative;
+		@media screen and (min-width: $screen-t) {
+			align-items: flex-start;
+			flex-direction: column;
+			justify-content: flex-end;
+			height: 20rem;
+			padding: .8rem 3.2rem 3.2rem;
+		}
+	}
+	&__icon {
+		height: 8rem;
+		width: 8rem;
+		@media screen and (min-width: $screen-t) {
+			height: 12rem;
+			left: .8rem;
+			position: absolute;
+			top: .8rem;
+			width: 12rem;
+		}
+	}
+	&__title {
+		font-size: 1.6rem;
+		line-height: 1.25;
+		@media screen and (min-width: $screen-tl) {
+			width: 68%;
+		}
+	}
+	&__num {
+		color: var(--color_brand);
+		display: none;
+		font-weight: 800;
+		font-size: 12.8rem;
+		line-height: 1.25;
+		opacity: 0.1;
+		position: absolute;
+		right: 1.2rem;
+		text-align: right;
+		top: -1.6rem;
+		@media screen and (min-width: $screen-t) {
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,6 @@
+//- Все примеси в этом файле должны начинаться c имени блока (project)
+
+mixin project-tab(href, img, isActive)
+	.project__tab(data-href= href, class= isActive ? 'project__tab_active': '')
+		img(src='img/img__project-thumb_0' + img + '.jpg', alt='')
+

@@ -1,0 +1,8 @@
+//- Все примеси в этом файле должны начинаться c имени блока (steps)
+
+mixin steps-item(icon, title, num)
+	.steps__item
+		svg.steps__icon
+			use(xlink:href='img/svgSprite.svg#icon__' + icon)
+		.steps__title!= title
+		.steps__num!= num

@@ -1,0 +1,152 @@
+// В этом файле должны быть стили для БЭМ-блока project, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.project {
+	display: grid;
+	gap: 1.6rem;
+	@media screen and (min-width: $screen-tl) {
+		gap: 0;
+		grid-template-columns: 74% auto;
+	}
+	@media screen and (min-width: $screen-d) {
+		gap: 0;
+		grid-template-columns: 70% auto;
+	}
+	@media screen and (min-width: $screen-dl) {
+		gap: 0;
+		grid-template-columns: 62.5% auto;
+	}
+	&__tabs {
+		display: grid;
+		gap: .8rem;
+		@media screen and (min-width: $screen-t) {
+			gap: 2.4rem;
+			grid-template-columns: 5.6rem auto;
+		}
+		@media screen and (min-width: $screen-ti) {
+			gap: 2.4rem;
+			grid-template-columns: 8rem auto;
+		}
+	}
+	&__head {
+		display: flex;
+		justify-content: space-between;
+		@media screen and (min-width: $screen-t) {
+			flex-direction: column;
+			gap: 1.6rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			gap: 3.2rem;
+		}
+
+	}
+	&__tab {
+		border: .2rem solid var(--color_white);
+		cursor: pointer;
+		transition: opacity .25s ease;
+		&:hover {
+			opacity: .8;
+		}
+		&_active {
+			border-color: var(--color_brand);
+		}
+		img {
+			display: block;
+			height: auto;
+			pointer-events: none;
+			width: 100%;
+		}
+	}
+	&__gallery {
+		@media screen and (min-width: $screen-tl) {
+			padding-right: 3.2rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			padding-right: 5.6rem;
+		}
+	}
+	&__item {
+		display: none;
+		&_active {
+			display: block;
+		}
+	}
+	&__info {
+		@media screen and (min-width: $screen-tl) {
+			padding-top: 1.6rem;
+		}
+	}
+	&__label {
+		font-size: 1.6rem;
+		line-height: 1;
+		margin-bottom: .8rem;
+	}
+	&__title {
+		font-size: 3.2rem;
+		font-weight: 700;
+		line-height: 1;
+		margin-bottom: 1.6rem;
+	}
+	&__tags {
+		display: flex;
+		gap: 1.6rem;
+	}
+	&__tag {
+		background: var(--color_white);
+		border: 1px solid var(--color_brand);
+		font-size: 1.2rem;
+		line-height: 1.33;
+		padding: .8rem 1.2rem;
+		@media screen and (min-width: $screen-d) {
+			font-size: 1.6rem;
+			line-height: 1;
+		}
+	}
+	&__list {
+		list-style: none;
+		margin: 1.6rem 0 2.4rem;
+		padding: 0;
+		@media screen and (min-width: $screen-tl) {
+
+		}
+	}
+	&__li {
+		font-size: 1.6rem;
+		line-height: 1;
+		padding: 1.6rem 0 0 1.6rem;
+		position: relative;
+		&:before {
+			background: var(--color_brand);
+			content: '';
+			display: block;
+			height: .8rem;
+			left: 0;
+			position: absolute;
+			top: 1.6rem;
+			width: .8rem;
+		}
+	}
+	&__button {
+		display: block;
+		width: 100%;
+		@media screen and (min-width: $screen-t) {
+			width: 16rem;
+		}
+	}
+	&__link {
+		display: block;
+	}
+	&__image {
+		display: block;
+		width: 100%;
+	}
+
+	.image-compare {
+		z-index: 2;
+	}
+	.icv__label {
+		font-size: 1.2rem;
+		font-weight: 700;
+	}
+}

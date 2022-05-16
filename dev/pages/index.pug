@@ -3,4 +3,385 @@ extends ../pug/layout_default.pug
 block pageMain
 	section.hero
 		.grid
-			.hero__inner content
+			.hero__inner
+				.hero__info
+					.hero__label Работаем с 2015 года
+					h1.hero__title Ремонт квартир под ключ без стресса в Казани
+					ul.hero__list
+						li.hero__li Работаем по договору
+						li.hero__li Даём гарантию
+						li.hero__li Закупаем материалы со скидками
+						li.hero__li Выезд и смета бесплатно
+						li.hero__li Регулярные фото/видеоотчёты
+						li.hero__li Гибкая система оплаты
+				.hero__form
+					+form('Получи <span>бесплатный расчёт</span> и <span>консультацию</span>', 'hero-name', 'hero-phone', 'Получить')
+	section.video
+		a.video__frame(data-hystmodal="#video")
+			svg.video__icon
+				use(xlink:href='img/svgSprite.svg#icon__play')
+	section.section.section_bg_grey.services
+		#services.section__anchor
+		.grid
+			.services__inner
+				h2.section__title Наши #[span услуги]
+				.services__grid
+					+services-item('keys', 'Ремонт под ключ в новостройках и коттеджах')
+					+services-item('apartments', 'Ремонт коммерческих помещений')
+					+services-item('floor', 'Разработка <span>дизайн-проекта</span>')
+					+services-item('cottage', 'Строительство загородных домов')
+	section.section.works
+		#works.section__anchor
+		.grid
+			.works__inner
+				h2.section__title Наши #[span работы]
+				.works__tabs
+					.works__tabs-ovh
+						.works__tabs-scroll
+							.works__tabs-head
+								.works__tab.works__tab_active(data-href='#works__tab_01')
+									span Отделка квартир и коттеджей
+								.works__tab(data-href='#works__tab_02')
+									span Дизайн-проект
+								.works__tab(data-href='#works__tab_03')
+									span Ремонт коммерческих помещений
+								.works__tab(data-href='#works__tab_04')
+									span Строительство загородных домов
+					.works__tabs-contents
+						#works__tab_01.works__tabs-content.works__tabs-content_active
+							.project-tabs
+								.project-tabs__tabs-ovh
+									.project-tabs__tabs-scroll(data-simplebar)
+										.project-tabs__tabs-head
+											+project-tabs-tab('1-к квартира', 'ЖК «Яркий»', '#project__tab_01', true)
+											+project-tabs-tab('2-к квартира', 'ЖК «Светлый»', '#project__tab_02', false)
+											+project-tabs-tab('4-к квартира', 'ЖК «Яратам»', '#project__tab_03', false)
+											+project-tabs-tab('1-к квартира', 'ЖК «Green City»', '#project__tab_04', false)
+								.project-tabs__tabs-contents
+									#project__tab_01.project-tabs__tabs-content.project-tabs__tabs-content_active
+										.project
+											.project__tabs
+												.project__head
+													+project-tab('#gallery__tab_01', 4, true)
+													+project-tab('#gallery__tab_02', 2, false)
+													+project-tab('#gallery__tab_03', 3, false)
+													+project-tab('#gallery__tab_04', 1, false)
+												.project__gallery
+													#gallery__tab_01.project__item.project__item_active
+														.image-compare
+															img(src='img/img__before_01.jpg', alt='')
+															img(src='img/img__after_01.jpg', alt='')
+													#gallery__tab_02.project__item
+														a.project__link(data-fslightbox='gallery-1', href='img/img__project_04_l.jpg')
+															img.project__image(src='img/img__project_04.jpg', alt='')
+													#gallery__tab_03.project__item
+														a.project__link(data-fslightbox='gallery-1', href='img/img__project_03_l.jpg')
+															img.project__image(src='img/img__project_03.jpg', alt='')
+													#gallery__tab_04.project__item
+														a.project__link(data-fslightbox='gallery-1', href='img/img__project_02_l.jpg')
+															img.project__image(src='img/img__project_02.jpg', alt='')
+											.project__info
+												.project__label 2-х комнатная квартира
+												.project__title ЖК «Магелан»
+												.project__tags
+													.project__tag S 78м²
+													.project__tag Срок: 6 месяцев
+												ul.project__list
+													li.project__li Дизайн проект
+													li.project__li Отделка стен
+													li.project__li Штукатурка стен
+													li.project__li Сборка мебели
+													li.project__li Поклейка обоев
+												a.button.project__button(data-hystmodal="#application") Хочу так же
+
+									#project__tab_02.project-tabs__tabs-content
+										.project
+											.project__tabs
+												.project__head
+													+project-tab('#gallery__tab_11', 4, true)
+													+project-tab('#gallery__tab_12', 3, false)
+													+project-tab('#gallery__tab_13', 1, false)
+													+project-tab('#gallery__tab_14', 2, false)
+												.project__gallery
+													#gallery__tab_11.project__item.project__item_active
+														.image-compare
+															img(src='img/img__before_01.jpg', alt='')
+															img(src='img/img__after_01.jpg', alt='')
+													#gallery__tab_12.project__item
+														a.project__link(data-fslightbox='gallery-2', href='img/img__project_03_l.jpg')
+															img.project__image(src='img/img__project_03.jpg', alt='')
+													#gallery__tab_13.project__item
+														a.project__link(data-fslightbox='gallery-2', href='img/img__project_02_l.jpg')
+															img.project__image(src='img/img__project_02.jpg', alt='')
+													#gallery__tab_14.project__item
+														a.project__link(data-fslightbox='gallery-2', href='img/img__project_04_l.jpg')
+															img.project__image(src='img/img__project_04.jpg', alt='')
+											.project__info
+												.project__label 2-х комнатная квартира
+												.project__title ЖК «Магелан»
+												.project__tags
+													.project__tag S 78м²
+													.project__tag Срок: 6 месяцев
+												ul.project__list
+													li.project__li Дизайн проект
+													li.project__li Отделка стен
+													li.project__li Штукатурка стен
+													li.project__li Сборка мебели
+													li.project__li Поклейка обоев
+												a.button.project__button(data-hystmodal="#application") Хочу так же
+									#project__tab_03.project-tabs__tabs-content
+										p Отделка квартир и коттеджей, таб 3
+									#project__tab_04.project-tabs__tabs-content
+										p Отделка квартир и коттеджей, таб 4
+
+						#works__tab_02.works__tabs-content
+							.project-tabs
+								.project-tabs__tabs-ovh
+									.project-tabs__tabs-scroll(data-simplebar)
+										.project-tabs__tabs-head
+											+project-tabs-tab('Подпись', 'Название', '#project__tab_11', true)
+											+project-tabs-tab('Подпись', 'Название', '#project__tab_12', false)
+											+project-tabs-tab('Подпись', 'Название', '#project__tab_13', false)
+											+project-tabs-tab('Подпись', 'Название', '#project__tab_14', false)
+								.project-tabs__tabs-contents
+									#project__tab_11.project-tabs__tabs-content.project-tabs__tabs-content_active
+										.project
+											.project__tabs
+												.project__head
+													+project-tab('#gallery__tab_31', 4, true)
+													+project-tab('#gallery__tab_32', 3, false)
+													+project-tab('#gallery__tab_33', 2, false)
+													+project-tab('#gallery__tab_34', 1, false)
+												.project__gallery
+													#gallery__tab_31.project__item.project__item_active
+														.image-compare
+															img(src='img/img__after_01.jpg', alt='')
+															img(src='img/img__before_01.jpg', alt='')
+													#gallery__tab_32.project__item
+														a.project__link(data-fslightbox='gallery-2', href='img/img__project_03_l.jpg')
+															img.project__image(src='img/img__project_03.jpg', alt='')
+													#gallery__tab_33.project__item
+														a.project__link(data-fslightbox='gallery-2', href='img/img__project_04_l.jpg')
+															img.project__image(src='img/img__project_04.jpg', alt='')
+													#gallery__tab_34.project__item
+														a.project__link(data-fslightbox='gallery-2', href='img/img__project_02_l.jpg')
+															img.project__image(src='img/img__project_02.jpg', alt='')
+											.project__info
+												.project__label 2-х комнатная квартира
+												.project__title ЖК «Магелан»
+												.project__tags
+													.project__tag S 78м²
+													.project__tag Срок: 6 месяцев
+												ul.project__list
+													li.project__li Дизайн проект
+													li.project__li Отделка стен
+													li.project__li Штукатурка стен
+													li.project__li Сборка мебели
+													li.project__li Поклейка обоев
+												a.button.project__button(data-hystmodal="#application") Хочу так же
+									#project__tab_12.project-tabs__tabs-content
+										p Дизайн-проект, таб 2
+									#project__tab_13.project-tabs__tabs-content
+										p Дизайн-проект, таб 3
+									#project__tab_14.project-tabs__tabs-content
+										p Дизайн-проект, таб 4
+						#works__tab_03.works__tabs-content
+							p Ремонт коммерческих помещений
+						#works__tab_04.works__tabs-content
+							p Строительство загородных домов
+	section.section.calc
+		#calc.section__anchor
+		.grid
+			.calc__inner
+				//
+					Давайте рассчитаем ремонт на вашем объекте:
+					Назад
+					Далее
+
+					1/5
+					Ремонт какого объекта вас интересует?
+					Квартира
+					Дом/коттедж
+					Коммерческий объект
+
+					Укажите ориентировочную площадь
+					Площадь вашего помещения, м²
+					125
+					Количество комнат
+					3
+					Количество санузлов
+					3
+
+					Выберите, какие работы необходимо произвести?
+					Потолок
+					Стены
+					Пол
+					Натяжной
+					Обои
+					Ламинат
+					Гипсокартон
+					Покраска
+					Паркет
+					Штукатурка
+					Декоративная
+					штукатурка
+					Плитка
+					Многоуровневый
+					Комбинированные
+					Комбинированные
+
+					У вас есть готовый дизайн-проект?
+					Да, есть
+					В процессе
+					поиска
+					Нет, но не откажусь
+					от бесплатного
+
+					Когда планируете начать ремонт?
+					Как можно скорее
+					В этом месяце
+					В течение
+					3-х месяцев
+
+					Расчет готов!
+					Вам куда удобнее получить результат и бонусы?
+					Имя
+					WhatsApp
+					Telegram
+					Анастасия
+					Номер телефона
+					Введите ваш телефон, мы вышлем вам стоимость и бонусы на указанный на указанный способ как можно скорее!
+					Получить
+
+					Ваша заявка отправлена, cпасибо!
+					В ближайшее время мы свяжемся с Вами
+	section.section.steps
+		#steps.section__anchor
+		.grid
+			.steps__inner
+				h2.section__title Этапы #[span работ]
+				.steps__grid
+					.steps__row
+						+steps-item('roller', 'Замер и составление сметы', 1)
+						svg.steps__arrow
+							use(xlink:href='img/svgSprite.svg#icon__arrow')
+						+steps-item('sign', 'Подписание договора', 2)
+						svg.steps__arrow
+							use(xlink:href='img/svgSprite.svg#icon__arrow')
+						+steps-item('cart', 'Подготовительные работы', 3)
+					svg.steps__arrow.steps__arrow_link
+						use(xlink:href='img/svgSprite.svg#icon__arrow_link')
+					.steps__arrow-link
+						img(src='img/icon__arrow_end.svg')
+						.steps__line
+						img(src='img/icon__arrow_start.svg')
+					.steps__row.steps__row_second
+						+steps-item('wall', 'Отделка помещения', 4)
+						svg.steps__arrow
+							use(xlink:href='img/svgSprite.svg#icon__arrow')
+						+steps-item('clean', 'Клининг', 5)
+						svg.steps__arrow
+							use(xlink:href='img/svgSprite.svg#icon__arrow')
+						+steps-item('keys', 'Сдача объекта', 6)
+	section.section.section_bg_grey.team
+		#team.section__anchor
+		.grid
+			.team__inner
+				.team__info
+					h2.section__title.team__title У нас #[span большая команда #[span специалистов]]
+					.team__p В нашей команде каждый специалист занимается своим делом
+					ul.team__list
+						li.team__li Демонтажники
+						li.team__li Каменщики
+						li.team__li Электрики
+						li.team__li Маляры
+						li.team__li Мастера по стяжке
+						li.team__li Мастера по гипсокартону
+						li.team__li Сантехники
+						li.team__li Вентиляционщики
+						li.team__li Штукатурщики
+						li.team__li Паркетники
+						li.team__li Плиточники
+						li.team__li Мастера по натяжному потолку
+				.team__slider-wrap
+					.swiper.team__slider
+						.swiper-wrapper
+							.swiper-slide.team__slide
+								img(src='img/img__team_01.jpg' alt='')
+							.swiper-slide.team__slide
+								img(src='img/img__team_02.jpg' alt='')
+							.swiper-slide.team__slide
+								img(src='img/img__team_03.jpg' alt='')
+					.swiper-button-prev.team__prev
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__prev')
+					.swiper-button-next.team__next
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__next')
+	section.section.docs
+		.grid
+			.docs__inner
+				h2.section__title Мы всегда #[span повышаем свою #[span квалификацию]]
+				.docs__slider-wrap
+					.swiper.docs__slider
+						.swiper-wrapper
+							.swiper-slide.docs__slide
+								a.docs__link(data-fslightbox='docs', href='img/img__doc_01_l.jpg')
+									img(src='img/img__doc_01.jpg', alt='')
+							.swiper-slide.docs__slide
+								a.docs__link(data-fslightbox='docs', href='img/img__doc_02_l.jpg')
+									img(src='img/img__doc_02.jpg', alt='')
+							.swiper-slide.docs__slide
+								a.docs__link(data-fslightbox='docs', href='img/img__doc_03_l.jpg')
+									img(src='img/img__doc_03.jpg', alt='')
+					.swiper-button-prev.docs__prev
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__prev')
+					.swiper-button-next.docs__next
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__next')
+	section.section.section_bg_grey.reviews
+		#reviews.section__anchor
+		.grid
+			.reviews__inner
+				h2.section__title Отзывы #[span наших клиентов]
+				.reviews__slider-wrap
+					.swiper.reviews__video-slider
+						.swiper-wrapper
+							.swiper-slide.reviews__slide
+								a.reviews__video-link(data-hystmodal="#video-review-1")
+									svg.reviews__icon
+										use(xlink:href='img/svgSprite.svg#icon__play')
+									img(src='img/img__video-review_01.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__video-link(data-hystmodal="#video-review-2")
+									svg.reviews__icon
+										use(xlink:href='img/svgSprite.svg#icon__play')
+									img(src='img/img__video-review_02.jpg', alt='')
+					.swiper-button-prev.reviews__video-prev
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__prev')
+					.swiper-button-next.reviews__video-next
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__next')
+				.reviews__slider-wrap
+					.swiper.reviews__slider
+						.swiper-wrapper
+							.swiper-slide.reviews__slide
+								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_01_l.jpg')
+									img(src='img/img__reviews_01.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_02_l.jpg')
+									img(src='img/img__reviews_02.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_03_l.jpg')
+									img(src='img/img__reviews_03.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_04_l.jpg')
+									img(src='img/img__reviews_04.jpg', alt='')
+					.swiper-button-prev.reviews__prev
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__prev')
+					.swiper-button-next.reviews__next
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__next')

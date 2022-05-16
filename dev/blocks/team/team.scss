@@ -1,0 +1,103 @@
+// В этом файле должны быть стили для БЭМ-блока team, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.team {
+	&__inner {
+		@media screen and (min-width: $screen-tl) {
+			display: grid;
+			grid-template-columns: 1fr 47.6rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			gap: 2.4rem;
+			grid-template-columns: 1fr minmax(auto, 47.6rem);
+		}
+		@media screen and (min-width: $screen-dl) {
+			gap: 2.4rem;
+			grid-template-columns: 1fr minmax(auto, 63.5rem);
+		}
+	}
+	&__info {}
+	&__title {
+		margin-bottom: 1.6rem;
+		@media screen and (min-width: $screen-tl) {
+			margin-bottom: 2.4rem;
+			max-width: 47.6rem;
+			text-align: left;
+		}
+		@media screen and (min-width: $screen-d) {
+			margin-bottom: 2.4rem;
+		}
+	}
+	&__p {
+		font-size: 1.6rem;
+		line-height: 1.5;
+		margin: 0 0 .8rem;
+		text-align: center;
+		@media screen and (min-width: $screen-tl) {
+			margin: 0 0 4.8rem;
+			text-align: left;
+			width: 32rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			margin-bottom: 3.2rem;
+		}
+	}
+	&__list {
+		column-count: 2;
+		column-gap: 1.6rem;
+		list-style: none;
+		margin: 0 0 3.2rem;
+		max-width: 63.4rem;
+		padding: 0;
+		@media screen and (min-width: $screen-tl) {
+			margin: 0;
+		}
+	}
+	&__li {
+		break-inside: auto;
+		color: inherit;
+		font-size: 1.6rem;
+		line-height: 1;
+		padding: 2.4rem 0 0 1.6rem;
+		position: relative;
+		&:before {
+			background: var(--color_brand);
+			content: '';
+			display: block;
+			height: .8rem;
+			left: 0;
+			position: absolute;
+			top: 1.6rem;
+			width: .8rem;
+		}
+	}
+	&__slider-wrap {
+		align-items: center;
+		display: flex;
+		position: relative;
+		@media screen and (min-width: $screen-tl) {
+			margin: -6.4rem 0;
+		}
+		@media screen and (min-width: $screen-d) {
+			margin: -10.4rem 0 -9.6rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			padding: 0 8rem;
+		}
+	}
+	&__slider {
+		box-shadow: 0 6.4rem 4.6rem rgba(7, 2, 0, 0.0531481),
+					0 3.8rem 2.5rem rgba(7, 2, 0, 0.0425185),
+					0 2rem 1.3rem rgba(7, 2, 0, 0.035),
+					0 .8rem .6rem rgba(7, 2, 0, 0.0274815),
+					0 .2rem .3rem rgba(7, 2, 0, 0.0168519);
+	}
+	&__slide {
+		img {
+			display: block;
+			height: auto;
+			width: 100%;
+		}
+	}
+}

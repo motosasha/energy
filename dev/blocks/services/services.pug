@@ -1,0 +1,7 @@
+//- Все примеси в этом файле должны начинаться c имени блока (services)
+
+mixin services-item(icon, title)
+	.services__item
+		svg.services__icon
+			use(xlink:href='img/svgSprite.svg#icon__' + icon)
+		.services__title!= title

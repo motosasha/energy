@@ -37,6 +37,9 @@ body {
 			overflow: auto;
 		}
 	}
+	.fslightbox-open & {
+		padding-right: var(--scrollbar-width);
+	}
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {

@@ -6,6 +6,24 @@
 	background: none;
 	max-width: 47.6rem;
 	width: calc(100% - (var(--screen_margin) * 2));
+	&_video {
+		aspect-ratio: 16/9;
+		background: #000;
+		max-width: 96rem;
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	&_video &__close {
+		background: var(--color_white);
+		right: 0;
+		top: 0;
+		transform: translateY(-100%);
+		@media screen and (min-width: $screen-t) {
+			transform: translate(100%, -100%);
+		}
+	}
 	&__close {
 		background: none;
 		border: none;
@@ -20,8 +38,12 @@
 		transition: background .25s ease;
 		width: 2.4rem;
 		z-index: 10;
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: $screen-tl) {
 			right: 4rem;
+		}
+		&:focus,
+		&:hover {
+			outline: none;
 		}
 		&:hover {
 			background: var(--color_brand);
@@ -31,14 +53,16 @@
 		height: 100%;
 		width: 100%;
 	}
-	&__inner {}
+	&__inner {
+		height: 100%;
+	}
 	&__title {
 		font-size: 5.5555vw;
 		font-weight: 600;
 		line-height: 1.25;
 		margin-bottom: 4.1667vw;
 		padding-right: 10vw;
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: $screen-tl) {
 			font-size: 1.3020vw;
 			margin-bottom: 0.7812vw;
 		}
@@ -48,7 +72,7 @@
 		font-weight: 300;
 		letter-spacing: 0.02em;
 		line-height: 1.33;
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: $screen-tl) {
 			font-size: 1.0416vw;
 		}
 	}

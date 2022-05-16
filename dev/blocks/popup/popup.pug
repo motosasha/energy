@@ -4,17 +4,17 @@ mixin popup
 	#application.hystmodal(aria-hidden='true')
 		.hystmodal__wrap
 			.popup.hystmodal__window(role='dialog' aria-modal='true')
-				button.popup__close.hystmodal__close(data-hystclose='')
+				button.popup__close.hystmodal__close(data-hystclose)
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
-					+form('Оставить <span>заявку</span>?', 'popup-name', 'popup-phone', 'Отправить')
+					+form('Оставить <span>заявку</span>', 'popup-name', 'popup-phone', 'Отправить')
 
 mixin popup-thanks
 	#thanks.hystmodal(aria-hidden='true')
 		.hystmodal__wrap
-			.popup.popup_thanks.hystmodal__window(role='dialog' aria-modal='true')
-				button.popup__close.hystmodal__close(data-hystclose='')
+			.popup.hystmodal__window(role='dialog' aria-modal='true')
+				button.popup__close.hystmodal__close(data-hystclose)
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
@@ -22,5 +22,32 @@ mixin popup-thanks
 						.form__title Спасибо #[span за заявку!]
 						.form__text В ближайшее время мы свяжемся с Вами
 
+mixin popup-video
+	#video.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.popup.popup_video.hystmodal__window(role='dialog' aria-modal='true')
+				button.popup__close.hystmodal__close(data-hystclose)
+					svg.svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				.popup__inner
+					//iframe#video-player(src='https://www.youtube.com/embed/BkhaV46HM2E?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
 
+mixin popup-video-review_1
+	#video-review-1.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.popup.popup_video.hystmodal__window(role='dialog' aria-modal='true')
+				button.popup__close.hystmodal__close(data-hystclose)
+					svg.svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				.popup__inner
+					//iframe#video-player(src='https://www.youtube.com/embed/BkhaV46HM2E?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
 
+mixin popup-video-review_2
+	#video-review-2.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.popup.popup_video.hystmodal__window(role='dialog' aria-modal='true')
+				button.popup__close.hystmodal__close(data-hystclose)
+					svg.svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				.popup__inner
+					//iframe#video-player(src='https://www.youtube.com/embed/BkhaV46HM2E?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)

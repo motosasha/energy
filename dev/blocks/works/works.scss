@@ -1,0 +1,113 @@
+// В этом файле должны быть стили для БЭМ-блока works, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.works {
+	&__tabs {}
+	&__tabs-ovh {
+		height: 4.8rem;
+		margin: 0 calc(-1 * (var(--screen_margin)));
+		overflow: hidden;
+		@media screen and (min-width: $screen-d) {
+			height: 8rem;
+			margin: 0;
+		}
+	}
+	&__tabs-scroll {
+		display: flex;
+		height: 6.4rem;
+		overflow: hidden;
+-webkit-overflow-scrolling: touch;
+		overflow-x: auto;
+		overflow-y: hidden;
+		&::after,
+		&::before {
+			content: '';
+			display: block;
+			flex-shrink: 0;
+			height: 100%;
+			width: var(--screen_margin);
+		}
+		@media screen and (min-width: $screen-d) {
+			height: 8rem;
+			&::after,
+			&::before {
+				content: none;
+			}
+		}
+	}
+	&__tabs-head {
+		display: flex;
+		height: 4.8rem;
+		gap: 1.6rem;
+		position: relative;
+		&::after {
+			background: var(--color_brand);
+			bottom: 0;
+			content: '';
+			display: block;
+			height: .1rem;
+			left: 0;
+			position: absolute;
+			width: 100%;
+		}
+		@media screen and (min-width: $screen-d) {
+			height: 8rem;
+			min-width: calc(100% - .1rem);content: none;
+		}
+	}
+	&__tab {
+		align-items: center;
+		border: 0.1rem solid var(--color_border-grey);
+		border-bottom: none;
+		color: inherit;
+		cursor: pointer;
+		display: flex;
+		flex-grow: 1;
+		font-size: 1.6rem;
+		justify-content: center;
+		letter-spacing: 0.01em;
+		line-height: 1.25;
+		padding: 2rem 1.6rem 1.9rem;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+		transition: padding .25s ease;
+		width: auto;
+		white-space: nowrap;
+		z-index: 2;
+		@media screen and (min-width: $screen-d) {
+			white-space: normal;
+		}
+		span {
+			opacity: .48;
+			pointer-events: none;
+			transition: opacity .25s ease;
+			user-select: none;
+		}
+		&:hover {
+			span {
+				opacity: 1;
+			}
+		}
+		&_active {
+			background: var(--color_white);
+			border-color: var(--color_brand);
+			padding: 1.6rem 1.6rem 2.3rem;
+			span {
+				opacity: 1;
+			}
+		}
+	}
+	&__tabs-contents {}
+	&__tabs-content {
+		display: none;
+		padding: 2.4rem 0 4rem;
+		@media screen and (min-width: $screen-d) {
+			padding: 4rem 0 0;
+		}
+		&_active {
+			display: block;
+		}
+	}
+}

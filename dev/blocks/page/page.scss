@@ -14,6 +14,8 @@
 		top: 0;
 		width: 100%;
 		z-index: 5;
+		.icv__body &,
+		.fslightbox-open &,
 		.hystmodal__opened & {
 			width: calc(100vw - var(--scrollbar-width));
 		}
