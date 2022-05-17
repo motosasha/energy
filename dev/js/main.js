@@ -4,4 +4,6 @@
 //= ../../node_modules/fslightbox/index.js
 //= ../../node_modules/image-compare-viewer/dist/image-compare-viewer.min.js
 //= ../../node_modules/smooth-scroll/dist/smooth-scroll.js
+//= partials/wNumb.js
+//= ../../node_modules/nouislider/dist/nouislider.js
 //= partials/user.js

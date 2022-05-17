@@ -13,3 +13,8 @@ mixin field_phone(label, id, mod)
 			id= id,
 			required)
 		label.field__label!= label
+
+mixin field_number(label, id, mod, min, max, fieldMod)
+	.field(class= mod)
+		input.field__input(type='number', id= id, min= min, max= max, class= fieldMod, required)
+		label.field__label!= label

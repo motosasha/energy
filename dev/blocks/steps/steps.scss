@@ -3,8 +3,11 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .steps {
-	@media screen and (min-width: $screen-t) {
-		padding-bottom: 9.6rem;
+	&.section {
+		padding-top: 8.4rem;
+		@media screen and (min-width: $screen-t) {
+			padding-top: 12rem;
+		}
 	}
 	&__inner {}
 	&__grid {
@@ -12,9 +15,6 @@
 		gap: .8rem;
 		position: relative;
 		@media screen and (min-width: $screen-d) {
-			gap: 0;
-		}
-		@media screen and (min-width: $screen-dl) {
 			gap: 6.4rem;
 		}
 	}
@@ -49,9 +49,6 @@
 			height: 13.6rem;
 			width: 66.6rem;
 			@media screen and (min-width: $screen-d) {
-				width: calc(66.6rem - 10vw);
-			}
-			@media screen and (min-width: $screen-dl) {
 				display: none;
 			}
 		}
@@ -65,7 +62,7 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 		z-index: 2;
-		@media screen and (min-width: $screen-dl) {
+		@media screen and (min-width: $screen-d) {
 			display: grid;
 		}
 	}
@@ -78,7 +75,10 @@
 		background: var(--color_black);
 		height: .2rem;
 		opacity: .5;
-		width: calc(50vw - ((100vw - 153.6rem) + 2vw));
+		width: 56rem;
+		@media screen and (min-width: $screen-dl) {
+			width: 56rem;
+		}
 	}
 	&__item {
 		align-items: center;

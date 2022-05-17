@@ -1,0 +1,69 @@
+// В этом файле должны быть стили для БЭМ-блока checkbox, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.checkbox {
+	cursor: pointer;
+	display: flex;
+	gap: 1.2rem;
+	&__input {
+		display: none;
+	}
+	&__fake-input {
+		border: .2rem solid var(--color_brand);
+		flex-shrink: 0;
+		height: 2.4rem;
+		transition: background .25s ease,
+					border .25s ease;
+		width: 2.4rem;
+	}
+	&__input:checked + &__fake-input {
+		background: var(--color_brand);
+	}
+	&__mark {
+		height: .8rem;
+		left: .3rem;
+		position: relative;
+		top: .5rem;
+		transform: rotate(-45deg);
+		width: 1.4rem;
+		&::before,
+		&::after {
+			background: var(--color_white);
+			border-radius: .2rem;
+			content: '';
+			display: block;
+			position: absolute;
+		}
+		&::before {
+			height: 0;
+			transition: height .125s ease .125s;
+			width: .3rem;
+		}
+		&::after {
+			bottom: 0;
+			height: .3rem;
+			transition: width .125s ease;
+			width: 0;
+		}
+	}
+	&__input:checked + &__fake-input &__mark {
+		&::before {
+			height: .8rem;
+			transition: height .125s ease;
+			width: .3rem;
+		}
+		&::after {
+			bottom: 0;
+			height: .3rem;
+			transition: width .125s ease .125s;
+			width: 1.4rem;
+		}
+	}
+	&__label {
+		font-size: 1.4rem;
+		line-height: 1.15;
+		padding: .4rem 0;
+		user-select: none;
+	}
+}

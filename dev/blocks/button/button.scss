@@ -22,4 +22,7 @@
 	&:active{
 		background: var(--color_brand);
 	}
+	&_secondary {
+		background: var(--color_grey);
+	}
 }

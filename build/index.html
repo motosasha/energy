@@ -347,68 +347,248 @@
 				<section class="section calc">
 					<div class="section__anchor" id="calc"></div>
 					<div class="grid">
-						<div class="calc__inner">
-							<!--Давайте рассчитаем ремонт на вашем объекте:
-Назад
-Далее
-
-1/5
-Ремонт какого объекта вас интересует?
-Квартира
-Дом/коттедж
-Коммерческий объект
-
-Укажите ориентировочную площадь
-Площадь вашего помещения, м²
-125
-Количество комнат
-3
-Количество санузлов
-3
-
-Выберите, какие работы необходимо произвести?
-Потолок
-Стены
-Пол
-Натяжной
-Обои
-Ламинат
-Гипсокартон
-Покраска
-Паркет
-Штукатурка
-Декоративная
-штукатурка
-Плитка
-Многоуровневый
-Комбинированные
-Комбинированные
-
-У вас есть готовый дизайн-проект?
-Да, есть
-В процессе
-поиска
-Нет, но не откажусь
-от бесплатного
-
-Когда планируете начать ремонт?
-Как можно скорее
-В этом месяце
-В течение
-3-х месяцев
-
-Расчет готов!
-Вам куда удобнее получить результат и бонусы?
-Имя
-WhatsApp
-Telegram
-Анастасия
-Номер телефона
-Введите ваш телефон, мы вышлем вам стоимость и бонусы на указанный на указанный способ как можно скорее!
-Получить
-
-Ваша заявка отправлена, cпасибо!
-В ближайшее время мы свяжемся с Вами-->
+						<div class="calc__card">
+							<div class="calc__inner">
+								<div class="calc__step calc__step_01 calc__step_active">
+									<div class="calc__col">
+										<div class="calc__title">Давайте рассчитаем <span><span>ремонт</span> на вашем объекте</span>:</div>
+										<div class="calc__pagination">1<span>/5</span></div>
+										<div class="calc__question">Ремонт какого объекта вас интересует?</div>
+									</div>
+									<div class="calc__col">
+										<div class="calc__radios-set"><label class="calc__label"><input class="calc__radio" type="radio" name="object" value="0" checked required>
+												<div class="calc__tile"><svg class="calc__radio-icon">
+														<use xlink:href="img/svgSprite.svg#icon__floor_alt"></use>
+													</svg>
+													<div class="calc__radio-title">Квартира</div>
+												</div>
+											</label><label class="calc__label"><input class="calc__radio" type="radio" name="object" value="1" required>
+												<div class="calc__tile"><svg class="calc__radio-icon">
+														<use xlink:href="img/svgSprite.svg#icon__cottage"></use>
+													</svg>
+													<div class="calc__radio-title">Дом/коттедж</div>
+												</div>
+											</label><label class="calc__label"><input class="calc__radio" type="radio" name="object" value="2" required>
+												<div class="calc__tile"><svg class="calc__radio-icon">
+														<use xlink:href="img/svgSprite.svg#icon__apartments"></use>
+													</svg>
+													<div class="calc__radio-title">Коммерческий объект</div>
+												</div>
+											</label></div>
+										<div class="calc__footer"><a class="button calc__button" data-step="next">Далее</a></div>
+									</div>
+								</div>
+								<div class="calc__step calc__step_02">
+									<div class="calc__col">
+										<div class="calc__title">Давайте рассчитаем <span><span>ремонт</span> на вашем объекте</span>:</div>
+										<div class="calc__pagination">2<span>/5</span></div>
+										<div class="calc__question">Укажите ориентировочную площадь</div>
+									</div>
+									<div class="calc__col">
+										<div class="calc__ranges">
+											<div class="calc__ranges-row">
+												<div class="field"><input class="field__input field__input_has-value" type="number" id="input-area" min="10" max="500" required="required" /><label class="field__label">Площадь вашего помещения, м²</label></div>
+												<div class="calc__range calc__range_area"></div>
+											</div>
+											<div class="calc__ranges-row">
+												<div class="field"><input class="field__input field__input_has-value" type="number" id="input-rooms" min="1" max="25" required="required" /><label class="field__label">Количество комнат</label></div>
+												<div class="calc__range calc__range_rooms"></div>
+											</div>
+											<div class="calc__ranges-row">
+												<div class="field"><input class="field__input field__input_has-value" type="number" id="input-su" min="1" max="5" required="required" /><label class="field__label">Количество санузлов</label></div>
+												<div class="calc__range calc__range_su"></div>
+											</div>
+										</div>
+										<div class="calc__footer"><a class="button button_secondary calc__button" data-step="prev">Назад</a><a class="button calc__button" data-step="next">Далее</a></div>
+									</div>
+								</div>
+								<div class="calc__step calc__step_03">
+									<div class="calc__col">
+										<div class="calc__title">Давайте рассчитаем <span><span>ремонт</span> на вашем объекте</span>:</div>
+										<div class="calc__pagination">3<span>/5</span></div>
+										<div class="calc__question">Выберите, какие работы необходимо произвести?</div>
+									</div>
+									<div class="calc__col">
+										<div class="calc__checks-grid">
+											<div class="calc__checks-col">
+												<div class="calc__checks-title">Потолок</div>
+												<div class="calc__checks-list"><label class="checkbox"><input class="checkbox__input" type="checkbox" name="ceiling" value="0" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Натяжной</div>
+													</label><label class="checkbox"><input class="checkbox__input" type="checkbox" name="ceiling" value="1" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Гипсокартон</div>
+													</label><label class="checkbox"><input class="checkbox__input" type="checkbox" name="ceiling" value="2" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Штукатурка</div>
+													</label><label class="checkbox"><input class="checkbox__input" type="checkbox" name="ceiling" value="3" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Многоуровневый</div>
+													</label></div>
+											</div>
+											<div class="calc__checks-col">
+												<div class="calc__checks-title">Стены</div>
+												<div class="calc__checks-list"><label class="checkbox"><input class="checkbox__input" type="checkbox" name="walls" value="0" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Натяжной</div>
+													</label><label class="checkbox"><input class="checkbox__input" type="checkbox" name="walls" value="1" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Гипсокартон</div>
+													</label><label class="checkbox"><input class="checkbox__input" type="checkbox" name="walls" value="2" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Штукатурка</div>
+													</label><label class="checkbox"><input class="checkbox__input" type="checkbox" name="walls" value="3" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Многоуровневый</div>
+													</label></div>
+											</div>
+											<div class="calc__checks-col">
+												<div class="calc__checks-title">Пол</div>
+												<div class="calc__checks-list"><label class="checkbox"><input class="checkbox__input" type="checkbox" name="floor" value="0" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Ламинат</div>
+													</label><label class="checkbox"><input class="checkbox__input" type="checkbox" name="floor" value="1" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Паркет</div>
+													</label><label class="checkbox"><input class="checkbox__input" type="checkbox" name="floor" value="2" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Плитка штукатурка</div>
+													</label><label class="checkbox"><input class="checkbox__input" type="checkbox" name="floor" value="3" />
+														<div class="checkbox__fake-input">
+															<div class="checkbox__mark"></div>
+														</div>
+														<div class="checkbox__label">Комбинированные</div>
+													</label></div>
+											</div>
+										</div>
+										<div class="calc__footer"><a class="button button_secondary calc__button" data-step="prev">Назад</a><a class="button calc__button" data-step="next">Далее</a></div>
+									</div>
+								</div>
+								<div class="calc__step calc__step_04">
+									<div class="calc__col">
+										<div class="calc__title">Давайте рассчитаем <span><span>ремонт</span> на вашем объекте</span>:</div>
+										<div class="calc__pagination">4<span>/5</span></div>
+										<div class="calc__question">У вас есть готовый дизайн-проект?</div>
+									</div>
+									<div class="calc__col">
+										<div class="calc__radios-set"><label class="calc__label"><input class="calc__radio" type="radio" name="project" value="0" checked required>
+												<div class="calc__tile"><svg class="calc__radio-icon">
+														<use xlink:href="img/svgSprite.svg#icon__doc"></use>
+													</svg>
+													<div class="calc__radio-title">Да, есть</div>
+												</div>
+											</label><label class="calc__label"><input class="calc__radio" type="radio" name="project" value="1" required>
+												<div class="calc__tile"><svg class="calc__radio-icon">
+														<use xlink:href="img/svgSprite.svg#icon__search"></use>
+													</svg>
+													<div class="calc__radio-title">В процессе поиска</div>
+												</div>
+											</label><label class="calc__label"><input class="calc__radio" type="radio" name="project" value="2" required>
+												<div class="calc__tile"><svg class="calc__radio-icon">
+														<use xlink:href="img/svgSprite.svg#icon__right"></use>
+													</svg>
+													<div class="calc__radio-title">Нет, но не откажусь от бесплатного</div>
+												</div>
+											</label></div>
+										<div class="calc__footer"><a class="button button_secondary calc__button" data-step="prev">Назад</a><a class="button calc__button" data-step="next">Далее</a></div>
+									</div>
+								</div>
+								<div class="calc__step calc__step_05">
+									<div class="calc__col">
+										<div class="calc__title">Давайте рассчитаем <span><span>ремонт</span> на вашем объекте</span>:</div>
+										<div class="calc__pagination">5<span>/5</span></div>
+										<div class="calc__question">Когда планируете начать ремонт?</div>
+									</div>
+									<div class="calc__col">
+										<div class="calc__radios-set"><label class="calc__label"><input class="calc__radio" type="radio" name="time" value="0" checked required>
+												<div class="calc__tile"><svg class="calc__radio-icon">
+														<use xlink:href="img/svgSprite.svg#icon__clock"></use>
+													</svg>
+													<div class="calc__radio-title">Как можно скорее</div>
+												</div>
+											</label><label class="calc__label"><input class="calc__radio" type="radio" name="time" value="1" required>
+												<div class="calc__tile"><svg class="calc__radio-icon">
+														<use xlink:href="img/svgSprite.svg#icon__calendar"></use>
+													</svg>
+													<div class="calc__radio-title">В этом месяце</div>
+												</div>
+											</label><label class="calc__label"><input class="calc__radio" type="radio" name="time" value="2" required>
+												<div class="calc__tile"><svg class="calc__radio-icon">
+														<use xlink:href="img/svgSprite.svg#icon__time"></use>
+													</svg>
+													<div class="calc__radio-title">В течение 3-х месяцев</div>
+												</div>
+											</label></div>
+										<div class="calc__footer"><a class="button button_secondary calc__button" data-step="prev">Назад</a><a class="button calc__button" data-step="next">Далее</a></div>
+									</div>
+								</div>
+								<div class="calc__step calc__step_06">
+									<div class="calc__col">
+										<div class="calc__title">Давайте рассчитаем <span><span>ремонт</span> на вашем объекте</span>:</div>
+										<div class="calc__pagination">Расчет готов!</div>
+										<div class="calc__question">Вам куда удобнее получить результат и бонусы?</div>
+									</div>
+									<div class="calc__col">
+										<div class="calc__send">
+											<div class="calc__block">
+												<div class="calc__socials"><label class="calc__social"><input class="calc__radio" type="radio" name="social" value="0" checked required>
+														<div class="calc__social-tile"><svg class="calc__social-icon">
+																<use xlink:href="img/svgSprite.svg#icon__social_wa"></use>
+															</svg>
+															<div class="calc__social-title">WhatsApp</div>
+														</div>
+													</label><label class="calc__social"><input class="calc__radio" type="radio" name="social" value="0" required>
+														<div class="calc__social-tile"><svg class="calc__social-icon">
+																<use xlink:href="img/svgSprite.svg#icon__social_tg"></use>
+															</svg>
+															<div class="calc__social-title">Telegram</div>
+														</div>
+													</label></div>
+												<div class="calc__descr">Введите ваш телефон, мы вышлем вам стоимость и бонусы на указанный способ как можно скорее!</div>
+											</div>
+											<form class="form calc__form">
+												<div class="form__grid">
+													<div class="field"><input class="field__input" type="text" id="calc-name" required="required" /><label class="field__label">Имя</label></div>
+													<div class="field"><input class="field__input" type="tel" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" id="calc-phone" required="required" /><label class="field__label">Номер телефона</label></div><button class="button">Получить</button>
+												</div>
+												<div class="form__small">Заполняя форму вы даёте согласие на обработку <a href="policy.html" target="_blanc">персональных данных</a></div>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="calc__step calc__step_07">
+									<div class="calc__success">
+										<div class="calc__success-info">
+											<div class="calc__success-title">Ваша заявка отправлена, cпасибо!</div>
+											<div class="calc__success-text">В ближайшее время мы свяжемся с Вами</div>
+										</div><svg class="calc__success-icon">
+											<use xlink:href="img/svgSprite.svg#icon__like"></use>
+										</svg>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>

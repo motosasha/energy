@@ -31,8 +31,6 @@ window.onload = function() {
 		catchFocus: true,
 		closeOnEsc: true,
 		afterClose: function(modal){
-			console.log('Message after modal has closed');
-			console.log(modal);
 			let videoFrame = modal.openedWindow.querySelector('iframe');
 			if(videoFrame){
 				videoFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
@@ -187,7 +185,6 @@ window.onload = function() {
 		for (let i = 0; i < projectTabs.length; i++) {
 			projectTabs[i].classList.remove('project__tab_active');
 		}
-		console.log(tabParent);
 
 		clickedTab.classList.add('project__tab_active');
 		tabClickEvent.preventDefault();
@@ -230,4 +227,124 @@ window.onload = function() {
 	viewers.forEach((element) => {
 		let view = new ImageCompare(element, options).mount();
 	});
+
+	// ranges
+	let areaInput = document.querySelector('#input-area');
+	let areaRange = document.querySelector('.calc__range_area');
+	noUiSlider.create(areaRange, {
+		start: 125,
+		connect: 'lower',
+		padding: 20,
+		range: {
+			'min': -10,
+			'max': 520
+		},
+		step: 1,
+		tooltips: wNumb({
+			decimals: 0,
+			postfix: ' м²'
+		}),
+		pips: {
+			mode: 'values',
+			density: 5,
+			values: [10, 125, 250, 375, 500],
+			format: wNumb({
+				decimals: 0,
+			})
+		}
+	});
+	areaRange.noUiSlider.on('update', function (values, handle) {
+		let rangeVal = values[handle];
+		areaInput.value = Math.floor(rangeVal)
+	});
+	areaInput.addEventListener('change', function () {
+		areaRange.noUiSlider.set(this.value);
+	});
+
+	let roomsInput = document.querySelector('#input-rooms');
+	let roomsRange = document.querySelector('.calc__range_rooms');
+	noUiSlider.create(roomsRange, {
+		start: 3,
+		connect: 'lower',
+		padding: 1,
+		range: {
+			'min': 0,
+			'max': 26
+		},
+		step: 1,
+		tooltips: wNumb({
+			decimals: 0,
+			postfix: ' к'
+		}),
+		pips: {
+			mode: 'values',
+			density: 4,
+			values: [1, 7, 13, 19, 25],
+			format: wNumb({
+				decimals: 0,
+			})
+		}
+	});
+	roomsRange.noUiSlider.on('update', function (values, handle) {
+		let rangeVal = values[handle];
+		roomsInput.value = Math.floor(rangeVal)
+	});
+	roomsInput.addEventListener('change', function () {
+		roomsRange.noUiSlider.set(this.value);
+	});
+
+	let suInput = document.querySelector('#input-su');
+	let suRange = document.querySelector('.calc__range_su');
+	noUiSlider.create(suRange, {
+		start: 1,
+		connect: 'lower',
+		padding: 1,
+		range: {
+			'min': 0,
+			'max': 6
+		},
+		step: 1,
+		tooltips: wNumb({
+			decimals: 0,
+			postfix: ' су'
+		}),
+		pips: {
+			mode: 'values',
+			density: 20,
+			values: [1, 2, 3, 4, 5],
+			format: wNumb({
+				decimals: 0,
+			})
+		}
+	});
+	suRange.noUiSlider.on('update', function (values, handle) {
+		let rangeVal = values[handle];
+		suInput.value = Math.floor(rangeVal)
+	});
+	suInput.addEventListener('change', function () {
+		suRange.noUiSlider.set(this.value);
+	});
+
+	// stepper
+	let steps = document.querySelectorAll('.calc__step');
+	let nextSteps = document.querySelectorAll('.calc__button[data-step="next"]');
+	let prevSteps = document.querySelectorAll('.calc__button[data-step="prev"]');
+	let currentStep = 0;
+	let calcSection = document.querySelector('#calc');
+
+	function makeStep(trigger, direction) {
+		for (let step of trigger) {
+			step.addEventListener('click', function () {
+				for(let i = 0; i < steps.length; i++) {
+					steps[i].classList.remove('calc__step_active')
+				}
+				if(direction === 'next') ++currentStep;
+				if(direction === 'prev') --currentStep;
+				steps[currentStep].classList.add('calc__step_active')
+				calcSection.scrollIntoView()
+			})
+		}
+	}
+	makeStep(nextSteps, 'next')
+	makeStep(prevSteps, 'prev')
 };

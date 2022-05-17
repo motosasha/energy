@@ -192,69 +192,183 @@ block pageMain
 	section.section.calc
 		#calc.section__anchor
 		.grid
-			.calc__inner
-				//
-					Давайте рассчитаем ремонт на вашем объекте:
-					Назад
-					Далее
+			.calc__card
+				.calc__inner
+					.calc__step.calc__step_01.calc__step_active
+						.calc__col
+							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__pagination 1#[span /5]
+							.calc__question Ремонт какого объекта вас интересует?
+						.calc__col
+							.calc__radios-set
+								label.calc__label
+									input.calc__radio(type='radio', name='object', value=0, checked, required)
+									.calc__tile
+										svg.calc__radio-icon
+											use(xlink:href='img/svgSprite.svg#icon__floor_alt')
+										.calc__radio-title Квартира
+								label.calc__label
+									input.calc__radio(type='radio', name='object', value=1, required)
+									.calc__tile
+										svg.calc__radio-icon
+											use(xlink:href='img/svgSprite.svg#icon__cottage')
+										.calc__radio-title Дом/коттедж
+								label.calc__label
+									input.calc__radio(type='radio', name='object', value=2, required)
+									.calc__tile
+										svg.calc__radio-icon
+											use(xlink:href='img/svgSprite.svg#icon__apartments')
+										.calc__radio-title Коммерческий объект
+							.calc__footer
+								a.button.calc__button(data-step='next') Далее
 
-					1/5
-					Ремонт какого объекта вас интересует?
-					Квартира
-					Дом/коттедж
-					Коммерческий объект
+					.calc__step.calc__step_02
+						.calc__col
+							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__pagination 2#[span /5]
+							.calc__question Укажите ориентировочную площадь
+						.calc__col
+							.calc__ranges
+								.calc__ranges-row
+									+field_number('Площадь вашего помещения, м²', 'input-area', '', 10, 500, 'field__input_has-value')
+									.calc__range.calc__range_area
+								.calc__ranges-row
+									+field_number('Количество комнат', 'input-rooms', '', 1, 25, 'field__input_has-value')
+									.calc__range.calc__range_rooms
+								.calc__ranges-row
+									+field_number('Количество санузлов', 'input-su', '', 1, 5, 'field__input_has-value')
+									.calc__range.calc__range_su
+							.calc__footer
+								a.button.button_secondary.calc__button(data-step='prev') Назад
+								a.button.calc__button(data-step='next') Далее
 
-					Укажите ориентировочную площадь
-					Площадь вашего помещения, м²
-					125
-					Количество комнат
-					3
-					Количество санузлов
-					3
+					.calc__step.calc__step_03
+						.calc__col
+							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__pagination 3#[span /5]
+							.calc__question Выберите, какие работы необходимо произвести?
+						.calc__col
+							.calc__checks-grid
+								.calc__checks-col
+									.calc__checks-title Потолок
+									.calc__checks-list
+										+checkbox('Натяжной', 'ceiling', 0, false)
+										+checkbox('Гипсокартон', 'ceiling', 1, false)
+										+checkbox('Штукатурка', 'ceiling', 2, false)
+										+checkbox('Многоуровневый', 'ceiling', 3, false)
+								.calc__checks-col
+									.calc__checks-title Стены
+									.calc__checks-list
+										+checkbox('Натяжной', 'walls', 0, false)
+										+checkbox('Гипсокартон', 'walls', 1, false)
+										+checkbox('Штукатурка', 'walls', 2, false)
+										+checkbox('Многоуровневый', 'walls', 3, false)
+								.calc__checks-col
+									.calc__checks-title Пол
+									.calc__checks-list
+										+checkbox('Ламинат', 'floor', 0, false)
+										+checkbox('Паркет', 'floor', 1, false)
+										+checkbox('Плитка штукатурка', 'floor', 2, false)
+										+checkbox('Комбинированные', 'floor', 3, false)
+							.calc__footer
+								a.button.button_secondary.calc__button(data-step='prev') Назад
+								a.button.calc__button(data-step='next') Далее
 
-					Выберите, какие работы необходимо произвести?
-					Потолок
-					Стены
-					Пол
-					Натяжной
-					Обои
-					Ламинат
-					Гипсокартон
-					Покраска
-					Паркет
-					Штукатурка
-					Декоративная
-					штукатурка
-					Плитка
-					Многоуровневый
-					Комбинированные
-					Комбинированные
+					.calc__step.calc__step_04
+						.calc__col
+							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__pagination 4#[span /5]
+							.calc__question У вас есть готовый дизайн-проект?
+						.calc__col
+							.calc__radios-set
+								label.calc__label
+									input.calc__radio(type='radio', name='project', value=0, checked, required)
+									.calc__tile
+										svg.calc__radio-icon
+											use(xlink:href='img/svgSprite.svg#icon__doc')
+										.calc__radio-title Да, есть
+								label.calc__label
+									input.calc__radio(type='radio', name='project', value=1, required)
+									.calc__tile
+										svg.calc__radio-icon
+											use(xlink:href='img/svgSprite.svg#icon__search')
+										.calc__radio-title В процессе поиска
+								label.calc__label
+									input.calc__radio(type='radio', name='project', value=2, required)
+									.calc__tile
+										svg.calc__radio-icon
+											use(xlink:href='img/svgSprite.svg#icon__right')
+										.calc__radio-title Нет, но не откажусь от бесплатного
+							.calc__footer
+								a.button.button_secondary.calc__button(data-step='prev') Назад
+								a.button.calc__button(data-step='next') Далее
 
-					У вас есть готовый дизайн-проект?
-					Да, есть
-					В процессе
-					поиска
-					Нет, но не откажусь
-					от бесплатного
+					.calc__step.calc__step_05
+						.calc__col
+							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__pagination 5#[span /5]
+							.calc__question Когда планируете начать ремонт?
+						.calc__col
+							.calc__radios-set
+								label.calc__label
+									input.calc__radio(type='radio', name='time', value=0, checked, required)
+									.calc__tile
+										svg.calc__radio-icon
+											use(xlink:href='img/svgSprite.svg#icon__clock')
+										.calc__radio-title Как можно скорее
+								label.calc__label
+									input.calc__radio(type='radio', name='time', value=1, required)
+									.calc__tile
+										svg.calc__radio-icon
+											use(xlink:href='img/svgSprite.svg#icon__calendar')
+										.calc__radio-title В этом месяце
+								label.calc__label
+									input.calc__radio(type='radio', name='time', value=2, required)
+									.calc__tile
+										svg.calc__radio-icon
+											use(xlink:href='img/svgSprite.svg#icon__time')
+										.calc__radio-title В течение 3-х месяцев
+							.calc__footer
+								a.button.button_secondary.calc__button(data-step='prev') Назад
+								a.button.calc__button(data-step='next') Далее
 
-					Когда планируете начать ремонт?
-					Как можно скорее
-					В этом месяце
-					В течение
-					3-х месяцев
+					.calc__step.calc__step_06
+						.calc__col
+							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__pagination Расчет готов!
+							.calc__question Вам куда удобнее получить результат и бонусы?
+						.calc__col
+							.calc__send
+								.calc__block
+									.calc__socials
+										label.calc__social
+											input.calc__radio(type='radio', name='social', value=0, checked, required)
+											.calc__social-tile
+												svg.calc__social-icon
+													use(xlink:href='img/svgSprite.svg#icon__social_wa')
+												.calc__social-title WhatsApp
+										label.calc__social
+											input.calc__radio(type='radio', name='social', value=0, required)
+											.calc__social-tile
+												svg.calc__social-icon
+													use(xlink:href='img/svgSprite.svg#icon__social_tg')
+												.calc__social-title Telegram
+									.calc__descr Введите ваш телефон, мы вышлем вам стоимость и бонусы на указанный способ как можно скорее!
+								form.form.calc__form
+									.form__grid
+										+field('Имя', 'calc-name')
+										+field_phone('Номер телефона', 'calc-phone')
+										button.button Получить
+									.form__small Заполняя форму вы даёте согласие на обработку #[a(href='policy.html', target='_blanc') персональных данных]
 
-					Расчет готов!
-					Вам куда удобнее получить результат и бонусы?
-					Имя
-					WhatsApp
-					Telegram
-					Анастасия
-					Номер телефона
-					Введите ваш телефон, мы вышлем вам стоимость и бонусы на указанный на указанный способ как можно скорее!
-					Получить
+					.calc__step.calc__step_07
+						.calc__success
+							.calc__success-info
+								.calc__success-title Ваша заявка отправлена, cпасибо!
+								.calc__success-text В ближайшее время мы свяжемся с Вами
+							svg.calc__success-icon
+								use(xlink:href='img/svgSprite.svg#icon__like')
 
-					Ваша заявка отправлена, cпасибо!
-					В ближайшее время мы свяжемся с Вами
 	section.section.steps
 		#steps.section__anchor
 		.grid

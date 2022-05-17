@@ -7,5 +7,17 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: var(--container);
+	@media screen and (min-width: $screen-d) {
+		width: 120rem;
+		.header & {
+			width: var(--container);
+		}
+	}
+	@media screen and (min-width: $screen-dl) {
+		width: 127rem;
+		.header & {
+			width: var(--container);
+		}
+	}
 }
 
