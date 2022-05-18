@@ -346,9 +346,11 @@
 
 	&__send {
 		display: grid;
+		gap: 1.6rem;
 		justify-content: space-between;
 		margin-top: auto;
 		@media screen and (min-width: $screen-ti) {
+			gap: 0;
 			grid-template-columns: 32rem 26rem;
 		}
 	}

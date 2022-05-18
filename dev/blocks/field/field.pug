@@ -3,18 +3,17 @@
 mixin field(label, id, mod)
 	.field(class= mod)
 		input.field__input(type='text', id= id, required)
-		label.field__label!= label
+		label.field__label(for= id)!= label
 
 mixin field_phone(label, id, mod)
 	.field(class= mod)
 		input.field__input(
 			type='tel',
-			pattern='\\+7\\s?[\\(]{0,1}9[0-9]{2}[\\)]{0,1}\\s?\\d{3}[-]{0,1}\\d{2}[-]{0,1}\\d{2}',
 			id= id,
 			required)
-		label.field__label!= label
+		label.field__label(for= id)!= label
 
-mixin field_number(label, id, mod, min, max, fieldMod)
+mixin field_number(label, name, id, mod, min, max)
 	.field(class= mod)
-		input.field__input(type='number', id= id, min= min, max= max, class= fieldMod, required)
-		label.field__label!= label
+		input.field__input.field__input_has-value(type='number', name= name, id= id, min= min, max= max, required)
+		label.field__label(for= id)!= label

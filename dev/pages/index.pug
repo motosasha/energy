@@ -192,7 +192,7 @@ block pageMain
 	section.section.calc
 		#calc.section__anchor
 		.grid
-			.calc__card
+			form#calc-form.calc__card(method='post')
 				.calc__inner
 					.calc__step.calc__step_01.calc__step_active
 						.calc__col
@@ -230,14 +230,14 @@ block pageMain
 						.calc__col
 							.calc__ranges
 								.calc__ranges-row
-									+field_number('Площадь вашего помещения, м²', 'input-area', '', 10, 500, 'field__input_has-value')
+									+field_number('Площадь вашего помещения, м²', 'area', 'input-area', '', 10, 500)
 									.calc__range.calc__range_area
 								.calc__ranges-row
-									+field_number('Количество комнат', 'input-rooms', '', 1, 25, 'field__input_has-value')
+									+field_number('Количество комнат', 'rooms', 'input-rooms', '', 1, 25)
 									.calc__range.calc__range_rooms
 								.calc__ranges-row
-									+field_number('Количество санузлов', 'input-su', '', 1, 5, 'field__input_has-value')
-									.calc__range.calc__range_su
+									+field_number('Количество санузлов', 'bathrooms', 'input-bathrooms', '', 1, 5)
+									.calc__range.calc__range_bathrooms
 							.calc__footer
 								a.button.button_secondary.calc__button(data-step='prev') Назад
 								a.button.calc__button(data-step='next') Далее
@@ -354,11 +354,11 @@ block pageMain
 													use(xlink:href='img/svgSprite.svg#icon__social_tg')
 												.calc__social-title Telegram
 									.calc__descr Введите ваш телефон, мы вышлем вам стоимость и бонусы на указанный способ как можно скорее!
-								form.form.calc__form
+								.form.calc__form
 									.form__grid
 										+field('Имя', 'calc-name')
 										+field_phone('Номер телефона', 'calc-phone')
-										button.button Получить
+										input.button(type='submit', value='Получить')
 									.form__small Заполняя форму вы даёте согласие на обработку #[a(href='policy.html', target='_blanc') персональных данных]
 
 					.calc__step.calc__step_07

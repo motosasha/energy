@@ -175,28 +175,6 @@ function compileSass() {
 }
 exports.compileSass = compileSass;
 
-function compileLanding() {
-	const fileList = [
-		`${dir.landing}/landing.scss`,
-	];
-	return src(fileList, { sourcemaps: true })
-		.pipe(plumber({
-			errorHandler: function (err) {
-				console.log(err.message);
-				this.emit('end');
-			}
-		}))
-		.pipe(debug({title: 'Compiles:'}))
-		.pipe(sass({includePaths: [__dirname+'/','node_modules']}))
-		.pipe(postcss(postCssPlugins))
-		.pipe(csso({
-			restructure: false,
-		}))
-		.pipe(dest(`${dir.build}/css`, { sourcemaps: '.' }))
-		.pipe(browserSync.stream());
-}
-exports.compileLanding = compileLanding;
-
 function buildJs(cb) {
 	let jsPath = `${dir.dev}js/`;
 	if(fileExist(jsPath)) {

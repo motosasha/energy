@@ -229,9 +229,24 @@ window.onload = function() {
 	});
 
 	// ranges
+	function makeSliderLink(range, input) {
+		range.noUiSlider.on('update', function (values, handle) {
+			let rangeVal = values[handle];
+			input.value = Math.floor(rangeVal)
+		});
+		input.addEventListener('change', function (e) {
+			range.noUiSlider.set(this.value);
+		});
+		input.addEventListener('keypress', function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				range.noUiSlider.set(this.value);
+			}
+		});
+	}
 	let areaInput = document.querySelector('#input-area');
 	let areaRange = document.querySelector('.calc__range_area');
-	noUiSlider.create(areaRange, {
+	let areaOptions = {
 		start: 125,
 		connect: 'lower',
 		padding: 20,
@@ -252,18 +267,10 @@ window.onload = function() {
 				decimals: 0,
 			})
 		}
-	});
-	areaRange.noUiSlider.on('update', function (values, handle) {
-		let rangeVal = values[handle];
-		areaInput.value = Math.floor(rangeVal)
-	});
-	areaInput.addEventListener('change', function () {
-		areaRange.noUiSlider.set(this.value);
-	});
-
+	}
 	let roomsInput = document.querySelector('#input-rooms');
 	let roomsRange = document.querySelector('.calc__range_rooms');
-	noUiSlider.create(roomsRange, {
+	let roomsOptions = {
 		start: 3,
 		connect: 'lower',
 		padding: 1,
@@ -284,18 +291,10 @@ window.onload = function() {
 				decimals: 0,
 			})
 		}
-	});
-	roomsRange.noUiSlider.on('update', function (values, handle) {
-		let rangeVal = values[handle];
-		roomsInput.value = Math.floor(rangeVal)
-	});
-	roomsInput.addEventListener('change', function () {
-		roomsRange.noUiSlider.set(this.value);
-	});
-
-	let suInput = document.querySelector('#input-su');
-	let suRange = document.querySelector('.calc__range_su');
-	noUiSlider.create(suRange, {
+	}
+	let bathroomsInput = document.querySelector('#input-bathrooms');
+	let bathroomsRange = document.querySelector('.calc__range_bathrooms');
+	let bathroomsOptions = {
 		start: 1,
 		connect: 'lower',
 		padding: 1,
@@ -316,35 +315,62 @@ window.onload = function() {
 				decimals: 0,
 			})
 		}
-	});
-	suRange.noUiSlider.on('update', function (values, handle) {
-		let rangeVal = values[handle];
-		suInput.value = Math.floor(rangeVal)
-	});
-	suInput.addEventListener('change', function () {
-		suRange.noUiSlider.set(this.value);
-	});
+	}
+	noUiSlider.create(areaRange, areaOptions);
+	noUiSlider.create(roomsRange, roomsOptions);
+	noUiSlider.create(bathroomsRange, bathroomsOptions);
+	makeSliderLink(areaRange, areaInput);
+	makeSliderLink(roomsRange, roomsInput);
+	makeSliderLink(bathroomsRange, bathroomsInput);
 
-	// stepper
+	// calc form
+	let calcForm = document.querySelector('#calc-form');
 	let steps = document.querySelectorAll('.calc__step');
 	let nextSteps = document.querySelectorAll('.calc__button[data-step="next"]');
 	let prevSteps = document.querySelectorAll('.calc__button[data-step="prev"]');
 	let currentStep = 0;
 	let calcSection = document.querySelector('#calc');
-
+	function stepDirection(direction) {
+		for(let i = 0; i < steps.length; i++) {
+			steps[i].classList.remove('calc__step_active')
+		}
+		if(direction === 'next') ++currentStep;
+		if(direction === 'prev') --currentStep;
+		steps[currentStep].classList.add('calc__step_active')
+		calcSection.scrollIntoView({behavior: "smooth"})
+	}
 	function makeStep(trigger, direction) {
 		for (let step of trigger) {
 			step.addEventListener('click', function () {
-				for(let i = 0; i < steps.length; i++) {
-					steps[i].classList.remove('calc__step_active')
-				}
-				if(direction === 'next') ++currentStep;
-				if(direction === 'prev') --currentStep;
-				steps[currentStep].classList.add('calc__step_active')
-				calcSection.scrollIntoView()
+				stepDirection(direction);
 			})
 		}
 	}
 	makeStep(nextSteps, 'next')
 	makeStep(prevSteps, 'prev')
+	const ajaxSend = async (formData) => {
+		// change 'https://reqres.in/api/users
+		const fetchResp = await fetch('https://reqres.in/api/users', {
+			method: 'POST',
+			//body: formData
+			body: {
+				"name": "test"
+			}
+		});
+		if (!fetchResp.ok) {
+			throw new Error(`Ошибка по адресу ${url}, статус ошибки ${fetchResp.status}`);
+		}
+		return await fetchResp.text();
+	};
+	calcForm.addEventListener('submit', function (e) {
+		e.preventDefault();
+		const formData = new FormData(this);
+		ajaxSend(formData)
+			.then((response) => {
+				console.log(response);
+				stepDirection('next');
+				calcForm.reset();
+			})
+			.catch((err) => console.error(err))
+	});
 };
