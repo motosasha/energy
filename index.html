@@ -1,10 +1,6 @@
-<!--if isDeploy === true- var pageAddress = '/energy'-->
-<!--else- var pageAddress = ''
--->
 <!DOCTYPE html>
 <html class="no-js" lang="ru-RU">
 	<head>
-		<!--if isDeploy === truebase(href='https://motosasha.github.io/kolibri/')-->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=3, minimum-scale=0.1">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -90,8 +86,8 @@
 								<form class="form">
 									<div class="form__title">Получи <span>бесплатный расчёт</span> и <span>консультацию</span></div>
 									<div class="form__grid">
-										<div class="field"><input class="field__input" type="text" id="hero-name" required="required" /><label class="field__label">Имя</label></div>
-										<div class="field"><input class="field__input" type="tel" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" id="hero-phone" required="required" /><label class="field__label">Номер телефона</label></div><button class="button">Получить</button>
+										<div class="field"><input class="field__input" type="text" id="hero-name" required="required" /><label class="field__label" for="hero-name">Имя</label></div>
+										<div class="field"><input class="field__input" type="tel" id="hero-phone" required="required" /><label class="field__label" for="hero-phone">Номер телефона</label></div><button class="button">Получить</button>
 									</div>
 									<div class="form__small">Заполняя форму вы даёте согласие на обработку <a href="policy.html" target="_blanc">персональных данных</a></div>
 								</form>
@@ -347,7 +343,7 @@
 				<section class="section calc">
 					<div class="section__anchor" id="calc"></div>
 					<div class="grid">
-						<div class="calc__card">
+						<form class="calc__card" id="calc-form" method="post">
 							<div class="calc__inner">
 								<div class="calc__step calc__step_01 calc__step_active">
 									<div class="calc__col">
@@ -387,16 +383,16 @@
 									<div class="calc__col">
 										<div class="calc__ranges">
 											<div class="calc__ranges-row">
-												<div class="field"><input class="field__input field__input_has-value" type="number" id="input-area" min="10" max="500" required="required" /><label class="field__label">Площадь вашего помещения, м²</label></div>
+												<div class="field"><input class="field__input field__input_has-value" type="number" name="area" id="input-area" min="10" max="500" required="required" /><label class="field__label" for="input-area">Площадь вашего помещения, м²</label></div>
 												<div class="calc__range calc__range_area"></div>
 											</div>
 											<div class="calc__ranges-row">
-												<div class="field"><input class="field__input field__input_has-value" type="number" id="input-rooms" min="1" max="25" required="required" /><label class="field__label">Количество комнат</label></div>
+												<div class="field"><input class="field__input field__input_has-value" type="number" name="rooms" id="input-rooms" min="1" max="25" required="required" /><label class="field__label" for="input-rooms">Количество комнат</label></div>
 												<div class="calc__range calc__range_rooms"></div>
 											</div>
 											<div class="calc__ranges-row">
-												<div class="field"><input class="field__input field__input_has-value" type="number" id="input-su" min="1" max="5" required="required" /><label class="field__label">Количество санузлов</label></div>
-												<div class="calc__range calc__range_su"></div>
+												<div class="field"><input class="field__input field__input_has-value" type="number" name="bathrooms" id="input-bathrooms" min="1" max="5" required="required" /><label class="field__label" for="input-bathrooms">Количество санузлов</label></div>
+												<div class="calc__range calc__range_bathrooms"></div>
 											</div>
 										</div>
 										<div class="calc__footer"><a class="button button_secondary calc__button" data-step="prev">Назад</a><a class="button calc__button" data-step="next">Далее</a></div>
@@ -568,13 +564,13 @@
 													</label></div>
 												<div class="calc__descr">Введите ваш телефон, мы вышлем вам стоимость и бонусы на указанный способ как можно скорее!</div>
 											</div>
-											<form class="form calc__form">
+											<div class="form calc__form">
 												<div class="form__grid">
-													<div class="field"><input class="field__input" type="text" id="calc-name" required="required" /><label class="field__label">Имя</label></div>
-													<div class="field"><input class="field__input" type="tel" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" id="calc-phone" required="required" /><label class="field__label">Номер телефона</label></div><button class="button">Получить</button>
+													<div class="field"><input class="field__input" type="text" id="calc-name" required="required" /><label class="field__label" for="calc-name">Имя</label></div>
+													<div class="field"><input class="field__input" type="tel" id="calc-phone" required="required" /><label class="field__label" for="calc-phone">Номер телефона</label></div><input class="button" type="submit" value="Получить">
 												</div>
-												<div class="form__small">Заполняя форму вы даёте согласие на обработку <a href="policy.html" target="_blanc">персональных данных</a></div>
-											</form>
+												<div class="form__small">Заполняя форму вы даёте согласие на обработку <a href="policy.html" target="_blanc">персональных данных</a></div><input type="hidden" name="admin_email" value="moto.sasha@gmail.com">
+											</div>
 										</div>
 									</div>
 								</div>
@@ -589,7 +585,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</section>
 				<section class="section steps">
@@ -782,8 +778,8 @@
 								<form class="form">
 									<div class="form__title">Остались <span>вопросы</span>?</div>
 									<div class="form__grid">
-										<div class="field"><input class="field__input" type="text" id="footer-name" required="required" /><label class="field__label">Имя</label></div>
-										<div class="field"><input class="field__input" type="tel" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" id="footer-phone" required="required" /><label class="field__label">Номер телефона</label></div><button class="button">Отправить</button>
+										<div class="field"><input class="field__input" type="text" id="footer-name" required="required" /><label class="field__label" for="footer-name">Имя</label></div>
+										<div class="field"><input class="field__input" type="tel" id="footer-phone" required="required" /><label class="field__label" for="footer-phone">Номер телефона</label></div><button class="button">Отправить</button>
 									</div>
 									<div class="form__small">Заполняя форму вы даёте согласие на обработку <a href="policy.html" target="_blanc">персональных данных</a></div>
 								</form>
@@ -804,8 +800,8 @@
 							<form class="form">
 								<div class="form__title">Оставить <span>заявку</span></div>
 								<div class="form__grid">
-									<div class="field"><input class="field__input" type="text" id="popup-name" required="required" /><label class="field__label">Имя</label></div>
-									<div class="field"><input class="field__input" type="tel" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" id="popup-phone" required="required" /><label class="field__label">Номер телефона</label></div><button class="button">Отправить</button>
+									<div class="field"><input class="field__input" type="text" id="popup-name" required="required" /><label class="field__label" for="popup-name">Имя</label></div>
+									<div class="field"><input class="field__input" type="tel" id="popup-phone" required="required" /><label class="field__label" for="popup-phone">Номер телефона</label></div><button class="button">Отправить</button>
 								</div>
 								<div class="form__small">Заполняя форму вы даёте согласие на обработку <a href="policy.html" target="_blanc">персональных данных</a></div>
 							</form>
