@@ -18,7 +18,7 @@ mixin popup-thanks
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
-					form.form
+					.form
 						.form__title Спасибо #[span за заявку!]
 						.form__text В ближайшее время мы свяжемся с Вами
 
@@ -30,7 +30,7 @@ mixin popup-video
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
-					iframe#video-player(src='https://www.youtube.com/embed/BkhaV46HM2E?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+					iframe(src='https://www.youtube.com/embed/BkhaV46HM2E' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
 
 mixin popup-video-review_1
 	#video-review-1.hystmodal(aria-hidden='true')
@@ -40,7 +40,7 @@ mixin popup-video-review_1
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
-					iframe#video-player(src='https://www.youtube.com/embed/BkhaV46HM2E?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+					iframe(src='https://www.youtube.com/embed/vcBGj4R7Fo0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
 
 mixin popup-video-review_2
 	#video-review-2.hystmodal(aria-hidden='true')
@@ -50,4 +50,4 @@ mixin popup-video-review_2
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
-					iframe#video-player(src='https://www.youtube.com/embed/BkhaV46HM2E?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+					iframe(src='https://www.youtube.com/embed/WucfckO0q48' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
