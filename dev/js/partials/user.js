@@ -119,7 +119,7 @@ window.onload = function() {
 		slidesPerView: 1,
 		spaceBetween: 32
 	});
-	let reviewsVideoSwiper = new Swiper('.reviews__video-slider', {
+	/*let reviewsVideoSwiper = new Swiper('.reviews__video-slider', {
 		navigation: {
 			nextEl: '.reviews__video-next',
 			prevEl: '.reviews__video-prev',
@@ -132,7 +132,7 @@ window.onload = function() {
 		},
 		slidesPerView: 1,
 		spaceBetween: 32
-	});
+	});*/
 
 	// works
 	let tabLabels = document.querySelectorAll('.works__tabs-head .works__tab');

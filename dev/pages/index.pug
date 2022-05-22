@@ -16,7 +16,7 @@ block pageMain
 						li.hero__li Гибкая система оплаты
 				.hero__form
 					+form('Получи <span>бесплатный расчёт</span> и <span>консультацию</span>', 'hero-name', 'hero-phone', 'Получить')
-	section.video
+	//section.video
 		a.video__frame(data-hystmodal="#video")
 			svg.video__icon
 				use(xlink:href='img/svgSprite.svg#icon__play')
@@ -485,10 +485,7 @@ block pageMain
 													{href: 'nickolskoe_02', img: '03-02', before: '', after: ''},
 													{href: 'nickolskoe_03', img: '03-03', before: '', after: ''},
 													{href: 'nickolskoe_04', img: '03-04', before: '', after: ''},
-													{href: 'nickolskoe_05', img: '03-05', before: '', after: ''},
-													{href: 'nickolskoe_06', img: '03-06', before: '', after: ''},
-													{href: 'nickolskoe_07', img: '03-07', before: '', after: ''},
-													{href: 'nickolskoe_08', img: '03-08', before: '', after: ''}
+													{href: 'nickolskoe_05', img: '03-05', before: '', after: ''}
 												]
 											},
 											{
@@ -525,8 +522,7 @@ block pageMain
 													{href: 'salmachi_04', img: '04-04', before: '', after: ''},
 													{href: 'salmachi_05', img: '04-05', before: '', after: ''},
 													{href: 'salmachi_06', img: '04-06', before: '', after: ''},
-													{href: 'salmachi_07', img: '04-07', before: '', after: ''},
-													{href: 'salmachi_08', img: '04-08', before: '', after: ''}
+													{href: 'salmachi_07', img: '04-07', before: '', after: ''}
 												]
 											},
 											{
@@ -554,10 +550,7 @@ block pageMain
 													{href: 'sokury_02', img: '05-02', before: '', after: ''},
 													{href: 'sokury_03', img: '05-03', before: '', after: ''},
 													{href: 'sokury_04', img: '05-04', before: '', after: ''},
-													{href: 'sokury_05', img: '05-05', before: '', after: ''},
-													{href: 'sokury_06', img: '05-06', before: '', after: ''},
-													{href: 'sokury_07', img: '05-07', before: '', after: ''},
-													{href: 'sokury_08', img: '05-08', before: '', after: ''}
+													{href: 'sokury_05', img: '05-05', before: '', after: ''}
 												]
 											},
 											{
@@ -601,8 +594,7 @@ block pageMain
 													'котельная',
 													'кухня-студия с выходом на небольшую террасу',
 													'гардеробная',
-													'просторный',
-													'с/у',
+													'просторный с/у',
 													'3 спальни',
 													'мансарда'
 												],
@@ -889,7 +881,7 @@ block pageMain
 		.grid
 			.reviews__inner
 				h2.section__title Отзывы #[span наших клиентов]
-				.reviews__slider-wrap
+				//-.reviews__slider-wrap
 					.swiper.reviews__video-slider
 						.swiper-wrapper
 							.swiper-slide.reviews__slide
@@ -912,6 +904,16 @@ block pageMain
 					.swiper.reviews__slider
 						.swiper-wrapper
 							.swiper-slide.reviews__slide
+								a.reviews__video-link(data-hystmodal="#video-review-1")
+									svg.reviews__icon
+										use(xlink:href='img/svgSprite.svg#icon__play')
+									img(src='img/img__reviews_01v.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__video-link(data-hystmodal="#video-review-2")
+									svg.reviews__icon
+										use(xlink:href='img/svgSprite.svg#icon__play')
+									img(src='img/img__reviews_02v.jpg', alt='')
+							.swiper-slide.reviews__slide
 								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_01_l.jpg')
 									img(src='img/img__reviews_01.jpg', alt='')
 							.swiper-slide.reviews__slide
@@ -923,6 +925,18 @@ block pageMain
 							.swiper-slide.reviews__slide
 								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_04_l.jpg')
 									img(src='img/img__reviews_04.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_05_l.jpg')
+									img(src='img/img__reviews_05.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_06_l.jpg')
+									img(src='img/img__reviews_06.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_07_l.jpg')
+									img(src='img/img__reviews_07.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_08_l.jpg')
+									img(src='img/img__reviews_08.jpg', alt='')
 					.swiper-button-prev.reviews__prev
 						svg.swiper-icon
 							use(xlink:href='img/svgSprite.svg#icon__prev')
