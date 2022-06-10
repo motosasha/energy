@@ -67,7 +67,7 @@
 		font-weight: 300;
 		letter-spacing: 0.01em;
 		line-height: 1.2;
-		margin-bottom: 2.4rem;
+		margin-bottom: 1.2rem;
 		span {
 			font-weight: 700;
 			span {
@@ -77,8 +77,18 @@
 		@media screen and (min-width: $screen-d) {
 			font-size: 2.4rem;
 			line-height: 1.35;
-			margin-bottom: 4.8rem;
+			margin-bottom: 1.2rem;
 			max-width: 36.6rem;
+		}
+	}
+	&__sub {
+		font-size: 1.6rem;
+		font-weight: 300;
+		line-height: 1.5;
+		letter-spacing: 0.01em;
+		margin-bottom: 2.4rem;
+		@media screen and (min-width: $screen-d) {
+			margin-bottom: 4.8rem;
 		}
 	}
 	&__pagination {

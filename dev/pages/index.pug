@@ -11,7 +11,7 @@ block pageMain
 						li.hero__li Работаем по договору
 						li.hero__li Даём гарантию
 						li.hero__li Закупаем материалы со скидками
-						li.hero__li Выезд и смета бесплатно
+						li.hero__li Понятная, прозрачная смета
 						li.hero__li Регулярные фото/видеоотчёты
 						li.hero__li Гибкая система оплаты
 				.hero__form
@@ -28,7 +28,7 @@ block pageMain
 				.services__grid
 					+services-item('keys', 'Ремонт под ключ в новостройках и коттеджах')
 					+services-item('apartments', 'Ремонт коммерческих помещений')
-					+services-item('floor', 'Разработка <span>дизайн-проекта</span>')
+					+services-item('floor', 'Создание <span>дизайн-проектов</span>')
 					+services-item('cottage', 'Строительство загородных домов')
 	section.section.works
 		#works.section__anchor
@@ -40,7 +40,7 @@ block pageMain
 						.works__tabs-scroll
 							.works__tabs-head
 								.works__tab.works__tab_active(data-href='#works__tab_01')
-									span Разработка дизайн-проектов
+									span Дизайн-проекты
 								.works__tab(data-href='#works__tab_02')
 									span Отделка квартир и коттеджей
 								.works__tab(data-href='#works__tab_03')
@@ -53,9 +53,9 @@ block pageMain
 								.project-tabs__tabs-ovh
 									.project-tabs__tabs-scroll
 										.project-tabs__tabs-head
-											+project-tabs-tab('Дизайн-проект', 'Савин Хаус', '#savin', true)
-											+project-tabs-tab('Дизайн-проект', '21 век', '#century', false)
-											+project-tabs-tab('Дизайн-проект', 'Казан Су дизайн', '#kazan', false)
+											+project-tabs-tab('Дизайн-проект', 'ЖК «Савин Хаус»', '#savin', true)
+											+project-tabs-tab('Дизайн-проект', 'ЖК «21 век»', '#century', false)
+											+project-tabs-tab('Дизайн-проект', 'ЖК «Казан Су»', '#kazan', false)
 								.project-tabs__tabs-contents
 									#savin.project-tabs__tabs-content.project-tabs__tabs-content_active
 										+project(
@@ -118,7 +118,7 @@ block pageMain
 												beforeAfter: false,
 												gallery: 'century',
 												tab: [
-													{href: 'century_01', img: '00-01', before: '', after: ''},
+													{href: 'kazan_01', img: '00-01', before: '', after: ''},
 												]
 											},
 											{
@@ -140,26 +140,47 @@ block pageMain
 								.project-tabs__tabs-ovh
 									.project-tabs__tabs-scroll
 										.project-tabs__tabs-head
-											+project-tabs-tab('Отделка ванной', 'КП «Габишево»', '#gabishevo', true)
-											+project-tabs-tab('Ремонт ванной', 'ул. Декабристов', '#dekabristov', false)
+											+project-tabs-tab('Проекты', 'в процессе работе', '#process', true)
 											+project-tabs-tab('Отделка 2к Квартиры', 'ЖК «Весна»', '#vesna', false)
-											+project-tabs-tab('Ремонт 2к квартиры', 'ул. Завойского', '#zavoiskogo', false)
 											+project-tabs-tab('Отделка 1к квартиры', 'ЖК «Три Богатыря»', '#tribogatyia', false)
+											+project-tabs-tab('Ремонт 2к квартиры', 'ул. Завойского', '#zavoiskogo', false)
+											+project-tabs-tab('Ремонт ванной', 'ул. Декабристов', '#dekabristov', false)
+											+project-tabs-tab('Отделка ванной', 'КП «Габишево»', '#gabishevo', false)
 								.project-tabs__tabs-contents
-									#gabishevo.project-tabs__tabs-content.project-tabs__tabs-content_active
+									#process.project-tabs__tabs-content.project-tabs__tabs-content_active
+										+project(
+											{
+												beforeAfter: false,
+												gallery: 'process',
+												tab: [
+													{href: 'process_01', img: '00-01', before: '', after: ''},
+												]
+											},
+											{
+												label: 'Бирка',
+												title: 'Заголовок',
+												s: 'площадь',
+												term: 'время',
+												list: [
+													'Пункт списка'
+												],
+											},
+											'decoration'
+										)
+									#gabishevo.project-tabs__tabs-content
 										+project(
 											{
 												beforeAfter: false,
 												gallery: 'gabishevo',
 												tab: [
+													{href: 'gabishevo_08', img: '01-08', before: '', after: ''},
 													{href: 'gabishevo_01', img: '01-01', before: '', after: ''},
 													{href: 'gabishevo_02', img: '01-02', before: '', after: ''},
 													{href: 'gabishevo_03', img: '01-03', before: '', after: ''},
 													{href: 'gabishevo_04', img: '01-04', before: '', after: ''},
 													{href: 'gabishevo_05', img: '01-05', before: '', after: ''},
 													{href: 'gabishevo_06', img: '01-06', before: '', after: ''},
-													{href: 'gabishevo_07', img: '01-07', before: '', after: ''},
-													{href: 'gabishevo_08', img: '01-08', before: '', after: ''}
+													{href: 'gabishevo_07', img: '01-07', before: '', after: ''}
 												]
 											},
 											{
@@ -181,11 +202,11 @@ block pageMain
 												beforeAfter: false,
 												gallery: 'dekabristov',
 												tab: [
+													{href: 'dekabristov_05', img: '02-05', before: '', after: ''},
 													{href: 'dekabristov_01', img: '02-01', before: '', after: ''},
 													{href: 'dekabristov_02', img: '02-02', before: '', after: ''},
 													{href: 'dekabristov_03', img: '02-03', before: '', after: ''},
-													{href: 'dekabristov_04', img: '02-04', before: '', after: ''},
-													{href: 'dekabristov_05', img: '02-05', before: '', after: ''}
+													{href: 'dekabristov_04', img: '02-04', before: '', after: ''}
 												]
 											},
 											{
@@ -209,12 +230,12 @@ block pageMain
 												beforeAfter: false,
 												gallery: 'vesna',
 												tab: [
+													{href: 'vesna_06', img: '03-06', before: '', after: ''},
 													{href: 'vesna_01', img: '03-01', before: '', after: ''},
 													{href: 'vesna_02', img: '03-02', before: '', after: ''},
 													{href: 'vesna_03', img: '03-03', before: '', after: ''},
 													{href: 'vesna_04', img: '03-04', before: '', after: ''},
 													{href: 'vesna_05', img: '03-05', before: '', after: ''},
-													{href: 'vesna_06', img: '03-06', before: '', after: ''},
 													{href: 'vesna_07', img: '03-07', before: '', after: ''},
 													{href: 'vesna_08', img: '03-08', before: '', after: ''}
 												]
@@ -372,8 +393,8 @@ block pageMain
 												beforeAfter: false,
 												gallery: 'shapova',
 												tab: [
-													{href: 'shapova_01', img: '03-01', before: '', after: ''},
 													{href: 'shapova_02', img: '03-02', before: '', after: ''},
+													{href: 'shapova_01', img: '03-01', before: '', after: ''},
 													{href: 'shapova_03', img: '03-03', before: '', after: ''},
 													{href: 'shapova_04', img: '03-04', before: '', after: ''},
 													{href: 'shapova_05', img: '03-05', before: '', after: ''},
@@ -403,78 +424,13 @@ block pageMain
 								.project-tabs__tabs-ovh
 									.project-tabs__tabs-scroll
 										.project-tabs__tabs-head
-											+project-tabs-tab('Баня', 'Верхний Услон', '#uslon', true)
+											+project-tabs-tab('2х этажный дом', 'КП «Никольское»', '#nickolskoe', true)
+											+project-tabs-tab('Банный комплекс', 'пос. Салмачи', '#salmachi', false)
+											+project-tabs-tab('1 этажный дом', 'пос. Сокуры', '#sokury', false)
 											+project-tabs-tab('2х этажный дом', 'КП «Державино»', '#derzchavino', false)
-											+project-tabs-tab('2х этажный дом', 'КП «Никольское»', '#nickolskoe', false)
-											+project-tabs-tab('Банный комплекс', 'Салмачи', '#salmachi', false)
-											+project-tabs-tab('1 этажный дом', 'Сокуры', '#sokury', false)
 											+project-tabs-tab('1 этажный дом', 'КП «Зимняя горка»', '#turgay', false)
+											+project-tabs-tab('Баня', 'пос. Верхний Услон', '#uslon', false)
 								.project-tabs__tabs-contents
-									#uslon.project-tabs__tabs-content.project-tabs__tabs-content_active
-										+project(
-											{
-												beforeAfter: false,
-												gallery: 'uslon',
-												tab: [
-													{href: 'uslon_01', img: '01-01', before: '', after: ''},
-													{href: 'uslon_02', img: '01-02', before: '', after: ''},
-													{href: 'uslon_03', img: '01-03', before: '', after: ''},
-													{href: 'uslon_04', img: '01-04', before: '', after: ''},
-													{href: 'uslon_05', img: '01-05', before: '', after: ''},
-													{href: 'uslon_06', img: '01-06', before: '', after: ''},
-													{href: 'uslon_07', img: '01-07', before: '', after: ''},
-													{href: 'uslon_08', img: '01-08', before: '', after: ''}
-												]
-											},
-											{
-												label: 'Баня',
-												title: 'посёлок Верхний Услон',
-												term: '2 месяца',
-												list: [
-													'парилка',
-													'помывочная',
-													'зона отдыха',
-													'хозблок'
-												],
-											},
-											'building'
-										)
-									#derzchavino.project-tabs__tabs-content
-										+project(
-											{
-												beforeAfter: false,
-												gallery: 'derzchavino',
-												tab: [
-													{href: 'derzchavino_01', img: '02-01', before: '', after: ''},
-													{href: 'derzchavino_02', img: '02-02', before: '', after: ''},
-													{href: 'derzchavino_03', img: '02-03', before: '', after: ''},
-													{href: 'derzchavino_04', img: '02-04', before: '', after: ''},
-													{href: 'derzchavino_05', img: '02-05', before: '', after: ''},
-													{href: 'derzchavino_06', img: '02-06', before: '', after: ''},
-													{href: 'derzchavino_07', img: '02-07', before: '', after: ''},
-													{href: 'derzchavino_08', img: '02-08', before: '', after: ''}
-												]
-											},
-											{
-												label: '2х этажный дом с террасой',
-												title: 'КП «Державино»',
-												s: 140,
-												term: '7 месяцев',
-												list: [
-													'2 с/у',
-													'прихожая',
-													'кухня-студия',
-													'3 спальни',
-													'терраса',
-													'баня',
-													'электромонтаж',
-													'штукатурка',
-													'стяжка',
-													'отопление'
-												],
-											},
-											'building'
-										)
 									#nickolskoe.project-tabs__tabs-content
 										+project(
 											{
@@ -573,6 +529,42 @@ block pageMain
 											},
 											'building'
 										)
+									#derzchavino.project-tabs__tabs-content
+										+project(
+											{
+												beforeAfter: false,
+												gallery: 'derzchavino',
+												tab: [
+													{href: 'derzchavino_07', img: '02-07', before: '', after: ''},
+													{href: 'derzchavino_06', img: '02-06', before: '', after: ''},
+													{href: 'derzchavino_08', img: '02-08', before: '', after: ''},
+													{href: 'derzchavino_01', img: '02-01', before: '', after: ''},
+													{href: 'derzchavino_02', img: '02-02', before: '', after: ''},
+													{href: 'derzchavino_03', img: '02-03', before: '', after: ''},
+													{href: 'derzchavino_04', img: '02-04', before: '', after: ''},
+													{href: 'derzchavino_05', img: '02-05', before: '', after: ''}
+												]
+											},
+											{
+												label: '2х этажный дом с террасой',
+												title: 'КП «Державино»',
+												s: 140,
+												term: '7 месяцев',
+												list: [
+													'2 с/у',
+													'прихожая',
+													'кухня-студия',
+													'3 спальни',
+													'терраса',
+													'баня',
+													'электромонтаж',
+													'штукатурка',
+													'стяжка',
+													'отопление'
+												],
+											},
+											'building'
+										)
 									#turgay.project-tabs__tabs-content
 										+project(
 											{
@@ -601,6 +593,35 @@ block pageMain
 											},
 											'building'
 										)
+									#uslon.project-tabs__tabs-content.project-tabs__tabs-content_active
+										+project(
+											{
+												beforeAfter: false,
+												gallery: 'uslon',
+												tab: [
+													{href: 'uslon_03', img: '01-03', before: '', after: ''},
+													{href: 'uslon_04', img: '01-04', before: '', after: ''},
+													{href: 'uslon_05', img: '01-05', before: '', after: ''},
+													{href: 'uslon_01', img: '01-01', before: '', after: ''},
+													{href: 'uslon_02', img: '01-02', before: '', after: ''},
+													{href: 'uslon_06', img: '01-06', before: '', after: ''},
+													{href: 'uslon_07', img: '01-07', before: '', after: ''},
+													{href: 'uslon_08', img: '01-08', before: '', after: ''}
+												]
+											},
+											{
+												label: 'Баня',
+												title: 'посёлок Верхний Услон',
+												term: '2 месяца',
+												list: [
+													'парилка',
+													'помывочная',
+													'зона отдыха',
+													'хозблок'
+												],
+											},
+											'building'
+										)
 	section.section.calc
 		#calc.section__anchor
 		.grid
@@ -608,7 +629,8 @@ block pageMain
 				.calc__inner
 					.calc__step.calc__step_01.calc__step_active
 						.calc__col
-							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__title Получи примерный #[span <span>расчёт ремонта</span> под заказ]:
+							.calc__sub Ответь на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 1#[span /5]
 							.calc__question Ремонт какого объекта вас интересует?
 						.calc__col
@@ -636,7 +658,8 @@ block pageMain
 
 					.calc__step.calc__step_02
 						.calc__col
-							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__title Получи примерный #[span <span>расчёт ремонта</span> под заказ]:
+							.calc__sub Ответь на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 2#[span /5]
 							.calc__question Укажите ориентировочную площадь
 						.calc__col
@@ -656,7 +679,8 @@ block pageMain
 
 					.calc__step.calc__step_03
 						.calc__col
-							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__title Получи примерный #[span <span>расчёт ремонта</span> под заказ]:
+							.calc__sub Ответь на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 3#[span /5]
 							.calc__question Выберите, какие работы необходимо произвести?
 						.calc__col
@@ -671,10 +695,10 @@ block pageMain
 								.calc__checks-col
 									.calc__checks-title Стены
 									.calc__checks-list
-										+checkbox('Натяжной', 'walls', 0, false)
-										+checkbox('Гипсокартон', 'walls', 1, false)
-										+checkbox('Штукатурка', 'walls', 2, false)
-										+checkbox('Многоуровневый', 'walls', 3, false)
+										+checkbox('Обои', 'walls', 0, false)
+										+checkbox('Покраска', 'walls', 1, false)
+										+checkbox('Декоративная штукатурка', 'walls', 2, false)
+										+checkbox('Комбинированные', 'walls', 3, false)
 								.calc__checks-col
 									.calc__checks-title Пол
 									.calc__checks-list
@@ -688,7 +712,8 @@ block pageMain
 
 					.calc__step.calc__step_04
 						.calc__col
-							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__title Получи примерный #[span <span>расчёт ремонта</span> под заказ]:
+							.calc__sub Ответь на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 4#[span /5]
 							.calc__question У вас есть готовый дизайн-проект?
 						.calc__col
@@ -717,7 +742,8 @@ block pageMain
 
 					.calc__step.calc__step_05
 						.calc__col
-							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__title Получи примерный #[span <span>расчёт ремонта</span> под заказ]:
+							.calc__sub Ответь на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 5#[span /5]
 							.calc__question Когда планируете начать ремонт?
 						.calc__col
@@ -746,7 +772,8 @@ block pageMain
 
 					.calc__step.calc__step_06
 						.calc__col
-							.calc__title Давайте рассчитаем #[span <span>ремонт</span> на вашем объекте]:
+							.calc__title Получи примерный #[span <span>расчёт ремонта</span> под заказ]:
+							.calc__sub Ответь на несколько вопросов и мы с вами свяжемся
 							.calc__pagination Расчет готов!
 							.calc__question Вам куда удобнее получить результат и бонусы?
 						.calc__col
@@ -776,7 +803,7 @@ block pageMain
 					.calc__step.calc__step_07
 						.calc__success
 							.calc__success-info
-								.calc__success-title Ваша заявка отправлена, cпасибо!
+								.calc__success-title Ваша заявка отправлена, спасибо!
 								.calc__success-text В ближайшее время мы свяжемся с Вами
 							svg.calc__success-icon
 								use(xlink:href='img/svgSprite.svg#icon__like')
@@ -870,6 +897,21 @@ block pageMain
 							.swiper-slide.docs__slide
 								a.docs__link(data-fslightbox='docs', href='img/img__doc_03_l.jpg')
 									img(src='img/img__doc_03.jpg', alt='')
+							.swiper-slide.docs__slide
+								a.docs__link(data-fslightbox='docs', href='img/img__doc_04_l.jpg')
+									img(src='img/img__doc_04.jpg', alt='')
+							.swiper-slide.docs__slide
+								a.docs__link(data-fslightbox='docs', href='img/img__doc_05_l.jpg')
+									img(src='img/img__doc_05.jpg', alt='')
+							.swiper-slide.docs__slide
+								a.docs__link(data-fslightbox='docs', href='img/img__doc_06_l.jpg')
+									img(src='img/img__doc_06.jpg', alt='')
+							.swiper-slide.docs__slide
+								a.docs__link(data-fslightbox='docs', href='img/img__doc_07_l.jpg')
+									img(src='img/img__doc_07.jpg', alt='')
+							.swiper-slide.docs__slide
+								a.docs__link(data-fslightbox='docs', href='img/img__doc_08_l.jpg')
+									img(src='img/img__doc_08.jpg', alt='')
 					.swiper-button-prev.docs__prev
 						svg.swiper-icon
 							use(xlink:href='img/svgSprite.svg#icon__prev')
@@ -913,6 +955,11 @@ block pageMain
 									svg.reviews__icon
 										use(xlink:href='img/svgSprite.svg#icon__play')
 									img(src='img/img__reviews_02v.jpg', alt='')
+							.swiper-slide.reviews__slide
+								a.reviews__video-link(data-hystmodal="#video-review-3")
+									svg.reviews__icon
+										use(xlink:href='img/svgSprite.svg#icon__play')
+									img(src='img/img__reviews_03v.jpg', alt='')
 							.swiper-slide.reviews__slide
 								a.reviews__link(data-fslightbox='reviews', href='img/img__reviews_01_l.jpg')
 									img(src='img/img__reviews_01.jpg', alt='')
