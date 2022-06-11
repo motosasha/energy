@@ -27,14 +27,18 @@ mixin project(tabs, info, dir)
 							a.project__link(data-fslightbox= tabs.gallery, href='img/projects/' + dir + '/img__' + tab.img + '_l.jpg')
 								img.project__image(src='img/projects/' + dir + '/img__' + tab.img + '.jpg', alt='')
 		.project__info
-			.project__label!= info.label
-			.project__title!= info.title
-			.project__tags
-				if info.s
-					.project__tag S #{info.s} м²
-				if info.term
-					.project__tag Срок: #{info.term}
-			ul.project__list
-				each li in info.list
-					li.project__li!= li
+			if info.label
+				.project__label!= info.label
+			if info.title
+				.project__title!= info.title
+			if (info.s || info.term)
+				.project__tags
+					if info.s
+						.project__tag S #{info.s} м²
+					if info.term
+						.project__tag Срок: #{info.term}
+			if info.list
+				ul.project__list
+					each li in info.list
+						li.project__li!= li
 			a.button.project__button(data-hystmodal='#application') Хочу так же
