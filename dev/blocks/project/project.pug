@@ -1,44 +1,48 @@
 //- Все примеси в этом файле должны начинаться c имени блока (project)
 
-mixin project(tabs, info, dir)
+mixin project(vars)
 	.project
 		.project__tabs
 			.project__head
-				each tab, index in tabs.tab ? tabs.tab : []
-					if index === 0
-						.project__tab.project__tab_active(data-href= '#' + tab.href)
-							img(src='img/projects/' + dir + '/img__' + tab.img + '_thumb.jpg', alt='')
-					else
-						.project__tab(data-href= '#' + tab.href)
-							img(src='img/projects/' + dir + '/img__' + tab.img + '_thumb.jpg', alt='')
+				.project-thumbs.swiper
+					.project-thumbs__inner.swiper-wrapper
+						- for (var i = 0; i < vars.slides; ++i) {
+							.project-thumbs__slide.swiper-slide
+								img.project-thumbs__img(src='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '_thumb.jpg', alt='')
+						- }
+					.swiper-button-prev.project-thumbs__prev
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__prev')
+					.swiper-button-next.project-thumbs__next
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__next')
 			.project__gallery
-				each tab, index in tabs.tab ? tabs.tab : []
-					if tabs.beforeAfter === true && index === 0
-						.project__item.project__item_active(id = tab.href)
-							.image-compare
-								img(src='img/projects/' + dir + '/img__' + tab.before + '.jpg', alt='')
-								img(src='img/projects/' + dir + '/img__' + tab.after + '.jpg', alt='')
-					else if index === 0
-						.project__item.project__item_active(id = tab.href)
-							a.project__link(data-fslightbox= tabs.gallery, href='img/projects/' + dir + '/img__' + tab.img + '_l.jpg')
-								img.project__image(src='img/projects/' + dir + '/img__' + tab.img + '.jpg', alt='')
-					else
-						.project__item(id = tab.href)
-							a.project__link(data-fslightbox= tabs.gallery, href='img/projects/' + dir + '/img__' + tab.img + '_l.jpg')
-								img.project__image(src='img/projects/' + dir + '/img__' + tab.img + '.jpg', alt='')
+				.project-slider.swiper
+					.project-slider__inner.swiper-wrapper
+						- for (var i = 0; i < vars.slides; ++i) {
+							.project-slider__slide.swiper-slide
+								a.project__link(data-fslightbox= vars.gallery, href='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '_l.jpg')
+									img.project__image(src='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '.jpg', alt='')
+						- }
+					.swiper-button-prev.project-slider__prev
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__prev')
+					.swiper-button-next.project-slider__next
+						svg.swiper-icon
+							use(xlink:href='img/svgSprite.svg#icon__next')
 		.project__info
-			if info.label
-				.project__label!= info.label
-			if info.title
-				.project__title!= info.title
-			if (info.s || info.term)
+			if vars.label
+				.project__label!= vars.label
+			if vars.title
+				.project__title!= vars.title
+			if (vars.s || vars.term)
 				.project__tags
-					if info.s
-						.project__tag S #{info.s} м²
-					if info.term
-						.project__tag Срок: #{info.term}
-			if info.list
+					if vars.s
+						.project__tag S #{vars.s} м²
+					if vars.term
+						.project__tag Срок: #{vars.term}
+			if vars.list
 				ul.project__list
-					each li in info.list
+					each li in vars.list
 						li.project__li!= li
 			a.button.project__button(data-hystmodal='#application') Хочу так же

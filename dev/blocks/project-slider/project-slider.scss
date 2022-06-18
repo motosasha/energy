@@ -1,0 +1,19 @@
+// В этом файле должны быть стили для БЭМ-блока project-slider, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.project-slider {
+	width: 100%;
+	&__prev.swiper-button-prev {
+		left: .8rem;
+		@media screen and (min-width: $screen-d) {
+			left: 1.6rem;
+		}
+	}
+	&__next.swiper-button-next {
+		right: .8rem;
+		@media screen and (min-width: $screen-d) {
+			right: 1.6rem;
+		}
+	}
+}

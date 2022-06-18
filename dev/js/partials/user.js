@@ -84,6 +84,7 @@ window.onload = function() {
 		slidesPerView: 'auto',
 	});
 	let docsSwiper = new Swiper('.docs__slider', {
+		loop: true,
 		navigation: {
 			nextEl: '.docs__next',
 			prevEl: '.docs__prev',
@@ -101,7 +102,11 @@ window.onload = function() {
 		slidesPerView: 1,
 		spaceBetween: 32
 	});
+	docsSwiper.on('activeIndexChange', function () {
+		refreshFsLightbox();
+	});
 	let reviewsSwiper = new Swiper('.reviews__slider', {
+		loop: true,
 		navigation: {
 			nextEl: '.reviews__next',
 			prevEl: '.reviews__prev',
@@ -118,6 +123,9 @@ window.onload = function() {
 		},
 		slidesPerView: 1,
 		spaceBetween: 32
+	});
+	reviewsSwiper.on('activeIndexChange', function () {
+		refreshFsLightbox();
 	});
 	/*let reviewsVideoSwiper = new Swiper('.reviews__video-slider', {
 		navigation: {
@@ -177,56 +185,40 @@ window.onload = function() {
 		projectsTabs[i].addEventListener("click", theTabClicks)
 	}
 
-	let projectTabs = document.querySelectorAll('.project .project__tab');
-	function theProjectTabClicks(tabClickEvent) {
-		let clickedTab = tabClickEvent.currentTarget;
-		let tabParent = tabClickEvent.currentTarget.parentNode.parentNode.parentNode;
-		let projectTabs = tabParent.querySelectorAll('.project .project__tab');
-		for (let i = 0; i < projectTabs.length; i++) {
-			projectTabs[i].classList.remove('project__tab_active');
-		}
+	let projectSliders = document.querySelectorAll('.project__tabs');
+	for (let i = 0; i < projectSliders.length; i++) {
+		let projectSlider = projectSliders[i].querySelector('.project-slider');
+		let projectThumbs = projectSliders[i].querySelector('.project-thumbs');
 
-		clickedTab.classList.add('project__tab_active');
-		tabClickEvent.preventDefault();
-		let contentPanes = tabParent.querySelectorAll('.project__item');
-		for (let i = 0; i < contentPanes.length; i++) {
-			contentPanes[i].classList.remove('project__item_active');
-		}
-		let anchorReference = tabClickEvent.target;
-		let activePaneId = anchorReference.getAttribute('data-href');
-		let activePane = tabParent.querySelector(activePaneId);
-		activePane.classList.add('project__item_active');
+		let thumbsInstance = new Swiper(projectThumbs, {
+			centeredSlides: true,
+			slidesPerView: 7,
+			spaceBetween: 4,
+			slideToClickedSlide: true,
+			navigation: {
+				nextEl: '.project-thumbs__next',
+				prevEl: '.project-thumbs__prev',
+			}
+		});
+		let sliderInstance = new Swiper(projectSlider, {
+			spaceBetween: 10,
+			navigation: {
+				nextEl: '.project-slider__next',
+				prevEl: '.project-slider__prev',
+			},
+			thumbs: {
+				swiper: thumbsInstance
+			}
+		});
+		sliderInstance.on('activeIndexChange', function () {
+			thumbsInstance.slideTo(sliderInstance.activeIndex);
+			refreshFsLightbox();
+		});
+		thumbsInstance.on('activeIndexChange', function () {
+			sliderInstance.slideTo(thumbsInstance.activeIndex);
+			refreshFsLightbox();
+		});
 	}
-	for (let i = 0; i < projectTabs.length; i++) {
-		projectTabs[i].addEventListener("click", theProjectTabClicks)
-	}
-
-	// before-after slider
-	const viewers = document.querySelectorAll(".image-compare");
-	const options = {
-		controlColor: "#ffffff",
-		controlShadow: false,
-		addCircle: true,
-		addCircleBlur: true,
-
-		showLabels: true,
-		labelOptions: {
-			before: 'До ремонта',
-			after: 'После ремонта',
-			onHover: false
-		},
-
-		smoothing: true,
-		smoothingAmount: 300,
-
-		hoverStart: false,
-		verticalMode: false,
-		startingPoint: 50,
-		fluidMode: false
-	};
-	viewers.forEach((element) => {
-		let view = new ImageCompare(element, options).mount();
-	});
 
 	// ranges
 	function makeSliderLink(range, input) {
@@ -276,7 +268,7 @@ window.onload = function() {
 		padding: 1,
 		range: {
 			'min': 0,
-			'max': 26
+			'max': 11
 		},
 		step: 1,
 		tooltips: wNumb({
@@ -285,8 +277,8 @@ window.onload = function() {
 		}),
 		pips: {
 			mode: 'values',
-			density: 4,
-			values: [1, 7, 13, 19, 25],
+			density: 10,
+			values: [1, 5, 10],
 			format: wNumb({
 				decimals: 0,
 			})

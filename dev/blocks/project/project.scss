@@ -5,6 +5,7 @@
 .project {
 	display: grid;
 	gap: 1.6rem;
+	grid-template-columns: 100%;
 	@media screen and (min-width: $screen-tl) {
 		gap: 3.2rem;
 		grid-template-columns: 62.5% auto;
@@ -13,37 +14,13 @@
 		display: flex;
 		flex-direction: column;
 		gap: .8rem;
+		width: 100%;
 		@media screen and (min-width: $screen-tl) {
 			flex-direction: column-reverse;
 			gap: 1.6rem;
 		}
 	}
-	&__head {
-		display: grid;
-		grid-template-columns: repeat(8, 1fr);
-		@media screen and (min-width: $screen-t) {
-			gap: 2rem;
-			grid-template-columns: repeat(8, calc(12.5% - 1.75rem));
-		}
-	}
-	&__tab {
-		border: .2rem solid var(--color_white);
-		cursor: pointer;
-		transition: opacity .25s ease;
-		&:hover {
-			opacity: .8;
-		}
-		&_active {
-			border-color: var(--color_brand);
-		}
-		img {
-			display: block;
-			height: auto;
-			pointer-events: none;
-			user-select: none;
-			width: 100%;
-		}
-	}
+	&__head {}
 	&__gallery {}
 	&__item {
 		display: none;
