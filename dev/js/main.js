@@ -4,5 +4,5 @@
 //= ../../node_modules/smooth-scroll/dist/smooth-scroll.js
 //= partials/wNumb.js
 //= ../../node_modules/nouislider/dist/nouislider.js
-//= ../../node_modules/fslightbox/index.js
+//= ../../node_modules/glightbox/dist/js/glightbox.js
 //= partials/user.js

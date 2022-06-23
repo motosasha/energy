@@ -102,9 +102,6 @@ window.onload = function() {
 		slidesPerView: 1,
 		spaceBetween: 32
 	});
-	docsSwiper.on('activeIndexChange', function () {
-		refreshFsLightbox();
-	});
 	let reviewsSwiper = new Swiper('.reviews__slider', {
 		loop: true,
 		navigation: {
@@ -123,9 +120,6 @@ window.onload = function() {
 		},
 		slidesPerView: 1,
 		spaceBetween: 32
-	});
-	reviewsSwiper.on('activeIndexChange', function () {
-		refreshFsLightbox();
 	});
 	/*let reviewsVideoSwiper = new Swiper('.reviews__video-slider', {
 		navigation: {
@@ -212,11 +206,9 @@ window.onload = function() {
 		});
 		sliderInstance.on('activeIndexChange', function () {
 			thumbsInstance.slideTo(sliderInstance.activeIndex);
-			refreshFsLightbox();
 		});
 		thumbsInstance.on('activeIndexChange', function () {
 			sliderInstance.slideTo(thumbsInstance.activeIndex);
-			refreshFsLightbox();
 		});
 	}
 
@@ -364,5 +356,21 @@ window.onload = function() {
 				calcForm.reset();
 			})
 			.catch((err) => console.error(err))
+	});
+
+	// lightbox
+	const lightbox = GLightbox({
+		selector: '.project__link',
+		touchNavigation: true
+	});
+	const lightbox2 = GLightbox({
+		selector: '.docs__link',
+		touchNavigation: true,
+		loop: true
+	});
+	const lightbox3 = GLightbox({
+		selector: '.reviews__link',
+		touchNavigation: true,
+		loop: true
 	});
 };

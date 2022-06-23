@@ -19,6 +19,9 @@ html {
 	line-height: 1;
 	-webkit-tap-highlight-color: rgba(var(--color_black), 0);
 	-webkit-text-size-adjust: 100%;
+	&.glightbox-open {
+		overflow: inherit;
+	}
 }
 
 body {
@@ -36,9 +39,6 @@ body {
 		&[data-state='open'] {
 			overflow: auto;
 		}
-	}
-	.fslightbox-open & {
-		padding-right: var(--scrollbar-width);
 	}
 }
 

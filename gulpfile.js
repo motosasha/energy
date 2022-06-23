@@ -312,7 +312,7 @@ function serve() {
 	browserSync.init({
 		server: dir.build,
 		host: '192.168.1.39',
-		logPrefix: "dev-server",
+		logPrefix: 'dev-server',
 		port: 3000,
 		startPath: 'index.html',
 		open: false,

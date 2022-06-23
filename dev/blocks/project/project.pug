@@ -21,7 +21,7 @@ mixin project(vars)
 					.project-slider__inner.swiper-wrapper
 						- for (var i = 0; i < vars.slides; ++i) {
 							.project-slider__slide.swiper-slide
-								a.project__link(data-fslightbox= vars.gallery, href='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '_l.jpg')
+								a.project__link(data-gallery= vars.gallery, href='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '_l.jpg')
 									img.project__image(src='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '.jpg', alt='')
 						- }
 					.swiper-button-prev.project-slider__prev
