@@ -95,9 +95,9 @@
 						</div>
 					</div>
 				</section>
-				<!--section.videoa.video__frame(data-hystmodal="#video")
-	svg.video__icon
-		use(xlink:href='img/svgSprite.svg#icon__play')-->
+				<section class="video"><a class="video__frame" data-hystmodal="#video"><svg class="video__icon">
+							<use xlink:href="img/svgSprite.svg#icon__play"></use>
+						</svg></a></section>
 				<section class="section section_bg_grey services">
 					<div class="section__anchor" id="services"></div>
 					<div class="grid">
@@ -2626,14 +2626,15 @@
 					</div>
 				</div>
 			</div>
-			<!--#video.hystmodal(aria-hidden='true').hystmodal__wrap
-	.popup.popup_video.hystmodal__window(role='dialog' aria-modal='true')
-		button.popup__close.hystmodal__close(data-hystclose)
-			svg.svg.popup__icon
-				use(xlink:href='img/svgSprite.svg#icon__cross')
-		.popup__inner
-			iframe(src='https://www.youtube.com/embed/BkhaV46HM2E?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
--->
+			<div class="hystmodal" id="video" aria-hidden="true">
+				<div class="hystmodal__wrap">
+					<div class="popup popup_video hystmodal__window" role="dialog" aria-modal="true"><button class="popup__close hystmodal__close" data-hystclose="data-hystclose"><svg class="svg popup__icon">
+								<use xlink:href="img/svgSprite.svg#icon__cross"></use>
+							</svg></button>
+						<div class="popup__inner"><iframe src="https://www.youtube.com/embed/BkhaV46HM2E?enablejsapi=1&amp;rel=0&amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe></div>
+					</div>
+				</div>
+			</div>
 			<div class="hystmodal" id="video-review-1" aria-hidden="true">
 				<div class="hystmodal__wrap">
 					<div class="popup popup_video hystmodal__window" role="dialog" aria-modal="true"><button class="popup__close hystmodal__close" data-hystclose="data-hystclose"><svg class="svg popup__icon">
