@@ -31,7 +31,7 @@ window.onload = function() {
 		catchFocus: true,
 		closeOnEsc: true,
 		afterClose: function(modal){
-			let videoFrame = modal.openedWindow.querySelector('iframe');
+			let videoFrame = modal.openedWindow.querySelector('embed');
 			if(videoFrame){
 				videoFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
 			}
@@ -84,6 +84,7 @@ window.onload = function() {
 		slidesPerView: 'auto',
 	});
 	let docsSwiper = new Swiper('.docs__slider', {
+		lazy: true,
 		loop: true,
 		navigation: {
 			nextEl: '.docs__next',
@@ -100,9 +101,11 @@ window.onload = function() {
 			},
 		},
 		slidesPerView: 1,
-		spaceBetween: 32
+		spaceBetween: 32,
+		watchSlidesProgress: true,
 	});
 	let reviewsSwiper = new Swiper('.reviews__slider', {
+		lazy: true,
 		loop: true,
 		navigation: {
 			nextEl: '.reviews__next',
@@ -119,7 +122,8 @@ window.onload = function() {
 			},
 		},
 		slidesPerView: 1,
-		spaceBetween: 32
+		spaceBetween: 32,
+		watchSlidesProgress: true,
 	});
 	/*let reviewsVideoSwiper = new Swiper('.reviews__video-slider', {
 		navigation: {
@@ -185,6 +189,7 @@ window.onload = function() {
 		let projectThumbs = projectSliders[i].querySelector('.project-thumbs');
 
 		let thumbsInstance = new Swiper(projectThumbs, {
+			lazy: true,
 			centeredSlides: true,
 			slidesPerView: 7,
 			spaceBetween: 4,
@@ -192,9 +197,11 @@ window.onload = function() {
 			navigation: {
 				nextEl: '.project-thumbs__next',
 				prevEl: '.project-thumbs__prev',
-			}
+			},
+			watchSlidesProgress: true,
 		});
 		let sliderInstance = new Swiper(projectSlider, {
+			lazy: true,
 			spaceBetween: 10,
 			navigation: {
 				nextEl: '.project-slider__next',
@@ -202,7 +209,8 @@ window.onload = function() {
 			},
 			thumbs: {
 				swiper: thumbsInstance
-			}
+			},
+			watchSlidesProgress: true,
 		});
 		sliderInstance.on('activeIndexChange', function () {
 			thumbsInstance.slideTo(sliderInstance.activeIndex);

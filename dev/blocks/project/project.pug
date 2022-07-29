@@ -8,7 +8,7 @@ mixin project(vars)
 					.project-thumbs__inner.swiper-wrapper
 						- for (var i = 0; i < vars.slides; ++i) {
 							.project-thumbs__slide.swiper-slide
-								img.project-thumbs__img(src='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '_thumb.jpg', alt='')
+								img.project-thumbs__img.swiper-lazy(data-src='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '_thumb.jpg', alt='')
 						- }
 					.swiper-button-prev.project-thumbs__prev
 						svg.swiper-icon
@@ -22,7 +22,8 @@ mixin project(vars)
 						- for (var i = 0; i < vars.slides; ++i) {
 							.project-slider__slide.swiper-slide
 								a.project__link(data-gallery= vars.gallery, href='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '_l.jpg')
-									img.project__image(src='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '.jpg', alt='')
+									img.project__image.swiper-lazy(data-src='img/projects/' + vars.dir + '/' + vars.gallery + '__' + (('0' + (i + 1)).slice(-2)) + '.jpg', alt='')
+									.swiper-lazy-preloader.swiper-lazy-preloader-black
 						- }
 					.swiper-button-prev.project-slider__prev
 						svg.swiper-icon
