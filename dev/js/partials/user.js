@@ -25,13 +25,16 @@ window.onload = function() {
 		});
 	}
 
+	// embed video
+	const players = Plyr.setup('.popup__video');
+
 	// modals
 	const modals = new HystModal({
 		linkAttributeName: 'data-hystmodal',
 		catchFocus: true,
 		closeOnEsc: true,
 		afterClose: function(modal){
-			let videoFrame = modal.openedWindow.querySelector('embed');
+			let videoFrame = modal.openedWindow.querySelector('iframe');
 			if(videoFrame){
 				videoFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
 			}

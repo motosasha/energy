@@ -2,6 +2,7 @@
 //= ../../node_modules/imask/dist/imask.js
 //= ../../node_modules/swiper/swiper-bundle.js
 //= ../../node_modules/smooth-scroll/dist/smooth-scroll.js
+//= ../../node_modules/plyr/dist/plyr.js
 //= partials/wNumb.js
 //= ../../node_modules/nouislider/dist/nouislider.js
 //= ../../node_modules/glightbox/dist/js/glightbox.js
