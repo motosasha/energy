@@ -10,16 +10,31 @@
 		background: url('../img/bg__video.jpg') no-repeat center;
 		height: 60rem;
 	}
-	&__frame {
-		background: url('../img/img__video.jpg') no-repeat center;
-		background-size: cover;
-		cursor: pointer;
-		display: flex;
+	&__slider {
 		height: 100%;
 		margin: auto;
 		max-height: 36rem;
 		max-width: 64rem;
 		width: 100%;
+	}
+	&__frame {
+		//background: url('../img/img__video.jpg') no-repeat center;
+		background-size: cover;
+		cursor: pointer;
+		display: flex;
+		height: 100%;
+		//margin: auto;
+		//max-height: 36rem;
+		//max-width: 64rem;
+		width: 100%;
+		&_01 {
+			background: url('../img/img__video_01.jpg') no-repeat center;
+			background-size: cover;
+		}
+		&_02 {
+			background: url('../img/img__video_02.jpg') no-repeat center;
+			background-size: cover;
+		}
 	}
 	&__icon {
 		height: 6.4rem;

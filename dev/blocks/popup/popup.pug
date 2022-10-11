@@ -30,8 +30,19 @@ mixin popup-video
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
-					.popup__video.plyr__video-embed
-						iframe(src='https://www.youtube.com/embed/BkhaV46HM2E?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+					.popup__video
+						a.popup__video-link(data-youtube href="https://www.youtube.com/watch?v=A7wh4XQX6Z8")
+
+mixin popup-video_2
+	#video2.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.popup.popup_video.hystmodal__window(role='dialog' aria-modal='true')
+				button.popup__close.hystmodal__close(data-hystclose)
+					svg.svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				.popup__inner
+					.popup__video
+						a.popup__video-link(data-youtube href="https://www.youtube.com/watch?v=jyd95C6pr_g")
 
 mixin popup-video-review_1
 	#video-review-1.hystmodal(aria-hidden='true')
@@ -41,8 +52,9 @@ mixin popup-video-review_1
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
-					.popup__video.plyr__video-embed
-						iframe(src='https://www.youtube.com/embed/HsDMqgnaNgY?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+					.popup__video
+						a.popup__video-link(data-youtube-review href="https://www.youtube.com/watch?v=HsDMqgnaNgY")
+						//-iframe(src='https://www.youtube.com/embed/HsDMqgnaNgY?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
 
 mixin popup-video-review_2
 	#video-review-2.hystmodal(aria-hidden='true')
@@ -52,8 +64,9 @@ mixin popup-video-review_2
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
-					.popup__video.plyr__video-embed
-						iframe(src='https://www.youtube.com/embed/oXAcKkGANKE?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+					.popup__video
+						a.popup__video-link(data-youtube-review href="https://www.youtube.com/watch?v=oXAcKkGANKE")
+						//-iframe(src='https://www.youtube.com/embed/oXAcKkGANKE?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
 
 mixin popup-video-review_3
 	#video-review-3.hystmodal(aria-hidden='true')
@@ -63,5 +76,6 @@ mixin popup-video-review_3
 					svg.svg.popup__icon
 						use(xlink:href='img/svgSprite.svg#icon__cross')
 				.popup__inner
-					.popup__video.plyr__video-embed
-						iframe(src='https://www.youtube.com/embed/eADhqbI3JjI?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+					.popup__video
+						a.popup__video-link(data-youtube-review href="https://www.youtube.com/watch?v=eADhqbI3JjI")
+						//-iframe(src='https://www.youtube.com/embed/eADhqbI3JjI?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)

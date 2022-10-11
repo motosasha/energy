@@ -22,7 +22,7 @@
 		padding: 0;
 	}
 	&__inner {
-		padding-top: 14.4rem;
+		padding-top: 12.4rem;
 		@media screen and (min-width: $screen-d) {
 			align-items: center;
 			display: flex;
@@ -43,15 +43,30 @@
 			width: 62.5%;
 		}
 	}
+	&__row {
+		display: flex;
+		flex-direction: column;
+		gap: .8rem;
+		@media screen and (min-width: $screen-ti) {
+			flex-direction: row;
+			gap: 1.6rem;
+		}
+	}
 	&__label {
 		color: inherit;
 		background: var(--color_brand);
 		border-radius: 1.6rem;
-		font-size: 1.6rem;
-		line-height: 1;
+		font-size: 1.4rem;
+		letter-spacing: -.01em;
+		line-height: 1.15;
 		padding: .8rem 1.6rem;
+		text-align: center;
 		@media screen and (min-width: $screen-d) {
 			transform: translateX(-.8rem);
+		}
+		&_alt {
+			background: var(--color_black);
+			color: var(--color_white);
 		}
 	}
 	&__title {

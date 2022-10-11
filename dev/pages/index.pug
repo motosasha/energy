@@ -5,7 +5,9 @@ block pageMain
 		.grid
 			.hero__inner
 				.hero__info
-					.hero__label Работаем с 2015 года
+					.hero__row
+						.hero__label Работаем только с дизайн-проектом
+						.hero__label.hero__label_alt Ремонт от 13 000 ₽ за м² по полу
 					h1.hero__title Ремонт квартир под ключ без стресса в Казани
 					ul.hero__list
 						li.hero__li Работаем по договору
@@ -17,9 +19,22 @@ block pageMain
 				.hero__form
 					+form('Получи <span>бесплатный расчёт</span> и <span>консультацию</span>', 'hero-name', 'hero-phone', 'Получить')
 	section.video
-		a.video__frame(data-hystmodal="#video")
-			svg.video__icon
-				use(xlink:href='img/svgSprite.svg#icon__play')
+		.swiper.video__slider
+			.swiper-wrapper
+				.swiper-slide
+					a.video__frame.video__frame_01(data-hystmodal="#video")
+						svg.video__icon
+							use(xlink:href='img/svgSprite.svg#icon__play')
+				.swiper-slide
+					a.video__frame.video__frame_02(data-hystmodal="#video2")
+						svg.video__icon
+							use(xlink:href='img/svgSprite.svg#icon__play')
+			.swiper-button-prev.video__prev
+				svg.swiper-icon
+					use(xlink:href='img/svgSprite.svg#icon__prev')
+			.swiper-button-next.video__next
+				svg.swiper-icon
+					use(xlink:href='img/svgSprite.svg#icon__next')
 	section.section.section_bg_grey.services
 		#services.section__anchor
 		.grid
@@ -182,26 +197,34 @@ block pageMain
 								.project-tabs__tabs-ovh
 									.project-tabs__tabs-scroll
 										.project-tabs__tabs-head
-											+project-tabs-tab('В процессе', '', '#process', true)
+											+project-tabs-tab('Отделка 2к квартира', 'ул. Комсомольская', '#komsomolskaya', true)
 											+project-tabs-tab('Отделка 3к квартира', 'ЖК «21 Век»', '#century', false)
+											+project-tabs-tab('Отделка 2к квартира', 'ЖК Столичный', '#stolichny', false)
+											+project-tabs-tab('В процессе', '', '#process', false)
 											+project-tabs-tab('Отделка 2к квартиры', 'ЖК «Весна»', '#vesna', false)
 											+project-tabs-tab('Отделка 1к квартиры', 'ЖК «Три Богатыря»', '#tribogatyria', false)
 											+project-tabs-tab('Ремонт 2к квартиры', 'ул. Завойского', '#zavoiskogo', false)
 											+project-tabs-tab('Ремонт ванной', 'ул. Декабристов', '#dekabristov', false)
 											+project-tabs-tab('Отделка ванной', 'КП «Габишево»', '#gabishevo', false)
 								.project-tabs__tabs-contents
-									#process.project-tabs__tabs-content.project-tabs__tabs-content_active
+									#komsomolskaya.project-tabs__tabs-content.project-tabs__tabs-content_active
 										+project(
 											{
 												dir: 'decoration',
-												gallery: 'process',
-												slides: 40,
+												gallery: 'komsomolskaya',
+												slides: 33,
 
-												label: 'Отделка объектов',
-												title: 'Проекты в работе',
-												s: '',
+												label: 'Отделка 2к квартиры',
+												title: 'ул. Комсомольская',
+												s: '75',
 												term: '',
-												list: []
+												list: [
+													'прихожая',
+													'2 с/у',
+													'спальня',
+													'кухня-гостиная',
+													'балкон'
+												]
 											}
 										)
 									#century.project-tabs__tabs-content
@@ -209,7 +232,7 @@ block pageMain
 											{
 												dir: 'decoration',
 												gallery: 'century',
-												slides: 36,
+												slides: 40,
 
 												label: 'Отделка 3к квартиры',
 												title: 'ЖК «21 Век»',
@@ -224,6 +247,41 @@ block pageMain
 													'кухня-гостиная',
 													'балкон'
 												]
+											}
+										)
+									#stolichny.project-tabs__tabs-content
+										+project(
+											{
+												dir: 'decoration',
+												gallery: 'stolichny',
+												slides: 24,
+
+												label: 'Отделка 2к квартиры',
+												title: 'ЖК Столичный',
+												s: '70',
+												term: '',
+												list: [
+													'прихожая',
+													'2 гардеробные',
+													'санузел',
+													'спальня',
+													'кухня-гостиная',
+													'балкон'
+												]
+											}
+										)
+									#process.project-tabs__tabs-content
+										+project(
+											{
+												dir: 'decoration',
+												gallery: 'process',
+												slides: 40,
+
+												label: 'Отделка объектов',
+												title: 'Проекты в работе',
+												s: '',
+												term: '',
+												list: []
 											}
 										)
 									#gabishevo.project-tabs__tabs-content

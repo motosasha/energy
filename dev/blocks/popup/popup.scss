@@ -11,9 +11,31 @@
 		background: #000;
 		max-width: 96rem;
 		iframe {
-			width: 100%;
+			aspect-ratio: 16 / 9;
 			height: 100%;
+			width: 100%;
 		}
+		img {
+			aspect-ratio: 16 / 9;
+			display: block;
+			height: auto;
+			max-width: 100%;
+			object-fit: cover;
+			width: 100%;
+		}
+	}
+	&__video-link {
+		display: block;
+		position: relative;
+	}
+	&__video-icon {
+		height: 6.4rem;
+		left: 50%;
+		margin: auto;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 6.4rem;
 	}
 	&_video &__close {
 		background: var(--color_white);

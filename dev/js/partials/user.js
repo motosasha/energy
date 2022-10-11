@@ -25,9 +25,6 @@ window.onload = function() {
 		});
 	}
 
-	// embed video
-	const players = Plyr.setup('.popup__video');
-
 	// modals
 	const modals = new HystModal({
 		linkAttributeName: 'data-hystmodal',
@@ -127,6 +124,13 @@ window.onload = function() {
 		slidesPerView: 1,
 		spaceBetween: 32,
 		watchSlidesProgress: true,
+	});
+	let videoSwiper = new Swiper('.video__slider', {
+		navigation: {
+			nextEl: '.video__next',
+			prevEl: '.video__prev',
+		},
+		slidesPerView: 'auto',
 	});
 	/*let reviewsVideoSwiper = new Swiper('.reviews__video-slider', {
 		navigation: {
@@ -384,4 +388,57 @@ window.onload = function() {
 		touchNavigation: true,
 		loop: true
 	});
+
+
+	// Get all of the videos
+	let videos = document.querySelectorAll('[data-youtube]');
+	let reviews = document.querySelectorAll('[data-youtube-review]');
+
+// Progressively enhance them
+	for (let video of videos) {
+		// Get the video ID
+		let id = new URL(video.href).searchParams.get('v');
+		// Add the ID to the data-youtube attribute
+		video.setAttribute('data-youtube', id);
+		// Add a role of button
+		video.setAttribute('role', 'button');
+		// Add a thumbnail
+		video.innerHTML = `
+			<svg class="popup__video-icon"><use xlink:href="img/svgSprite.svg#icon__play"></use></svg>
+			<img alt="" src="https://img.youtube.com/vi/${id}/maxresdefault.jpg">`;
+	}
+	for (let review of reviews) {
+		// Get the video ID
+		let id = new URL(review.href).searchParams.get('v');
+		// Add the ID to the data-youtube attribute
+		review.setAttribute('data-youtube', id);
+		// Add a role of button
+		review.setAttribute('role', 'button');
+		// Add a thumbnail
+		review.innerHTML = `
+			<svg class="popup__video-icon"><use xlink:href="img/svgSprite.svg#icon__play"></use></svg>
+			<img alt="" src="https://img.youtube.com/vi/${id}/sddefault.jpg">`;
+	}
+
+	/**
+	 * Handle click events on the video thumbnails
+	 * @param  {Event} event The event object
+	 */
+	function clickHandler (event) {
+		// Get the video link
+		let link = event.target.closest('[data-youtube], [data-youtube-reviews]');
+		if (!link) return;
+		// Prevent the URL from redirecting users
+		event.preventDefault();
+		// Get the video ID
+		let id = link.getAttribute('data-youtube');
+		// Create the player
+		let player = document.createElement('div');
+		player.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?enablejsapi=1&rel=0&showinfo=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen" allowfullscreen></iframe>`;
+		// Inject the player into the UI
+		link.replaceWith(player);
+	}
+
+	// Detect clicks on the video thumbnails
+	document.addEventListener('click', clickHandler);
 };
