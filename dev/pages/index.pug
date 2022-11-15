@@ -17,7 +17,7 @@ block pageMain
 						li.hero__li Регулярные фото/видеоотчёты
 						li.hero__li Клининг по завершению
 				.hero__form
-					+form('Получи <span>бесплатный расчёт</span> и <span>консультацию</span>', 'hero-name', 'hero-phone', 'Получить')
+					+form('Получи <span>примерный расчёт</span> и <span>консультацию</span>', 'hero-name', 'hero-phone', 'Получить')
 	section.video
 		.swiper.video__slider
 			.swiper-wrapper
@@ -50,20 +50,21 @@ block pageMain
 		.grid
 			.works__inner
 				h2.section__title Наши #[span работы]
+				p.section__descr Стоимость работ от 13 000 ₽ за м² по полу. <br>Работаем только с дизайн проектом
 				.works__tabs
 					.works__tabs-ovh
 						.works__tabs-scroll
 							.works__tabs-head
-								.works__tab.works__tab_active(data-href='#works__tab_01')
-									span Дизайн-проекты
-								.works__tab(data-href='#works__tab_02')
+								.works__tab.works__tab_active(data-href='#works__tab_02')
 									span Отделка квартир и коттеджей
+								.works__tab(data-href='#works__tab_01')
+									span Дизайн-проекты
 								.works__tab(data-href='#works__tab_03')
 									span Ремонт коммерческих помещений
 								.works__tab(data-href='#works__tab_04')
 									span Строительство загородных домов
 					.works__tabs-contents
-						#works__tab_01.works__tabs-content.works__tabs-content_active
+						#works__tab_01.works__tabs-content
 							.project-tabs
 								.project-tabs__tabs-ovh
 									.project-tabs__tabs-scroll
@@ -192,7 +193,7 @@ block pageMain
 												]
 											}
 										)
-						#works__tab_02.works__tabs-content
+						#works__tab_02.works__tabs-content.works__tabs-content_active
 							.project-tabs
 								.project-tabs__tabs-ovh
 									.project-tabs__tabs-scroll
@@ -607,7 +608,7 @@ block pageMain
 				.calc__inner
 					.calc__step.calc__step_01.calc__step_active
 						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>бесплатную консультацию</span>]:
+							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
 							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 1#[span /5]
 							.calc__question Ремонт какого объекта вас интересует?
@@ -630,7 +631,7 @@ block pageMain
 
 					.calc__step.calc__step_02
 						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>бесплатную консультацию</span>]:
+							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
 							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 2#[span /5]
 							.calc__question Укажите ориентировочные параметры
@@ -651,7 +652,7 @@ block pageMain
 
 					.calc__step.calc__step_03
 						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>бесплатную консультацию</span>]:
+							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
 							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 3#[span /5]
 							.calc__question Выберите, какие работы необходимо произвести?
@@ -676,43 +677,44 @@ block pageMain
 										+checkbox('Ламинат', 'floor', 0, false)
 										+checkbox('Паркет', 'floor', 1, false)
 										+checkbox('Комбинированные', 'floor', 2, false)
+										+checkbox('Плитка', 'floor', 3, false)
 							.calc__footer
 								a.button.button_secondary.calc__button(data-step='prev') Назад
 								a.button.calc__button(data-step='next') Далее
 
 					.calc__step.calc__step_04
 						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>бесплатную консультацию</span>]:
+							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
 							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 4#[span /5]
 							.calc__question У вас есть дизайн-проект?
 						.calc__col
-							.calc__radios-set
+							.calc__radios-set.calc__radios-set_two
 								label.calc__label
 									input.calc__radio(type='radio', name='project', value=0, checked, required)
 									.calc__tile
 										svg.calc__radio-icon
 											use(xlink:href='img/svgSprite.svg#icon__doc')
 										.calc__radio-title Да, есть
-								label.calc__label
+								//-label.calc__label
 									input.calc__radio(type='radio', name='project', value=1, required)
 									.calc__tile
 										svg.calc__radio-icon
 											use(xlink:href='img/svgSprite.svg#icon__search')
 										.calc__radio-title В разработке
 								label.calc__label
-									input.calc__radio(type='radio', name='project', value=2, required)
+									input.calc__radio(type='radio', name='project', value=1, required)
 									.calc__tile
 										svg.calc__radio-icon
-											use(xlink:href='img/svgSprite.svg#icon__right')
-										.calc__radio-title Нет, но не откажусь от бесплатного
+											use(xlink:href='img/svgSprite.svg#icon__no')
+										.calc__radio-title Пока нет
 							.calc__footer
 								a.button.button_secondary.calc__button(data-step='prev') Назад
 								a.button.calc__button(data-step='next') Далее
 
 					.calc__step.calc__step_05
 						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>бесплатную консультацию</span>]:
+							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
 							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
 							.calc__pagination 5#[span /5]
 							.calc__question Когда планируете начать ремонт?
@@ -742,7 +744,7 @@ block pageMain
 
 					.calc__step.calc__step_06
 						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>бесплатную консультацию</span>]:
+							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
 							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
 							.calc__pagination Примерный расчёт готов!
 							.calc__question Куда Вам удобно получить примерный расчёт?
@@ -830,6 +832,8 @@ block pageMain
 					.swiper.team__slider
 						.swiper-wrapper
 							.swiper-slide.team__slide
+								img(src='img/img__team_05.jpg' alt='')
+							.swiper-slide.team__slide
 								img(src='img/img__team_01.jpg' alt='')
 							.swiper-slide.team__slide
 								img(src='img/img__team_02.jpg' alt='')
@@ -837,8 +841,6 @@ block pageMain
 								img(src='img/img__team_03.jpg' alt='')
 							.swiper-slide.team__slide
 								img(src='img/img__team_04.jpg' alt='')
-							.swiper-slide.team__slide
-								img(src='img/img__team_05.jpg' alt='')
 							.swiper-slide.team__slide
 								img(src='img/img__team_06.jpg' alt='')
 							.swiper-slide.team__slide

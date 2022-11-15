@@ -44,4 +44,18 @@
 			margin-bottom: 4rem;
 		}
 	}
+	&__descr {
+		font-size: 1.6rem;
+		font-weight: 300;
+		line-height: 1.5;
+		margin: 0 0 2rem;
+		text-align: center;
+		@media screen and (min-width: $screen-t) {
+			margin-bottom: 2.2rem;
+			transform: translateY(-2rem);
+		}
+		@media screen and (min-width: $screen-d) {
+			margin-bottom: 4rem;
+		}
+	}
 }
