@@ -463,6 +463,7 @@ block pageMain
 											+project-tabs-tab('2х этажный дом', 'КП «Державино»', '#derzchavino', false)
 											+project-tabs-tab('1 этажный дом', 'КП «Зимняя горка»', '#turgay', false)
 											+project-tabs-tab('Баня', 'пос. Верхний Услон', '#uslon', false)
+											+project-tabs-tab('Фундамент 1 этажного дома', 'пос. Высокая гора', '#vgora', false)
 								.project-tabs__tabs-contents
 									#nickolskoe.project-tabs__tabs-content.project-tabs__tabs-content_active
 										+project(
@@ -598,6 +599,30 @@ block pageMain
 													'помывочная',
 													'зона отдыха',
 													'хозблок'
+												]
+											}
+										)
+									#vgora.project-tabs__tabs-content
+										+project(
+											{
+												dir: 'building',
+												gallery: 'vgora',
+												slides: 6,
+												label: 'Фундамент 1 этажного дома',
+												title: 'посёлок Высокая Гора',
+												s: 170,
+												term: '1 неделя',
+												list: [
+													'Геологические исследования',
+													'Проектирование',
+													'Подготовка площадки',
+													'Разметка',
+													'Засыпка подушки (песок, щебень)',
+													'Устройство опалубки',
+													'Закладка гильз коммуникаций',
+													'Гидроизоляция',
+													'Армирование',
+													'Бетонирование'
 												]
 											}
 										)
@@ -853,6 +878,8 @@ block pageMain
 								img(src='img/img__team_10.jpg' alt='')
 							.swiper-slide.team__slide
 								img(src='img/img__team_11.jpg' alt='')
+							.swiper-slide.team__slide
+								img(src='img/img__team_12.jpg' alt='')
 					.swiper-button-prev.team__prev
 						svg.swiper-icon
 							use(xlink:href='img/svgSprite.svg#icon__prev')
