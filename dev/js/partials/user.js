@@ -602,4 +602,8 @@ window.onload = function() {
 
 	// Detect clicks on the video thumbnails
 	document.addEventListener('click', clickHandler);
+
+	// footer current year
+	const footerYear = document.querySelector('.footer__year');
+	footerYear.textContent = String(new Date().getFullYear());
 };
