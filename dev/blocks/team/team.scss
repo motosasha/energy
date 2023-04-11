@@ -44,12 +44,14 @@
 		}
 	}
 	&__list {
-		column-count: 2;
-		column-gap: 1.6rem;
 		list-style: none;
 		margin: 0 0 3.2rem;
 		max-width: 63.4rem;
 		padding: 0;
+		@media screen and (min-width: $screen-t) {
+			column-count: 2;
+			column-gap: 1.6rem;
+		}
 		@media screen and (min-width: $screen-tl) {
 			margin: 0;
 		}

@@ -1,14 +1,15 @@
 //- Все примеси в этом файле должны начинаться c имени блока (field)
 
-mixin field(label, id, mod)
+mixin field(label, id, mod, name)
 	.field(class= mod)
-		input.field__input(type='text', id= id, required)
+		input.field__input(type='text', name= name, id= id, required)
 		label.field__label(for= id)!= label
 
-mixin field_phone(label, id, mod)
+mixin field_phone(label, id, mod, name)
 	.field(class= mod)
 		input.field__input(
 			type='tel',
+			name= name,
 			id= id,
 			required)
 		label.field__label(for= id)!= label

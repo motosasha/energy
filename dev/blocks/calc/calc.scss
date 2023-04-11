@@ -10,6 +10,13 @@
 			padding: 0;
 		}
 	}
+	&__wrap {
+		transform: translateY(2rem);
+
+		@media screen and (min-width: $screen-d) {
+			transform: translateY(4rem);
+		}
+	}
 	&__card {
 		background: var(--color_white);
 		box-shadow: 0 6.5rem 4.7rem rgba(7, 2, 0, 0.0531481),
@@ -18,13 +25,11 @@
 					0 .8rem .6rem rgba(7, 2, 0, 0.0274815),
 					0 .2rem .3rem rgba(7, 2, 0, 0.0168519);
 		padding: 2.4rem;
-		transform: translateY(2rem);
 		@media screen and (min-width: $screen-tl) {
 			padding: 3.2rem 4rem;
 		}
 		@media screen and (min-width: $screen-d) {
 			padding: 5.6rem 8rem;
-			transform: translateY(4rem);
 		}
 	}
 	&__inner {}
@@ -55,7 +60,7 @@
 	&__footer {
 		display: flex;
 		gap: 1.2rem;
-		margin-top: 2rem;
+		margin-top: 3.2rem;
 		position: relative;
 		z-index: 2;
 		@media screen and (min-width: $screen-ti) {
@@ -136,6 +141,40 @@
 				grid-template-columns: repeat(2, 1fr);
 				gap: 1.6rem;
 			}
+			&_three {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.6rem;
+
+				.calc__tile {
+					gap: 0;
+				}
+			}
+			&_four {
+				grid-template-columns: repeat(4, 1fr);
+				gap: 1.6rem;
+
+				.calc__tile {
+					gap: 0;
+				}
+			}
+		}
+		@media screen and (min-width: $screen-tl) {
+			&_four {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+		@media screen and (min-width: $screen-dl) {
+			&_three {
+				.calc__tile {
+					gap: 4.8rem;
+				}
+			}
+			&_four {
+				grid-template-columns: repeat(4, 1fr);
+				.calc__tile {
+					gap: 4.8rem;
+				}
+			}
 		}
 	}
 	&__label {
@@ -158,7 +197,7 @@
 			padding: 2.4rem 1.6rem;
 		}
 		@media screen and (min-width: $screen-d) {
-			padding: 4rem 2.4rem;
+			padding: 4rem 1.6rem;
 		}
 	}
 	&__radio:checked + &__tile {
@@ -233,6 +272,10 @@
 	&__ranges-row {
 		display: grid;
 		gap: 5.2rem;
+		@media screen and (min-width: $screen-t) {
+			gap: 2.4rem;
+			grid-template-columns: 40% auto;
+		}
 		@media screen and (min-width: $screen-d) {
 			gap: 2.4rem;
 			grid-template-columns: 25rem auto;
@@ -244,7 +287,7 @@
 		border-radius: 0;
 		box-shadow: none;
 		height: .4rem;
-		@media screen and (min-width: $screen-d) {
+		@media screen and (min-width: $screen-t) {
 			margin-top: 4.5rem;
 		}
 		.noUi-connects {
@@ -410,12 +453,81 @@
 		font-weight: 300;
 		line-height: 1.5;
 		letter-spacing: 0.01em;
+
+		strong {
+			font-weight: 700;
+		}
 	}
 
 	&__form.form {
 		padding: 0;
 		&::before {
 			content: none;
+		}
+	}
+
+	&__tabs {
+		display: flex;
+		flex-direction: column;
+		gap: 1.6rem;
+		justify-content: center;
+
+		@media screen and (min-width: $screen-t) {
+			align-items: center;
+			flex-direction: row;
+		}
+	}
+	&__tab {
+		align-items: center;
+		border: 0.1rem solid var(--color_border-grey);
+		color: var(--color_white);
+		cursor: pointer;
+		display: flex;
+		flex-grow: 1;
+		gap: 1.6rem;
+		padding: 0.8rem 1.6rem;
+		text-decoration: none;
+		@media screen and (min-width: $screen-t) {
+			max-width: 24rem;
+			padding: 1.6rem 2.4rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			white-space: normal;
+		}
+		&_active {
+			border-color: var(--color_brand);
+			pointer-events: none;
+		}
+	}
+	&__icon {
+		height: 4rem;
+		pointer-events: none;
+		width: 4rem;
+	}
+	&__info {
+		display: grid;
+		gap: .2rem;
+		pointer-events: none;
+		user-select: none;
+	}
+	&__tab-label {
+		font-size: 1.4rem;
+		line-height: 1.15;
+		white-space: nowrap;
+	}
+	&__tab-title {
+		font-size: 1.4rem;
+		font-weight: 700;
+		line-height: 1.15;
+		white-space: nowrap;
+	}
+	&__tabs-contents {
+		margin-top: 2.4rem;
+	}
+	&__tabs-content {
+		display: none;
+		&_active {
+			display: block;
 		}
 	}
 }

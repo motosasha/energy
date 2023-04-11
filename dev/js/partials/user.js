@@ -322,11 +322,140 @@ window.onload = function() {
 	makeSliderLink(roomsRange, roomsInput);
 	makeSliderLink(bathroomsRange, bathroomsInput);
 
+	let areaInputConstr = document.querySelector('#input-area-constr');
+	let areaRangeConstr = document.querySelector('.calc__range_area-constr');
+	let areaOptionsConstr = {
+		start: 125,
+		connect: 'lower',
+		padding: 20,
+		range: {
+			'min': -10,
+			'max': 520
+		},
+		step: 1,
+		tooltips: wNumb({
+			decimals: 0,
+			postfix: ' м²'
+		}),
+		pips: {
+			mode: 'values',
+			density: 5,
+			values: [10, 125, 250, 375, 500],
+			format: wNumb({
+				decimals: 0,
+			})
+		}
+	}
+	let roomsInputConstr = document.querySelector('#input-rooms-constr');
+	let roomsRangeConstr = document.querySelector('.calc__range_rooms-constr');
+	let roomsOptionsConstr = {
+		start: 3,
+		connect: 'lower',
+		padding: 1,
+		range: {
+			'min': 0,
+			'max': 11
+		},
+		step: 1,
+		tooltips: wNumb({
+			decimals: 0,
+			postfix: ' к'
+		}),
+		pips: {
+			mode: 'values',
+			density: 10,
+			values: [1, 5, 10],
+			format: wNumb({
+				decimals: 0,
+			})
+		}
+	}
+	let bathroomsInputConstr = document.querySelector('#input-bathrooms-constr');
+	let bathroomsRangeConstr = document.querySelector('.calc__range_bathrooms-constr');
+	let bathroomsOptionsConstr = {
+		start: 1,
+		connect: 'lower',
+		padding: 1,
+		range: {
+			'min': 0,
+			'max': 6
+		},
+		step: 1,
+		tooltips: wNumb({
+			decimals: 0,
+			postfix: ' су'
+		}),
+		pips: {
+			mode: 'values',
+			density: 20,
+			values: [1, 2, 3, 4, 5],
+			format: wNumb({
+				decimals: 0,
+			})
+		}
+	}
+	let floorsInputConstr = document.querySelector('#input-floors-constr');
+	let floorsRangeConstr = document.querySelector('.calc__range_floors-constr');
+	let floorsOptionsConstr = {
+		start: 1,
+		connect: 'lower',
+		padding: 1,
+		range: {
+			'min': 0,
+			'max': 6
+		},
+		step: 1,
+		tooltips: wNumb({
+			decimals: 0,
+			postfix: ' эт'
+		}),
+		pips: {
+			mode: 'values',
+			density: 20,
+			values: [1, 2, 3, 4, 5],
+			format: wNumb({
+				decimals: 0,
+			})
+		}
+	}
+	noUiSlider.create(areaRangeConstr, areaOptionsConstr);
+	noUiSlider.create(roomsRangeConstr, roomsOptionsConstr);
+	noUiSlider.create(bathroomsRangeConstr, bathroomsOptionsConstr);
+	noUiSlider.create(floorsRangeConstr, floorsOptionsConstr);
+	makeSliderLink(areaRangeConstr, areaInputConstr);
+	makeSliderLink(roomsRangeConstr, roomsInputConstr);
+	makeSliderLink(bathroomsRangeConstr, bathroomsInputConstr);
+	makeSliderLink(floorsRangeConstr, floorsInputConstr);
+
+	// calc tabs
+	let calcBlock = document.querySelector('.calc');
+	let calcTabs = document.querySelectorAll('.calc__tabs .calc__tab');
+	function theCalcTabClicks(tabClickEvent) {
+		let clickedTab = tabClickEvent.currentTarget;
+		for (let i = 0; i < calcTabs.length; i++) {
+			calcTabs[i].classList.remove('calc__tab_active');
+		}
+
+		clickedTab.classList.add('calc__tab_active');
+		tabClickEvent.preventDefault();
+		let contentPanes = document.querySelectorAll('.calc__tabs-content');
+		for (let i = 0; i < contentPanes.length; i++) {
+			contentPanes[i].classList.remove('calc__tabs-content_active');
+		}
+		let anchorReference = tabClickEvent.target;
+		let activePaneId = anchorReference.getAttribute('data-href');
+		let activePane = calcBlock.querySelector(activePaneId);
+		activePane.classList.add('calc__tabs-content_active');
+	}
+	for (let i = 0; i < calcTabs.length; i++) {
+		calcTabs[i].addEventListener("click", theCalcTabClicks)
+	}
+
 	// calc form
-	let calcForm = document.querySelector('#calc-form');
-	let steps = document.querySelectorAll('.calc__step');
-	let nextSteps = document.querySelectorAll('.calc__button[data-step="next"]');
-	let prevSteps = document.querySelectorAll('.calc__button[data-step="prev"]');
+	let calcForm = document.querySelector('#calc-overhaul-form');
+	let steps = document.querySelectorAll('#calc-overhaul-form .calc__step');
+	let nextSteps = document.querySelectorAll('#calc-overhaul-form .calc__button[data-step="next"]');
+	let prevSteps = document.querySelectorAll('#calc-overhaul-form .calc__button[data-step="prev"]');
 	let currentStep = 0;
 	let calcSection = document.querySelector('#calc');
 	function stepDirection(direction) {
@@ -347,31 +476,63 @@ window.onload = function() {
 	}
 	makeStep(nextSteps, 'next')
 	makeStep(prevSteps, 'prev')
-	const ajaxSend = async (formData) => {
-		// change 'https://reqres.in/api/users
-		const fetchResp = await fetch('https://reqres.in/api/users', {
-			method: 'POST',
-			//body: formData
-			body: {
-				"name": "test"
-			}
-		});
-		if (!fetchResp.ok) {
-			throw new Error(`Ошибка по адресу ${url}, статус ошибки ${fetchResp.status}`);
+
+	let calcForm2 = document.querySelector('#calc-construction-form');
+	let steps2 = document.querySelectorAll('#calc-construction-form .calc__step');
+	let nextSteps2 = document.querySelectorAll('#calc-construction-form .calc__button[data-step="next"]');
+	let prevSteps2 = document.querySelectorAll('#calc-construction-form .calc__button[data-step="prev"]');
+	let currentStep2 = 0;
+	function stepDirection2(direction) {
+		for(let i = 0; i < steps2.length; i++) {
+			steps2[i].classList.remove('calc__step_active')
 		}
-		return await fetchResp.text();
-	};
-	calcForm.addEventListener('submit', function (e) {
-		e.preventDefault();
-		const formData = new FormData(this);
-		ajaxSend(formData)
-			.then((response) => {
-				console.log(response);
-				stepDirection('next');
-				calcForm.reset();
+		if(direction === 'next') ++currentStep2;
+		if(direction === 'prev') --currentStep2;
+		steps2[currentStep2].classList.add('calc__step_active')
+		calcSection.scrollIntoView({behavior: "smooth"})
+	}
+	function makeStep2(trigger, direction) {
+		for (let step of trigger) {
+			step.addEventListener('click', function () {
+				stepDirection2(direction);
 			})
-			.catch((err) => console.error(err))
-	});
+		}
+	}
+	makeStep2(nextSteps2, 'next')
+	makeStep2(prevSteps2, 'prev')
+
+	// const ajaxSend = async (formData) => {
+	// 	const fetchResp = await fetch('https://reqres.in/api/users', {
+	// 		method: 'POST',
+	// 		body: formData
+	// 	});
+	// 	if (!fetchResp.ok) {
+	// 		throw new Error(`Ошибка по адресу, статус ошибки ${fetchResp.status}`);
+	// 	}
+	// 	return await fetchResp.text();
+	// };
+	// calcForm.addEventListener('submit', function (e) {
+	// 	e.preventDefault();
+	// 	const formData = new FormData(this);
+	// 	ajaxSend(formData)
+	// 		.then((response) => {
+	// 			console.log(response);
+	// 			stepDirection('next');
+	// 			calcForm.reset();
+	// 		})
+	// 		.catch((err) => console.error(err))
+	// });
+	// calcForm2.addEventListener('submit', function (e) {
+	// 	e.preventDefault();
+	// 	const formData = new FormData(this);
+	// 	ajaxSend(formData)
+	// 		.then((response) => {
+	// 			console.log(response);
+	// 			stepDirection2('next');
+	// 			calcForm2.reset();
+	// 		})
+	// 		.catch((err) => console.error(err))
+	// });
 
 	// lightbox
 	const lightbox = GLightbox({
@@ -394,7 +555,7 @@ window.onload = function() {
 	let videos = document.querySelectorAll('[data-youtube]');
 	let reviews = document.querySelectorAll('[data-youtube-review]');
 
-// Progressively enhance them
+	// Progressively enhance them
 	for (let video of videos) {
 		// Get the video ID
 		let id = new URL(video.href).searchParams.get('v');

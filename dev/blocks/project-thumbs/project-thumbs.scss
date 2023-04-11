@@ -7,6 +7,7 @@
 		padding: 0 8rem;
 	}
 	&__slide {
+		aspect-ratio: 1/1;
 		border: .2rem solid var(--color_white);
 		cursor: pointer;
 		transition: opacity .25s ease;

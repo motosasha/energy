@@ -7,8 +7,8 @@ block pageMain
 				.hero__info
 					.hero__row
 						.hero__label.hero__label_alt Ремонт от 13 000 ₽ за м² по полу
-						.hero__label Работаем только с дизайн-проектом
-					h1.hero__title Ремонт квартир под ключ без стресса в Казани
+						.hero__label Работаем только с дизайн-проектом
+					h1.hero__title Ремонт квартир и строительство домов под ключ без стресса в Казани
 					ul.hero__list
 						li.hero__li Работаем по договору
 						li.hero__li Даём гарантию
@@ -24,17 +24,17 @@ block pageMain
 				.swiper-slide
 					a.video__frame.video__frame_02(data-hystmodal="#video2")
 						svg.video__icon
-							use(xlink:href='img/svgSprite.svg#icon__play')
+							use(href='img/svgSprite.svg#icon__play')
 				.swiper-slide
 					a.video__frame.video__frame_01(data-hystmodal="#video")
 						svg.video__icon
-							use(xlink:href='img/svgSprite.svg#icon__play')
+							use(href='img/svgSprite.svg#icon__play')
 			.swiper-button-prev.video__prev
 				svg.swiper-icon
-					use(xlink:href='img/svgSprite.svg#icon__prev')
+					use(href='img/svgSprite.svg#icon__prev')
 			.swiper-button-next.video__next
 				svg.swiper-icon
-					use(xlink:href='img/svgSprite.svg#icon__next')
+					use(href='img/svgSprite.svg#icon__next')
 	section.section.section_bg_grey.services
 		#services.section__anchor
 		.grid
@@ -42,27 +42,27 @@ block pageMain
 				h2.section__title Наши #[span услуги]
 				.services__grid
 					+services-item('keys', 'Ремонт под ключ в новостройках и коттеджах')
+					+services-item('cottage', 'Строительство загородных домов')
 					+services-item('apartments', 'Ремонт коммерческих помещений')
 					+services-item('floor', 'Создание <span>дизайн-проектов</span>')
-					+services-item('cottage', 'Строительство загородных домов')
 	section.section.works
 		#works.section__anchor
 		.grid
 			.works__inner
 				h2.section__title Наши #[span работы]
-				p.section__descr Стоимость работ от 13 000 ₽ за м² по полу. <br>Работаем только с дизайн проектом
+				p.section__descr Стоимость работ от 13 000 ₽ за м² по полу. <br>Работаем только с дизайн-проектом
 				.works__tabs
 					.works__tabs-ovh
 						.works__tabs-scroll
 							.works__tabs-head
 								.works__tab.works__tab_active(data-href='#works__tab_02')
 									span Отделка квартир и коттеджей
+								.works__tab(data-href='#works__tab_04')
+									span Строительство загородных домов
 								.works__tab(data-href='#works__tab_01')
 									span Дизайн-проекты
 								.works__tab(data-href='#works__tab_03')
 									span Ремонт коммерческих помещений
-								.works__tab(data-href='#works__tab_04')
-									span Строительство загородных домов
 					.works__tabs-contents
 						#works__tab_01.works__tabs-content
 							.project-tabs
@@ -207,6 +207,7 @@ block pageMain
 											+project-tabs-tab('Ремонт 2к квартиры', 'ул. Завойского', '#zavoiskogo', false)
 											+project-tabs-tab('Ремонт ванной', 'ул. Декабристов', '#dekabristov', false)
 											+project-tabs-tab('Отделка ванной', 'КП «Габишево»', '#gabishevo', false)
+											+project-tabs-tab('Отделка 2эт дома', 'Посёлок «Зеленый Бор»', '#bor', false)
 								.project-tabs__tabs-contents
 									#komsomolskaya.project-tabs__tabs-content.project-tabs__tabs-content_active
 										+project(
@@ -384,6 +385,23 @@ block pageMain
 													'штукатурка',
 													'комбинированные обои',
 													'потолок из гкл'
+												]
+											}
+										)
+									#bor.project-tabs__tabs-content
+										+project(
+											{
+												dir: 'decoration',
+												gallery: 'bor',
+												slides: 13,
+
+												label: 'Отделка 2эт дома',
+												title: 'Посёлок «Зеленый Бор»',
+												s: 140,
+												list: [
+													'детская ванная комната',
+													'мастер санузел',
+													'инженерная доска'
 												]
 											}
 										)
@@ -629,181 +647,389 @@ block pageMain
 	section.section.calc
 		#calc.section__anchor
 		.grid
-			form#calc-form.calc__card(method='post')
-				.calc__inner
-					.calc__step.calc__step_01.calc__step_active
-						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
-							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
-							.calc__pagination 1#[span /5]
-							.calc__question Ремонт какого объекта вас интересует?
-						.calc__col
-							.calc__radios-set.calc__radios-set_two
-								label.calc__label
-									input.calc__radio(type='radio', name='object', value=0, checked, required)
-									.calc__tile
-										svg.calc__radio-icon
-											use(xlink:href='img/svgSprite.svg#icon__floor_alt')
-										.calc__radio-title Квартира
-								label.calc__label
-									input.calc__radio(type='radio', name='object', value=1, required)
-									.calc__tile
-										svg.calc__radio-icon
-											use(xlink:href='img/svgSprite.svg#icon__cottage')
-										.calc__radio-title Дом/коттедж
-							.calc__footer
-								a.button.calc__button(data-step='next') Далее
+			.calc__wrap
+				.calc__tabs
+					.calc__tab.calc__tab_active(data-href='#calc-overhaul')
+						svg.calc__icon
+							use(href='img/svgSprite.svg#icon__overhaul')
+						.calc__info
+							span.calc__tab-label Калькулятор
+							span.calc__tab-title Ремонт
+					.calc__tab(data-href='#calc-construction')
+						svg.calc__icon
+							use(href='img/svgSprite.svg#icon__construction')
+						.calc__info
+							span.calc__tab-label Калькулятор
+							span.calc__tab-title Строительство
+				.calc__tabs-contents
+					.calc__tabs-content.calc__tabs-content_active#calc-overhaul
+						form#calc-overhaul-form.calc__card(method='post')
+							input(type="hidden", name="type", value="Получи примерный расчёт ремонта под заказ")
+							.calc__inner
+								.calc__step.calc__step_01.calc__step_active
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 1#[span /5]
+										.calc__question Ремонт какого объекта вас интересует?
+									.calc__col
+										.calc__radios-set.calc__radios-set_two
+											label.calc__label
+												input.calc__radio(type='radio', name='object', value='Квартира', checked, required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__floor_alt')
+													.calc__radio-title Квартира
+											label.calc__label
+												input.calc__radio(type='radio', name='object', value='Дом/коттедж', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__cottage')
+													.calc__radio-title Дом/коттедж
+										.calc__footer
+											a.button.calc__button(data-step='next') Далее
 
-					.calc__step.calc__step_02
-						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
-							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
-							.calc__pagination 2#[span /5]
-							.calc__question Укажите ориентировочные параметры
-						.calc__col
-							.calc__ranges
-								.calc__ranges-row
-									+field_number('Площадь вашего помещения, м²', 'area', 'input-area', '', 10, 500)
-									.calc__range.calc__range_area
-								.calc__ranges-row
-									+field_number('Количество комнат', 'rooms', 'input-rooms', '', 1, 10)
-									.calc__range.calc__range_rooms
-								.calc__ranges-row
-									+field_number('Количество санузлов', 'bathrooms', 'input-bathrooms', '', 1, 5)
-									.calc__range.calc__range_bathrooms
-							.calc__footer
-								a.button.button_secondary.calc__button(data-step='prev') Назад
-								a.button.calc__button(data-step='next') Далее
+								.calc__step.calc__step_02
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 2#[span /5]
+										.calc__question Укажите ориентировочные параметры
+									.calc__col
+										.calc__ranges
+											.calc__ranges-row
+												+field_number('Площадь вашего объекта, м²', 'area', 'input-area', '', 10, 500)
+												.calc__range.calc__range_area
+											.calc__ranges-row
+												+field_number('Количество комнат', 'rooms', 'input-rooms', '', 1, 10)
+												.calc__range.calc__range_rooms
+											.calc__ranges-row
+												+field_number('Количество санузлов', 'bathrooms', 'input-bathrooms', '', 1, 5)
+												.calc__range.calc__range_bathrooms
+										.calc__footer
+											a.button.button_secondary.calc__button(data-step='prev') Назад
+											a.button.calc__button(data-step='next') Далее
 
-					.calc__step.calc__step_03
-						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
-							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
-							.calc__pagination 3#[span /5]
-							.calc__question Выберите, какие работы необходимо произвести?
-						.calc__col
-							.calc__checks-grid
-								.calc__checks-col
-									.calc__checks-title Потолок
-									.calc__checks-list
-										+checkbox('Натяжной', 'ceiling', 0, false)
-										+checkbox('Гипсокартон', 'ceiling', 1, false)
-										+checkbox('Комбинированный', 'ceiling', 2, false)
-								.calc__checks-col
-									.calc__checks-title Стены
-									.calc__checks-list
-										+checkbox('Обои', 'walls', 0, false)
-										+checkbox('Покраска', 'walls', 1, false)
-										+checkbox('Декоративная штукатурка', 'walls', 2, false)
-										+checkbox('Комбинированные', 'walls', 3, false)
-								.calc__checks-col
-									.calc__checks-title Пол
-									.calc__checks-list
-										+checkbox('Ламинат', 'floor', 0, false)
-										+checkbox('Паркет', 'floor', 1, false)
-										+checkbox('Комбинированные', 'floor', 2, false)
-										+checkbox('Плитка', 'floor', 3, false)
-							.calc__footer
-								a.button.button_secondary.calc__button(data-step='prev') Назад
-								a.button.calc__button(data-step='next') Далее
+								.calc__step.calc__step_03
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 3#[span /5]
+										.calc__question Выберите, какие работы необходимо произвести?
+									.calc__col
+										.calc__checks-grid
+											.calc__checks-col
+												.calc__checks-title Потолок
+												.calc__checks-list
+													+checkbox('Натяжной', 'ceiling', 'Натяжной', false)
+													+checkbox('Гипсокартон', 'ceiling', 'Гипсокартон', false)
+													+checkbox('Комбинированный', 'ceiling', 'Комбинированный', false)
+											.calc__checks-col
+												.calc__checks-title Стены
+												.calc__checks-list
+													+checkbox('Обои', 'walls', 'Обои', false)
+													+checkbox('Покраска', 'walls', 'Покраска', false)
+													+checkbox('Декоративная штукатурка', 'walls', 'Декоративная штукатурка', false)
+													+checkbox('Комбинированные', 'walls', 'Комбинированные', false)
+											.calc__checks-col
+												.calc__checks-title Пол
+												.calc__checks-list
+													+checkbox('Ламинат', 'floor', 'Ламинат', false)
+													+checkbox('Паркет', 'floor', 'Паркет', false)
+													+checkbox('Плитка', 'floor', 'Плитка', false)
+													+checkbox('Комбинированные', 'floor', 'Комбинированные', false)
+										.calc__footer
+											a.button.button_secondary.calc__button(data-step='prev') Назад
+											a.button.calc__button(data-step='next') Далее
 
-					.calc__step.calc__step_04
-						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
-							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
-							.calc__pagination 4#[span /5]
-							.calc__question У вас есть дизайн-проект?
-						.calc__col
-							.calc__radios-set.calc__radios-set_two
-								label.calc__label
-									input.calc__radio(type='radio', name='project', value=0, checked, required)
-									.calc__tile
-										svg.calc__radio-icon
-											use(xlink:href='img/svgSprite.svg#icon__doc')
-										.calc__radio-title Да, есть
-								//-label.calc__label
-									input.calc__radio(type='radio', name='project', value=1, required)
-									.calc__tile
-										svg.calc__radio-icon
-											use(xlink:href='img/svgSprite.svg#icon__search')
-										.calc__radio-title В разработке
-								label.calc__label
-									input.calc__radio(type='radio', name='project', value=1, required)
-									.calc__tile
-										svg.calc__radio-icon
-											use(xlink:href='img/svgSprite.svg#icon__no')
-										.calc__radio-title Пока нет
-							.calc__footer
-								a.button.button_secondary.calc__button(data-step='prev') Назад
-								a.button.calc__button(data-step='next') Далее
+								.calc__step.calc__step_04
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 4#[span /5]
+										.calc__question У вас есть дизайн-проект?
+									.calc__col
+										.calc__radios-set.calc__radios-set_two
+											label.calc__label
+												input.calc__radio(type='radio', name='project', value='Да, есть', checked, required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__doc')
+													.calc__radio-title Да, есть
+											//-label.calc__label
+												input.calc__radio(type='radio', name='project', value=1, required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__search')
+													.calc__radio-title В разработке
+											label.calc__label
+												input.calc__radio(type='radio', name='project', value='Пока нет', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__no')
+													.calc__radio-title Пока нет
+										.calc__footer
+											a.button.button_secondary.calc__button(data-step='prev') Назад
+											a.button.calc__button(data-step='next') Далее
 
-					.calc__step.calc__step_05
-						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
-							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
-							.calc__pagination 5#[span /5]
-							.calc__question Когда планируете начать ремонт?
-						.calc__col
-							.calc__radios-set
-								label.calc__label
-									input.calc__radio(type='radio', name='time', value=0, checked, required)
-									.calc__tile
-										svg.calc__radio-icon
-											use(xlink:href='img/svgSprite.svg#icon__clock')
-										.calc__radio-title Как можно скорее
-								label.calc__label
-									input.calc__radio(type='radio', name='time', value=1, required)
-									.calc__tile
-										svg.calc__radio-icon
-											use(xlink:href='img/svgSprite.svg#icon__calendar')
-										.calc__radio-title В этом месяце
-								label.calc__label
-									input.calc__radio(type='radio', name='time', value=2, required)
-									.calc__tile
-										svg.calc__radio-icon
-											use(xlink:href='img/svgSprite.svg#icon__time')
-										.calc__radio-title В течение 3-х месяцев
-							.calc__footer
-								a.button.button_secondary.calc__button(data-step='prev') Назад
-								a.button.calc__button(data-step='next') Далее
+								.calc__step.calc__step_05
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 5#[span /5]
+										.calc__question Когда планируете начать ремонт?
+									.calc__col
+										.calc__radios-set
+											label.calc__label
+												input.calc__radio(type='radio', name='time', value='Как можно скорее', checked, required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__clock')
+													.calc__radio-title Как можно скорее
+											label.calc__label
+												input.calc__radio(type='radio', name='time', value='В этом месяце', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__calendar')
+													.calc__radio-title В этом месяце
+											label.calc__label
+												input.calc__radio(type='radio', name='time', value='В течение 3-х месяцев', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__time')
+													.calc__radio-title В течение 3-х месяцев
+										.calc__footer
+											a.button.button_secondary.calc__button(data-step='prev') Назад
+											a.button.calc__button(data-step='next') Далее
 
-					.calc__step.calc__step_06
-						.calc__col
-							.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
-							.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
-							.calc__pagination Примерный расчёт готов!
-							.calc__question Куда Вам удобно получить примерный расчёт?
-						.calc__col
-							.calc__send
-								.calc__block
-									.calc__socials
-										label.calc__social
-											input.calc__radio(type='radio', name='social', value=0, checked, required)
-											.calc__social-tile
-												svg.calc__social-icon
-													use(xlink:href='img/svgSprite.svg#icon__social_wa')
-												.calc__social-title WhatsApp
-										label.calc__social
-											input.calc__radio(type='radio', name='social', value=1, required)
-											.calc__social-tile
-												svg.calc__social-icon
-													use(xlink:href='img/svgSprite.svg#icon__social_tg')
-												.calc__social-title Telegram
-									.calc__descr Введите ваш телефон, мы вышлем вам стоимость и бонусы на указанный способ как можно скорее!
-								.form.calc__form
-									.form__grid
-										+field('Имя', 'calc-name')
-										+field_phone('Номер телефона', 'calc-phone')
-										input.button(type='submit', value='Получить')
-									.form__small Заполняя форму вы даёте согласие на обработку #[a(href='policy.html', target='_blanc') персональных данных]
+								.calc__step.calc__step_06
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт ремонта под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination Примерный расчёт готов!
+										.calc__question Куда Вам удобно получить примерный расчёт?
+									.calc__col
+										.calc__send
+											.calc__block
+												.calc__socials
+													label.calc__social
+														input.calc__radio(type='radio', name='social', value='WhatsApp', checked, required)
+														.calc__social-tile
+															svg.calc__social-icon
+																use(href='img/svgSprite.svg#icon__social_wa')
+															.calc__social-title WhatsApp
+													label.calc__social
+														input.calc__radio(type='radio', name='social', value='Telegram', required)
+														.calc__social-tile
+															svg.calc__social-icon
+																use(href='img/svgSprite.svg#icon__social_tg')
+															.calc__social-title Telegram
+												.calc__descr Введите ваш номер телефона, мы вышлем вам #[strong ориентировочную] стоимость ремонта и перезвоним для #[strong бесплатной] консультации.
+											.form.calc__form
+												.form__grid
+													+field('Имя', 'calc-name', '', 'name')
+													+field_phone('Номер телефона', 'calc-phone', '', 'phone')
+													input.button(type='submit', value='Получить')
+												.form__small Заполняя форму вы даёте согласие на обработку #[a(href='policy.html', target='_blanc') персональных данных]
 
-					.calc__step.calc__step_07
-						.calc__success
-							.calc__success-info
-								.calc__success-title Ваша заявка отправлена, спасибо!
-								.calc__success-text В ближайшее время мы свяжемся с Вами
-							svg.calc__success-icon
-								use(xlink:href='img/svgSprite.svg#icon__like')
+								.calc__step.calc__step_07
+									.calc__success
+										.calc__success-info
+											.calc__success-title Ваша заявка отправлена, спасибо!
+											.calc__success-text В ближайшее время мы свяжемся с Вами
+										svg.calc__success-icon
+											use(href='img/svgSprite.svg#icon__like')
+
+					.calc__tabs-content#calc-construction
+						form#calc-construction-form.calc__card(method='post')
+							input(type="hidden", name="type", value="Получи примерный расчёт строительства под заказ")
+							.calc__inner
+								.calc__step.calc__step_01.calc__step_active
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт строительства дома под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 1#[span /5]
+										.calc__question Из какого материала вы хотите свой дом?
+									.calc__col
+										.calc__radios-set.calc__radios-set_four
+											label.calc__label
+												input.calc__radio(type='radio', name='madeOf', value='Кирпич', checked, required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__bricks')
+													.calc__radio-title Кирпич
+											label.calc__label
+												input.calc__radio(type='radio', name='madeOf', value='Газоблок', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__block')
+													.calc__radio-title Газоблок
+											label.calc__label
+												input.calc__radio(type='radio', name='madeOf', value='Дерево', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__wood')
+													.calc__radio-title Дерево
+											label.calc__label
+												input.calc__radio(type='radio', name='madeOf', value='Каркас', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__frame')
+													.calc__radio-title Каркас
+										.calc__footer
+											a.button.calc__button(data-step='next') Далее
+
+								.calc__step.calc__step_02
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт строительства дома под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 2#[span /5]
+										.calc__question Укажите ориентировочные параметры
+									.calc__col
+										.calc__ranges
+											.calc__ranges-row
+												+field_number('Площадь вашего объекта, м²', 'area', 'input-area-constr', '', 10, 500)
+												.calc__range.calc__range_area-constr
+											.calc__ranges-row
+												+field_number('Количество комнат', 'rooms', 'input-rooms-constr', '', 1, 10)
+												.calc__range.calc__range_rooms-constr
+											.calc__ranges-row
+												+field_number('Количество санузлов', 'bathrooms', 'input-bathrooms-constr', '', 1, 5)
+												.calc__range.calc__range_bathrooms-constr
+											.calc__ranges-row
+												+field_number('Количество этажей', 'floors', 'input-floors-constr', '', 1, 5)
+												.calc__range.calc__range_floors-constr
+										.calc__footer
+											a.button.button_secondary.calc__button(data-step='prev') Назад
+											a.button.calc__button(data-step='next') Далее
+
+								.calc__step.calc__step_03
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт строительства дома под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 3#[span /5]
+										.calc__question Из какого материала сделать вам кровлю?
+									.calc__col
+										.calc__radios-set.calc__radios-set_three
+											label.calc__label
+												input.calc__radio(type='radio', name='roof', value='Фальцевая', checked, required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__faltz')
+													.calc__radio-title Фальцевая
+											label.calc__label
+												input.calc__radio(type='radio', name='roof', value='Металлочерепица', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__tile')
+													.calc__radio-title Металлочерепица
+											label.calc__label
+												input.calc__radio(type='radio', name='roof', value='Гибкая черепица', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__comb')
+													.calc__radio-title Гибкая черепица
+										.calc__footer
+											a.button.button_secondary.calc__button(data-step='prev') Назад
+											a.button.calc__button(data-step='next') Далее
+
+								.calc__step.calc__step_04
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт строительства дома под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 4#[span /5]
+										.calc__question В каком варианте построить вам дом?
+									.calc__col
+										.calc__radios-set.calc__radios-set_three
+											label.calc__label
+												input.calc__radio(type='radio', name='variant', value='Черновой (с окнами и дверью)', checked, required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__house_01')
+													.calc__radio-title Черновой (с окнами и дверью)
+											label.calc__label
+												input.calc__radio(type='radio', name='variant', value='Предчистовой (с электрикой, отоплением, штукатуркой и стяжкой)', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__house_02')
+													.calc__radio-title Предчистовой (с электрикой, отоплением, штукатуркой и стяжкой)
+											label.calc__label
+												input.calc__radio(type='radio', name='variant', value='С отделкой', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__house_03')
+													.calc__radio-title С отделкой
+										.calc__footer
+											a.button.button_secondary.calc__button(data-step='prev') Назад
+											a.button.calc__button(data-step='next') Далее
+
+								.calc__step.calc__step_05
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт строительства дома под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination 5#[span /5]
+										.calc__question Когда планируете начать ремонт?
+									.calc__col
+										.calc__radios-set
+											label.calc__label
+												input.calc__radio(type='radio', name='time', value='Как можно скорее', checked, required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__clock')
+													.calc__radio-title Как можно скорее
+											label.calc__label
+												input.calc__radio(type='radio', name='time', value='В этом месяце', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__calendar')
+													.calc__radio-title В этом месяце
+											label.calc__label
+												input.calc__radio(type='radio', name='time', value='В течение 3-х месяцев', required)
+												.calc__tile
+													svg.calc__radio-icon
+														use(href='img/svgSprite.svg#icon__time')
+													.calc__radio-title В течение 3-х месяцев
+										.calc__footer
+											a.button.button_secondary.calc__button(data-step='prev') Назад
+											a.button.calc__button(data-step='next') Далее
+
+								.calc__step.calc__step_06
+									.calc__col
+										.calc__title Получите #[span <span>примерный</span> расчёт строительства дома под ключ и <span>консультацию</span>]:
+										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
+										.calc__pagination Примерный расчёт готов!
+										.calc__question Куда Вам удобно получить примерный расчёт?
+									.calc__col
+										.calc__send
+											.calc__block
+												.calc__socials
+													label.calc__social
+														input.calc__radio(type='radio', name='social', value='WhatsApp', checked, required)
+														.calc__social-tile
+															svg.calc__social-icon
+																use(href='img/svgSprite.svg#icon__social_wa')
+															.calc__social-title WhatsApp
+													label.calc__social
+														input.calc__radio(type='radio', name='social', value='Telegram', required)
+														.calc__social-tile
+															svg.calc__social-icon
+																use(href='img/svgSprite.svg#icon__social_tg')
+															.calc__social-title Telegram
+												.calc__descr Введите ваш номер телефона, мы вышлем вам #[strong ориентировочную] стоимость строительства дома и перезвоним для #[strong бесплатной] консультации.
+											.form.calc__form
+												.form__grid
+													+field('Имя', 'calc-name2', '', 'name')
+													+field_phone('Номер телефона', 'calc-phone2', '', 'phone')
+													input.button(type='submit', value='Получить')
+												.form__small Заполняя форму вы даёте согласие на обработку #[a(href='policy.html', target='_blanc') персональных данных]
+
+								.calc__step.calc__step_07
+									.calc__success
+										.calc__success-info
+											.calc__success-title Ваша заявка отправлена, спасибо!
+											.calc__success-text В ближайшее время мы свяжемся с Вами
+										svg.calc__success-icon
+											use(href='img/svgSprite.svg#icon__like')
 
 	section.section.steps
 		#steps.section__anchor
@@ -814,13 +1040,13 @@ block pageMain
 					.steps__row
 						+steps-item('roller', 'Замер и составление сметы', 1)
 						svg.steps__arrow
-							use(xlink:href='img/svgSprite.svg#icon__arrow')
+							use(href='img/svgSprite.svg#icon__arrow')
 						+steps-item('sign', 'Подписание договора', 2)
 						svg.steps__arrow
-							use(xlink:href='img/svgSprite.svg#icon__arrow')
+							use(href='img/svgSprite.svg#icon__arrow')
 						+steps-item('cart', 'Подготовительные работы', 3)
 					svg.steps__arrow.steps__arrow_link
-						use(xlink:href='img/svgSprite.svg#icon__arrow_link')
+						use(href='img/svgSprite.svg#icon__arrow_link')
 					.steps__arrow-link
 						img(src='img/icon__arrow_end.svg')
 						.steps__line
@@ -828,10 +1054,10 @@ block pageMain
 					.steps__row.steps__row_second
 						+steps-item('wall', 'Отделка помещения', 4)
 						svg.steps__arrow
-							use(xlink:href='img/svgSprite.svg#icon__arrow')
+							use(href='img/svgSprite.svg#icon__arrow')
 						+steps-item('clean', 'Клининг', 5)
 						svg.steps__arrow
-							use(xlink:href='img/svgSprite.svg#icon__arrow')
+							use(href='img/svgSprite.svg#icon__arrow')
 						+steps-item('keys', 'Сдача объекта', 6)
 	section.section.section_bg_grey.team
 		#team.section__anchor
@@ -842,20 +1068,22 @@ block pageMain
 					.team__p В нашей команде каждый специалист занимается своим делом
 					ul.team__list
 						li.team__li Демонтажники
-						li.team__li Каменщики
 						li.team__li Электрики
 						li.team__li Маляры
 						li.team__li Мастера по стяжке
 						li.team__li Мастера по гипсокартону
+						li.team__li Каменщики, кровельщики, специалисты монолитных работ
 						li.team__li Сантехники
 						li.team__li Специалисты систем вентиляции
 						li.team__li Штукатуры
-						li.team__li Специалисты по напольным покрытиям
 						li.team__li Плиточники
 						li.team__li Мастера по натяжным потолкам
+						li.team__li Специалисты по напольным покрытиям
 				.team__slider-wrap
 					.swiper.team__slider
 						.swiper-wrapper
+							.swiper-slide.team__slide
+								img(src='img/img__team_12.jpg' alt='')
 							.swiper-slide.team__slide
 								img(src='img/img__team_05.jpg' alt='')
 							.swiper-slide.team__slide
@@ -878,14 +1106,12 @@ block pageMain
 								img(src='img/img__team_10.jpg' alt='')
 							.swiper-slide.team__slide
 								img(src='img/img__team_11.jpg' alt='')
-							.swiper-slide.team__slide
-								img(src='img/img__team_12.jpg' alt='')
 					.swiper-button-prev.team__prev
 						svg.swiper-icon
-							use(xlink:href='img/svgSprite.svg#icon__prev')
+							use(href='img/svgSprite.svg#icon__prev')
 					.swiper-button-next.team__next
 						svg.swiper-icon
-							use(xlink:href='img/svgSprite.svg#icon__next')
+							use(href='img/svgSprite.svg#icon__next')
 	section.section.docs
 		.grid
 			.docs__inner
@@ -935,10 +1161,10 @@ block pageMain
 									.swiper-lazy-preloader.swiper-lazy-preloader-black
 					.swiper-button-prev.docs__prev
 						svg.swiper-icon
-							use(xlink:href='img/svgSprite.svg#icon__prev')
+							use(href='img/svgSprite.svg#icon__prev')
 					.swiper-button-next.docs__next
 						svg.swiper-icon
-							use(xlink:href='img/svgSprite.svg#icon__next')
+							use(href='img/svgSprite.svg#icon__next')
 	section.section.section_bg_grey.reviews
 		#reviews.section__anchor
 		.grid
@@ -950,38 +1176,38 @@ block pageMain
 							.swiper-slide.reviews__slide
 								a.reviews__video-link(data-hystmodal="#video-review-1")
 									svg.reviews__icon
-										use(xlink:href='img/svgSprite.svg#icon__play')
+										use(href='img/svgSprite.svg#icon__play')
 									img(src='img/img__video-review_01.jpg', alt='')
 							.swiper-slide.reviews__slide
 								a.reviews__video-link(data-hystmodal="#video-review-2")
 									svg.reviews__icon
-										use(xlink:href='img/svgSprite.svg#icon__play')
+										use(href='img/svgSprite.svg#icon__play')
 									img(src='img/img__video-review_02.jpg', alt='')
 					.swiper-button-prev.reviews__video-prev
 						svg.swiper-icon
-							use(xlink:href='img/svgSprite.svg#icon__prev')
+							use(href='img/svgSprite.svg#icon__prev')
 					.swiper-button-next.reviews__video-next
 						svg.swiper-icon
-							use(xlink:href='img/svgSprite.svg#icon__next')
+							use(href='img/svgSprite.svg#icon__next')
 				.reviews__slider-wrap
 					.swiper.reviews__slider
 						.swiper-wrapper
 							.swiper-slide.reviews__slide
 								a.reviews__video-link(data-hystmodal="#video-review-3")
 									svg.reviews__icon
-										use(xlink:href='img/svgSprite.svg#icon__play')
+										use(href='img/svgSprite.svg#icon__play')
 									img.swiper-lazy(data-src='img/img__reviews_03v.jpg', alt='')
 									.swiper-lazy-preloader.swiper-lazy-preloader-black
 							.swiper-slide.reviews__slide
 								a.reviews__video-link(data-hystmodal="#video-review-1")
 									svg.reviews__icon
-										use(xlink:href='img/svgSprite.svg#icon__play')
+										use(href='img/svgSprite.svg#icon__play')
 									img.swiper-lazy(data-src='img/img__reviews_01v.jpg', alt='')
 									.swiper-lazy-preloader.swiper-lazy-preloader-black
 							.swiper-slide.reviews__slide
 								a.reviews__video-link(data-hystmodal="#video-review-2")
 									svg.reviews__icon
-										use(xlink:href='img/svgSprite.svg#icon__play')
+										use(href='img/svgSprite.svg#icon__play')
 									img.swiper-lazy(data-src='img/img__reviews_02v.jpg', alt='')
 									.swiper-lazy-preloader.swiper-lazy-preloader-black
 							.swiper-slide.reviews__slide
@@ -1026,7 +1252,7 @@ block pageMain
 									.swiper-lazy-preloader.swiper-lazy-preloader-black
 					.swiper-button-prev.reviews__prev
 						svg.swiper-icon
-							use(xlink:href='img/svgSprite.svg#icon__prev')
+							use(href='img/svgSprite.svg#icon__prev')
 					.swiper-button-next.reviews__next
 						svg.swiper-icon
-							use(xlink:href='img/svgSprite.svg#icon__next')
+							use(href='img/svgSprite.svg#icon__next')

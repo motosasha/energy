@@ -4,7 +4,7 @@
 
 .hero {
 	background: linear-gradient(0deg, rgba(7, 2, 0, 0.4), rgba(7, 2, 0, 0.4)), url('../img/bg__hero.jpg') no-repeat 40% top;
-	background-size: 350%;
+	background-size: 365%;
 	color: var(--color_white);
 	position: relative;
 	@media screen and (min-width: $screen-t) {
@@ -41,6 +41,9 @@
 		@media screen and (min-width: $screen-d) {
 			max-width: none;
 			width: 62.5%;
+		}
+		@media screen and (min-width: $screen-ld) {
+			width: 75%;
 		}
 	}
 	&__row {
