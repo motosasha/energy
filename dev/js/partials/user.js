@@ -501,6 +501,17 @@ window.onload = function() {
 	makeStep2(nextSteps2, 'next')
 	makeStep2(prevSteps2, 'prev')
 
+	calcForm.addEventListener('submit', function (e) {
+		e.preventDefault();
+		stepDirection('next');
+		//calcForm.reset();
+	});
+	calcForm2.addEventListener('submit', function (e) {
+		e.preventDefault();
+		stepDirection2('next');
+		//calcForm.reset();
+	});
+
 	// const ajaxSend = async (formData) => {
 	// 	const fetchResp = await fetch('https://reqres.in/api/users', {
 	// 		method: 'POST',
