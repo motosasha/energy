@@ -87,6 +87,10 @@
 			font-size: 5.6rem;
 			margin: 1.6rem 0 5.6rem;
 		}
+
+		span {
+			color: var(--color_brand);
+		}
 	}
 	&__list {
 		list-style: none;

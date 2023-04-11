@@ -8,7 +8,7 @@ block pageMain
 					.hero__row
 						.hero__label.hero__label_alt Ремонт от 13 000 ₽ за м² по полу
 						.hero__label Работаем только с дизайн-проектом
-					h1.hero__title Ремонт квартир и строительство домов под ключ без стресса в Казани
+					h1.hero__title Ремонт квартир и #[span строительство домов] под ключ без стресса в Казани
 					ul.hero__list
 						li.hero__li Работаем по договору
 						li.hero__li Даём гарантию
@@ -207,7 +207,7 @@ block pageMain
 											+project-tabs-tab('Ремонт 2к квартиры', 'ул. Завойского', '#zavoiskogo', false)
 											+project-tabs-tab('Ремонт ванной', 'ул. Декабристов', '#dekabristov', false)
 											+project-tabs-tab('Отделка ванной', 'КП «Габишево»', '#gabishevo', false)
-											+project-tabs-tab('Отделка 2эт дома', 'Посёлок «Зеленый Бор»', '#bor', false)
+											+project-tabs-tab('Отделка 2эт дома', 'Посёлок «Зелёный Бор»', '#bor', false)
 								.project-tabs__tabs-contents
 									#komsomolskaya.project-tabs__tabs-content.project-tabs__tabs-content_active
 										+project(
@@ -396,7 +396,7 @@ block pageMain
 												slides: 13,
 
 												label: 'Отделка 2эт дома',
-												title: 'Посёлок «Зеленый Бор»',
+												title: 'Посёлок «Зелёный Бор»',
 												s: 140,
 												list: [
 													'детская ванная комната',
@@ -888,6 +888,9 @@ block pageMain
 									.calc__col
 										.calc__ranges
 											.calc__ranges-row
+												+field_number('Количество этажей', 'floors', 'input-floors-constr', '', 1, 5)
+												.calc__range.calc__range_floors-constr
+											.calc__ranges-row
 												+field_number('Площадь вашего объекта, м²', 'area', 'input-area-constr', '', 10, 500)
 												.calc__range.calc__range_area-constr
 											.calc__ranges-row
@@ -896,9 +899,6 @@ block pageMain
 											.calc__ranges-row
 												+field_number('Количество санузлов', 'bathrooms', 'input-bathrooms-constr', '', 1, 5)
 												.calc__range.calc__range_bathrooms-constr
-											.calc__ranges-row
-												+field_number('Количество этажей', 'floors', 'input-floors-constr', '', 1, 5)
-												.calc__range.calc__range_floors-constr
 										.calc__footer
 											a.button.button_secondary.calc__button(data-step='prev') Назад
 											a.button.calc__button(data-step='next') Далее
@@ -968,7 +968,7 @@ block pageMain
 										.calc__title Получите #[span <span>примерный</span> расчёт строительства дома под ключ и <span>консультацию</span>]:
 										.calc__sub Ответьте на несколько вопросов и мы с вами свяжемся
 										.calc__pagination 5#[span /5]
-										.calc__question Когда планируете начать ремонт?
+										.calc__question Когда планируете начать строительство?
 									.calc__col
 										.calc__radios-set
 											label.calc__label
@@ -1068,11 +1068,13 @@ block pageMain
 					.team__p В нашей команде каждый специалист занимается своим делом
 					ul.team__list
 						li.team__li Демонтажники
+						li.team__li Каменщики
+						li.team__li Кровельщики
+						li.team__li Специалисты монолитных работ
 						li.team__li Электрики
 						li.team__li Маляры
 						li.team__li Мастера по стяжке
 						li.team__li Мастера по гипсокартону
-						li.team__li Каменщики, кровельщики, специалисты монолитных работ
 						li.team__li Сантехники
 						li.team__li Специалисты систем вентиляции
 						li.team__li Штукатуры
