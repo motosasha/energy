@@ -79,3 +79,25 @@ mixin popup-video-review_3
 					.popup__video
 						a.popup__video-link(data-youtube-review href="https://www.youtube.com/watch?v=eADhqbI3JjI")
 						//-iframe(src='https://www.youtube.com/embed/eADhqbI3JjI?enablejsapi=1&rel=0&showinfo=0' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen)
+
+mixin popup-video-review_4
+	#video-review-4.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.popup.popup_video.hystmodal__window(role='dialog' aria-modal='true')
+				button.popup__close.hystmodal__close(data-hystclose)
+					svg.svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				.popup__inner
+					.popup__video
+						a.popup__video-link(data-youtube-review href="https://www.youtube.com/watch?v=O9MroyK49ys")
+
+mixin popup-video-review_5
+	#video-review-5.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.popup.popup_video.hystmodal__window(role='dialog' aria-modal='true')
+				button.popup__close.hystmodal__close(data-hystclose)
+					svg.svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				.popup__inner
+					.popup__video
+						a.popup__video-link(data-youtube-review href="https://www.youtube.com/watch?v=TdUTTo1aSbU")
