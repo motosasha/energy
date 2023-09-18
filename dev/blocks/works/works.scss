@@ -3,6 +3,8 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .works {
+	border-bottom: 1px solid var(--color_grey);
+
 	&__tabs {}
 	&__tabs-ovh {
 		height: 4.8rem;

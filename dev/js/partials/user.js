@@ -228,7 +228,7 @@ window.onload = function() {
 	}
 
 	// ranges
-	function makeSliderLink(range, input) {
+	/*function makeSliderLink(range, input) {
 		range.noUiSlider.on('update', function (values, handle) {
 			let rangeVal = values[handle];
 			input.value = Math.floor(rangeVal)
@@ -425,10 +425,10 @@ window.onload = function() {
 	makeSliderLink(areaRangeConstr, areaInputConstr);
 	makeSliderLink(roomsRangeConstr, roomsInputConstr);
 	makeSliderLink(bathroomsRangeConstr, bathroomsInputConstr);
-	makeSliderLink(floorsRangeConstr, floorsInputConstr);
+	makeSliderLink(floorsRangeConstr, floorsInputConstr);*/
 
 	// calc tabs
-	let calcBlock = document.querySelector('.calc');
+	/*let calcBlock = document.querySelector('.calc');
 	let calcTabs = document.querySelectorAll('.calc__tabs .calc__tab');
 	function theCalcTabClicks(tabClickEvent) {
 		let clickedTab = tabClickEvent.currentTarget;
@@ -449,10 +449,10 @@ window.onload = function() {
 	}
 	for (let i = 0; i < calcTabs.length; i++) {
 		calcTabs[i].addEventListener("click", theCalcTabClicks)
-	}
+	}*/
 
 	// calc form
-	let calcForm = document.querySelector('#calc-overhaul-form');
+	/*let calcForm = document.querySelector('#calc-overhaul-form');
 	let steps = document.querySelectorAll('#calc-overhaul-form .calc__step');
 	let nextSteps = document.querySelectorAll('#calc-overhaul-form .calc__button[data-step="next"]');
 	let prevSteps = document.querySelectorAll('#calc-overhaul-form .calc__button[data-step="prev"]');
@@ -510,7 +510,7 @@ window.onload = function() {
 		e.preventDefault();
 		stepDirection2('next');
 		//calcForm.reset();
-	});
+	});*/
 
 	// const ajaxSend = async (formData) => {
 	// 	const fetchResp = await fetch('https://reqres.in/api/users', {
